@@ -52,6 +52,85 @@ body {
     text-align: center;
     padding: 20px 15px;
     margin-bottom: 15px;
+    position: relative;
+}
+
+.header-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 5;
+}
+
+.btn-music {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-music:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+.btn-music.music-on {
+    border-color: #FFD54F;
+    background: rgba(255,213,79,0.2);
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.btn-font {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    color: #FFD54F;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-font:hover:not(:disabled) {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+.btn-font:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-contrast {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-contrast:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+.btn-contrast.contrast-on {
+    border-color: #FFEB3B;
+    background: rgba(255,235,59,0.25);
+    animation: gentle-pulse 2s ease-in-out infinite;
 }
 
 .game-header h1 {
@@ -273,9 +352,49 @@ body {
     bottom: 0;
     border-radius: 20px;
     z-index: 0;
+    transition: background 1.2s ease-in-out;
+    animation: bg-fade-in 0.8s ease-out;
 }
 
-.scene-background.nascimento { background: linear-gradient(180deg, #0d1b2a 0%, #1b2838 50%, #2c3e50 100%); }
+@keyframes bg-fade-in {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* Particulas decorativas de fundo */
+.scene-background::before,
+.scene-background::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scene-background::before {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+    top: 10%;
+    left: 15%;
+    animation: float-particle 8s ease-in-out infinite;
+}
+
+.scene-background::after {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+    bottom: 20%;
+    right: 10%;
+    animation: float-particle 10s ease-in-out infinite 2s;
+}
+
+@keyframes float-particle {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    50% { transform: translate(20px, -30px); opacity: 1; }
+}
+
+.scene-background.nascimento { background: linear-gradient(180deg, #0d1b2a 0%, #1b2838 40%, #2c3e50 80%, #3a506b 100%); }
 .scene-background.batismo { background: linear-gradient(180deg, #87CEEB 0%, #B2EBF2 40%, #E0F7FA 70%, #90CAF9 100%); }
 .scene-background.deserto { background: linear-gradient(180deg, #FFE0B2 0%, #FFCC80 30%, #FFAB91 60%, #8D6E63 100%); }
 .scene-background.pescadores { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 50%, #4FC3F7 80%, #0277BD 100%); }
@@ -286,8 +405,8 @@ body {
 .scene-background.zaqueu { background: linear-gradient(180deg, #B3E5FC 0%, #E1F5FE 40%, #C8E6C9 70%, #A5D6A7 100%); }
 .scene-background.jerusalem { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
 .scene-background.ceia { background: linear-gradient(180deg, #3E2723 0%, #5D4037 50%, #795548 100%); }
-.scene-background.cruz { background: linear-gradient(180deg, #1A237E 0%, #283593 30%, #3949AB 60%, #F3E5F5 100%); }
-.scene-background.ressurreicao { background: linear-gradient(180deg, #FFEB3B 0%, #FFF176 20%, #E1F5FE 50%, #A5D6A7 100%); }
+.scene-background.cruz { background: linear-gradient(180deg, #0D1B2A 0%, #1A237E 30%, #283593 60%, #E8EAF6 100%); }
+.scene-background.ressurreicao { background: linear-gradient(180deg, #FFD54F 0%, #FFF176 15%, #FFF9C4 35%, #E1F5FE 60%, #A5D6A7 100%); }
 
 .scene-content {
     position: relative;
@@ -587,11 +706,1847 @@ footer {
 
 /* Responsivo */
 @media (max-width: 600px) {
-    .story-dot { width: 36px; height: 36px; font-size: 1.2rem; }
+    .story-dot { width: 32px; height: 32px; font-size: 1rem; }
     .phase-emoji { font-size: 3.5rem; }
     .phase-title { font-size: 1.5rem; }
     .big-btn { min-width: 140px; min-height: 100px; }
     .game-header h1 { font-size: 1.8rem; }
     .speech-bubble { font-size: 1.3rem; }
     .scene-card { min-height: 240px; padding: 15px; }
+    .name-input { font-size: 1.5rem; }
+    .kb-key { width: 42px; height: 42px; font-size: 1.2rem; }
+    .gender-figure-btn { width: 130px; height: 150px; }
+    .gender-figure { font-size: 4rem; }
+    .name-display { font-size: 1.5rem; }
+    .quiz-option { font-size: 1.1rem; padding: 12px; }
+    .completar-option { font-size: 1.1rem; padding: 10px 20px; }
+    .lesson-versiculo { font-size: 1rem; }
+    .lesson-licao { font-size: 1.1rem; }
+}
+
+/* ================================================
+   TELA DE NOME
+   ================================================ */
+.name-screen {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border-radius: 30px;
+    padding: 40px 25px;
+    text-align: center;
+    border: 5px solid #66BB6A;
+    box-shadow: 0 10px 40px rgba(102,187,106,0.3);
+    animation: fade-in 0.8s ease-out;
+}
+
+.name-emoji {
+    font-size: 6rem;
+    margin-bottom: 15px;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.name-screen h2 {
+    font-size: 1.8rem;
+    color: #2E7D32;
+    margin-bottom: 10px;
+}
+
+.name-msg {
+    font-size: 1.3rem;
+    color: #1B5E20;
+    margin-bottom: 25px;
+}
+
+.name-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 18px 22px;
+    font-size: 1.8rem;
+    font-family: inherit;
+    border: 4px solid #66BB6A;
+    border-radius: 20px;
+    text-align: center;
+    color: #2E7D32;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-input:focus {
+    border-color: #2E7D32;
+    box-shadow: 0 0 20px rgba(46,125,50,0.3);
+}
+
+.name-input.error {
+    border-color: #E53935;
+    animation: shake 0.5s;
+}
+
+/* Display do nome sendo digitado */
+.name-display {
+    width: 100%;
+    max-width: 400px;
+    min-height: 70px;
+    padding: 15px 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: inherit;
+    border: 4px solid #66BB6A;
+    border-radius: 20px;
+    text-align: center;
+    color: #2E7D32;
+    margin: 0 auto 20px;
+    background: white;
+    letter-spacing: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-display.error {
+    border-color: #E53935;
+    animation: shake 0.5s;
+}
+
+.name-placeholder {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #999;
+    letter-spacing: normal;
+}
+
+/* Teclado virtual */
+.virtual-keyboard {
+    margin: 0 auto 15px;
+    max-width: 500px;
+}
+
+.kb-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.kb-key {
+    width: 52px;
+    height: 52px;
+    border: 3px solid #A5D6A7;
+    border-radius: 12px;
+    background: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: inherit;
+    color: #2E7D32;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+}
+
+.kb-key:hover {
+    background: #E8F5E9;
+    border-color: #66BB6A;
+    transform: scale(1.1);
+}
+
+.kb-key:active {
+    background: #66BB6A;
+    color: white;
+    transform: scale(0.95);
+}
+
+/* Botões de ação do teclado */
+.kb-action-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.kb-action-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: inherit;
+    border: 3px solid #FFB74D;
+    border-radius: 15px;
+    background: #FFF3E0;
+    color: #E65100;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.kb-action-btn:hover {
+    background: #FFE0B2;
+    transform: scale(1.05);
+}
+
+.kb-action-btn:active {
+    transform: scale(0.95);
+}
+
+.name-btn {
+    background: linear-gradient(135deg, #66BB6A, #2E7D32);
+    color: white;
+    margin: 0 auto;
+}
+
+/* ================================================
+   SELEÇÃO DE GÊNERO
+   ================================================ */
+.gender-select {
+    margin-bottom: 25px;
+}
+
+.gender-msg {
+    font-size: 1.3rem;
+    color: #1B5E20;
+    margin-bottom: 15px;
+}
+
+.gender-msg.error {
+    color: #E53935;
+    animation: shake 0.5s;
+}
+
+.gender-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gender-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    border: 4px solid #A5D6A7;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.gender-btn:hover {
+    transform: scale(1.05);
+    border-color: #66BB6A;
+}
+
+.gender-btn.selected {
+    border-color: #2E7D32;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    box-shadow: 0 0 20px rgba(46,125,50,0.4);
+    transform: scale(1.05);
+}
+
+.gender-btn.selected#gender-boy {
+    border-color: #1565C0;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    box-shadow: 0 0 20px rgba(21,101,192,0.4);
+}
+
+.gender-btn.selected#gender-girl {
+    border-color: #C2185B;
+    background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+    box-shadow: 0 0 20px rgba(194,24,91,0.4);
+}
+
+.gender-emoji {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.gender-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2E7D32;
+}
+
+/* Figuras grandes de gênero */
+.gender-figure-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 180px;
+    border: 5px solid #BDBDBD;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.gender-figure-btn:hover {
+    transform: scale(1.08);
+    border-color: #9E9E9E;
+}
+
+.gender-figure-btn.selected#gender-boy {
+    border-color: #1565C0;
+    border-width: 6px;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    box-shadow: 0 0 25px rgba(21,101,192,0.5);
+    transform: scale(1.08);
+}
+
+.gender-figure-btn.selected#gender-girl {
+    border-color: #C2185B;
+    border-width: 6px;
+    background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+    box-shadow: 0 0 25px rgba(194,24,91,0.5);
+    transform: scale(1.08);
+}
+
+.gender-figure {
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+
+.gender-figure-label {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2E7D32;
+}
+
+/* ================================================
+   TELA INICIAL - BOTOES
+   ================================================ */
+.start-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.continue-btn {
+    background: linear-gradient(135deg, #42A5F5, #1565C0);
+    color: white;
+}
+
+.restart-start-btn {
+    background: linear-gradient(135deg, #FFB74D, #E65100);
+    color: white;
+}
+
+.welcome-name {
+    font-size: 1.4rem;
+    color: #E65100;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: fade-in 0.5s ease-out;
+}
+
+/* ================================================
+   AREA DE LICAO
+   ================================================ */
+.lesson-area {
+    margin-bottom: 15px;
+    animation: fade-in 0.5s ease-out;
+}
+
+.lesson-card {
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #FFB74D;
+    text-align: center;
+}
+
+.lesson-versiculo {
+    font-size: 1.1rem;
+    color: #E65100;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #FFB74D;
+}
+
+.lesson-licao {
+    font-size: 1.3rem;
+    color: #5D4037;
+    line-height: 1.5;
+}
+
+.prayer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px auto 10px;
+    padding: 14px 28px;
+    border: 3px solid #BA68C8;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+    color: #6A1B9A;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: gentle-pulse 2.5s ease-in-out infinite;
+}
+
+.prayer-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #E1BEE7, #CE93D8);
+}
+
+.prayer-btn:active {
+    transform: scale(0.95);
+}
+
+.prayer-text {
+    margin-top: 15px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border: 3px solid #81C784;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    color: #2E7D32;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.prayer-text.prayer-appear {
+    animation: prayer-appear 0.8s ease-out;
+}
+
+@keyframes prayer-appear {
+    0% { opacity: 0; transform: scale(0.8) translateY(15px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ================================================
+   DESAFIO DA SEMANA - Versículo para memorizar
+   ================================================ */
+.verse-challenge {
+    margin-top: 20px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
+    border: 3px solid #FFD54F;
+    border-radius: 18px;
+    text-align: center;
+    animation: verse-glow 3s ease-in-out infinite;
+}
+
+@keyframes verse-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255,213,79,0.3); }
+    50% { box-shadow: 0 0 25px rgba(255,213,79,0.6); }
+}
+
+.verse-challenge-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #F57F17;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.verse-challenge-text {
+    font-size: 1.25rem;
+    color: #4E342E;
+    line-height: 1.6;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.verse-challenge-text.verse-highlight {
+    animation: verse-highlight-pulse 0.6s ease-out;
+}
+
+@keyframes verse-highlight-pulse {
+    0% { background: rgba(255,255,255,0.7); transform: scale(1); }
+    50% { background: rgba(255,213,79,0.4); transform: scale(1.05); }
+    100% { background: rgba(255,255,255,0.7); transform: scale(1); }
+}
+
+.verse-challenge-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.verse-repeat-btn {
+    padding: 10px 18px;
+    border: 2px solid #FFB74D;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    color: #E65100;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.verse-repeat-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+}
+
+.verse-memorized-btn {
+    padding: 10px 18px;
+    border: 2px solid #81C784;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    color: #2E7D32;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.verse-memorized-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+}
+
+.verse-memorized-btn.done {
+    background: linear-gradient(135deg, #A5D6A7, #81C784);
+    color: #1B5E20;
+    cursor: default;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.verse-count {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #795548;
+    font-weight: bold;
+}
+
+/* ================================================
+   BOTAO DE AJUDA / HINT
+   ================================================ */
+.hint-btn {
+    background: linear-gradient(135deg, #BA68C8, #7B1FA2);
+    color: white;
+}
+
+.next-btn {
+    background: linear-gradient(135deg, #66BB6A, #2E7D32);
+    color: white;
+    animation: gentle-pulse 1.5s ease-in-out infinite;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #FFB74D, #E65100);
+    color: white;
+}
+
+@keyframes star-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* ================================================
+   NOVOS CENARIOS - BACKGROUNDS
+   ================================================ */
+.scene-background.anunciacao { background: linear-gradient(180deg, #E1F5FE 0%, #B3E5FC 40%, #81D4FA 70%, #4FC3F7 100%); }
+.scene-background.pastores { background: linear-gradient(180deg, #1A237E 0%, #283593 30%, #37474F 60%, #263238 100%); }
+.scene-background.reismagos { background: linear-gradient(180deg, #0D1B2A 0%, #1B2838 50%, #2C3E50 100%); }
+.scene-background.templo { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
+.scene-background.templo12 { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
+.scene-background.cana { background: linear-gradient(180deg, #FCE4EC 0%, #F8BBD0 40%, #F48FB1 100%); }
+.scene-background.semeador { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 30%, #A5D6A7 70%, #66BB6A 100%); }
+.scene-background.bomsamaritano { background: linear-gradient(180deg, #FFE0B2 0%, #FFCC80 40%, #D7CCC8 100%); }
+.scene-background.getsemani { background: linear-gradient(180deg, #0D1B2A 0%, #1B2838 30%, #1B5E20 70%, #2E7D32 100%); }
+.scene-background.ascensao { background: linear-gradient(180deg, #4FC3F7 0%, #81D4FA 25%, #B3E5FC 50%, #E1F5FE 75%, #FFF9C4 100%); }
+.scene-background.promessa { background: linear-gradient(180deg, #5C6BC0 0%, #7986CB 30%, #9FA8DA 60%, #C5CAE9 100%); }
+.scene-background.espera { background: linear-gradient(180deg, #263238 0%, #37474F 30%, #546E7A 60%, #78909C 100%); }
+.scene-background.pentecostes { background: linear-gradient(180deg, #4E342E 0%, #6D4C41 20%, #BF360C 50%, #FF6F00 80%, #FFB74D 100%); }
+.scene-background.consolador { background: linear-gradient(180deg, #4A148C 0%, #6A1B9A 30%, #8E24AA 60%, #CE93D8 100%); }
+.scene-background.frutos { background: linear-gradient(180deg, #81C784 0%, #A5D6A7 30%, #C8E6C9 60%, #E8F5E9 100%); }
+
+/* ================================================
+   ELEMENTOS DOS NOVOS CENARIOS
+   ================================================ */
+
+/* Anunciacao */
+.room-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #FFF8E1, #FFE082); border-radius: 0 0 20px 20px; }
+.sunbeam { position: absolute; top: 0; left: 30%; width: 40%; height: 60%; background: radial-gradient(ellipse at top, rgba(255,235,59,0.4) 0%, transparent 70%); pointer-events: none; }
+.mary-kneeling { position: absolute; bottom: 15%; left: 30%; font-size: 4rem; z-index: 2; }
+.anjo-gabriel { position: absolute; top: 20%; right: 25%; font-size: 5rem; z-index: 3; }
+.lily-flower { position: absolute; bottom: 10%; right: 20%; font-size: 2.5rem; z-index: 2; }
+@keyframes angel-glow { 0%, 100% { filter: drop-shadow(0 0 10px #FFD54F); transform: scale(1.3); } 50% { filter: drop-shadow(0 0 30px #FFD54F); transform: scale(1.4); } }
+@keyframes mary-rejoice { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Pastores */
+.field-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(180deg, #37474F, #263238); border-radius: 0 0 20px 20px; }
+.sheep { position: absolute; font-size: 2.5rem; z-index: 2; animation: sheep-graze 3s ease-in-out infinite; }
+@keyframes sheep-graze { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.fire { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 2; animation: fire-flicker 0.5s ease-in-out infinite; }
+@keyframes fire-flicker { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+.hidden-pastor { opacity: 0.15; transition: all 0.4s; }
+.hidden-pastor.found { opacity: 1; }
+.hidden-pastor:hover { opacity: 0.5; }
+.angel-appears { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 3; animation: angel-float 3s ease-in-out infinite; }
+@keyframes found-pop { 0% { transform: scale(0.5); opacity: 0; } 60% { transform: scale(1.5); } 100% { transform: scale(1.3); opacity: 1; } }
+@keyframes pastor-rejoice { 0%, 100% { transform: translateY(0) scale(1.3); } 50% { transform: translateY(-15px) scale(1.3); } }
+
+/* Reis Magos */
+.desert-night { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #5D4037, #3E2723); border-radius: 0 0 20px 20px; }
+.big-star { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; animation: star-twinkle 1.5s ease-in-out infinite; }
+.magos { position: absolute; bottom: 10%; left: 20%; font-size: 3rem; z-index: 2; }
+.gifts { position: absolute; bottom: 5%; right: 20%; font-size: 2.5rem; z-index: 2; }
+.star-path { font-size: 2.5rem; transition: all 0.3s; }
+@keyframes star-burst { 0%, 100% { transform: scale(1.5); filter: drop-shadow(0 0 15px #FFD54F); } 50% { transform: scale(1.8); filter: drop-shadow(0 0 30px #FFD54F); } }
+@keyframes magos-walk { 0% { transform: translateX(0); } 100% { transform: translateX(100px); } }
+
+/* Templo */
+.temple-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #FFE082, #FFB74D); border-radius: 0 0 20px 20px; }
+.temple-pillars { position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 6rem; z-index: 1; }
+.simeao-old { position: absolute; bottom: 20%; left: 35%; font-size: 4rem; z-index: 2; }
+.baby-in-arms { position: absolute; bottom: 30%; left: 38%; font-size: 2.5rem; z-index: 3; }
+.mary-jose-temple { position: absolute; bottom: 15%; right: 25%; font-size: 3rem; z-index: 2; }
+@keyframes simeao-joy { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.1); } }
+
+/* Jesus aos 12 */
+.jesus-boy { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 2; }
+.teachers { position: absolute; bottom: 25%; font-size: 3rem; z-index: 2; }
+.scroll { position: absolute; bottom: 35%; left: 60%; font-size: 2.5rem; z-index: 3; }
+@keyframes jesus-teach { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+
+/* Bodas de Cana */
+.wedding-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #F8BBD0, #F48FB1); border-radius: 0 0 20px 20px; }
+.wedding-table { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; }
+.jesus-cana { position: absolute; bottom: 30%; left: 20%; font-size: 4rem; z-index: 2; }
+.jarra { position: absolute; font-size: 3.5rem; z-index: 3; cursor: grab; transition: transform 0.2s; }
+.jarra:hover { transform: scale(1.1); }
+.jarra.dragging { cursor: grabbing; }
+.jarra.dropped { cursor: default; }
+.wine-cups { position: absolute; bottom: 20%; right: 15%; font-size: 2.5rem; z-index: 2; }
+.drop-zone { animation: drop-zone-pulse 1s ease-in-out infinite; }
+@keyframes drop-zone-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.3) drop-shadow(0 0 15px #FFD54F); } }
+@keyframes wine-transform { 0% { transform: scale(1); } 50% { transform: scale(1.3) rotate(360deg); } 100% { transform: scale(1) rotate(360deg); } }
+@keyframes dropped-pop { 0% { transform: scale(0.5); } 60% { transform: scale(1.2); } 100% { transform: scale(0.8); } }
+
+/* Semeador */
+.field-sunny { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(180deg, #A5D6A7, #66BB6A); border-radius: 0 0 20px 20px; }
+.path-ground { position: absolute; font-size: 3rem; z-index: 2; }
+.thorns { position: absolute; font-size: 3rem; z-index: 2; }
+.boa-terra { position: absolute; font-size: 4rem; z-index: 2; }
+.semente { position: absolute; font-size: 2.5rem; z-index: 3; cursor: grab; transition: transform 0.2s; }
+.semente:hover { transform: scale(1.1); }
+.semente.dragging { cursor: grabbing; }
+.semente.dropped { cursor: default; }
+.farmer { position: absolute; bottom: 20%; right: 10%; font-size: 3.5rem; z-index: 2; }
+@keyframes plant-grow { 0% { transform: scale(0.5); opacity: 0.5; } 50% { transform: scale(1.3); } 100% { transform: scale(1); opacity: 1; } }
+
+/* Bom Samaritano */
+.road-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #D7CCC8, #A1887F); border-radius: 0 0 20px 20px; }
+.road-line { position: absolute; bottom: 25%; left: 5%; right: 5%; height: 4px; background: repeating-linear-gradient(90deg, #FFD54F 0, #FFD54F 20px, transparent 20px, transparent 40px); z-index: 1; }
+.scene-item { font-size: 3rem; z-index: 2; transition: all 0.3s; }
+
+/* Getsemani */
+.garden-night { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #1B5E20, #2E7D32); border-radius: 0 0 20px 20px; }
+.olive-tree { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 7rem; z-index: 2; }
+.jesus-praying { position: absolute; bottom: 20%; left: 45%; font-size: 4rem; z-index: 3; }
+.moon { position: absolute; top: 15%; right: 20%; font-size: 3.5rem; z-index: 1; animation: gentle-pulse 3s ease-in-out infinite; }
+.prayer-drop { font-size: 2rem; z-index: 3; transition: all 0.8s; }
+.sleeping-disciples { position: absolute; bottom: 10%; right: 15%; font-size: 2.5rem; z-index: 2; }
+@keyframes jesus-peace { 0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 10px #B3E5FC); } 50% { transform: translateY(-8px); filter: drop-shadow(0 0 20px #B3E5FC); } }
+
+/* Ascensao */
+.sky-ascension { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, #81D4FA 0%, #B3E5FC 40%, #E1F5FE 70%, #FFF9C4 100%); border-radius: 20px; }
+.clouds { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+.cloud { position: absolute; font-size: 4rem; animation: cloud-drift 8s linear infinite; }
+@keyframes cloud-drift { 0% { transform: translateX(0); } 100% { transform: translateX(50px); } }
+.jesus-ascend { position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 3; }
+.disciples-watching { position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 2; }
+.light-from-heaven { position: absolute; top: 0; left: 30%; width: 40%; height: 100%; background: radial-gradient(ellipse at top, rgba(255,235,59,0.5) 0%, transparent 60%); pointer-events: none; }
+
+/* ================================================
+   Fase 24: Promessa do Consolador
+   ================================================ */
+.promise-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, rgba(159,168,218,0.5), rgba(92,107,192,0.3)); border-radius: 0 0 20px 20px; }
+.jesus-promessa { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 3; }
+.dove-promise { z-index: 4; filter: drop-shadow(2px 2px 8px rgba(255,255,255,0.5)); }
+
+/* ================================================
+   Fase 25: Espera em Oração
+   ================================================ */
+.upper-room-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(180deg, rgba(84,110,122,0.4), rgba(38,50,56,0.6)); border-radius: 0 0 20px 20px; }
+.praying-friend { transition: all 0.3s; filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.3)); }
+.praying-friend:hover { transform: scale(1.2); filter: drop-shadow(2px 2px 10px rgba(255,235,59,0.5)); }
+
+/* ================================================
+   Fase 26: Pentecostes
+   ================================================ */
+.pentecost-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,111,0,0.3), rgba(78,52,46,0.5)); border-radius: 0 0 20px 20px; }
+.wind-effect { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(255,183,77,0.2) 0%, transparent 70%); pointer-events: none; animation: wind-pulse 2s ease-in-out infinite; }
+@keyframes wind-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+.fire-tongue { transition: all 0.3s; animation: fire-flicker 0.8s ease-in-out infinite alternate; }
+.fire-tongue:hover { transform: scale(1.3); }
+@keyframes fire-flicker { 0% { transform: scale(1) rotate(-5deg); } 100% { transform: scale(1.15) rotate(5deg); } }
+.filled-disciples { filter: drop-shadow(2px 2px 8px rgba(255,111,0,0.5)); }
+
+/* ================================================
+   Fase 27: O Consolador no Coração
+   ================================================ */
+.consolador-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(206,147,216,0.3), rgba(74,20,140,0.4)); border-radius: 0 0 20px 20px; }
+.heart-glow { position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 200px; height: 200px; background: radial-gradient(circle, rgba(225,190,231,0.4) 0%, transparent 70%); pointer-events: none; animation: heart-pulse 2s ease-in-out infinite; }
+@keyframes heart-pulse { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; } 50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
+.big-heart { transition: all 0.3s; animation: heart-beat 1.5s ease-in-out infinite; }
+.big-heart:hover { transform: translateX(-50%) scale(1.15); }
+@keyframes heart-beat { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+.fruits-preview { filter: drop-shadow(2px 2px 6px rgba(255,255,255,0.3)); }
+
+/* ================================================
+   Fase 28: Frutos do Espírito
+   ================================================ */
+.frutos-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, rgba(165,214,167,0.3), rgba(129,199,132,0.5)); border-radius: 0 0 20px 20px; }
+.fruit-tree { filter: drop-shadow(2px 2px 10px rgba(0,0,0,0.2)); }
+.fruit { transition: all 0.3s; animation: fruit-sway 3s ease-in-out infinite; }
+.fruit:hover { transform: scale(1.3); }
+@keyframes fruit-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+
+/* ================================================
+   Nascimento - novos elementos
+   ================================================ */
+.night-sky { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, #0D1B2A 0%, #1B2838 50%, #2C3E50 100%); border-radius: 20px; }
+.baby-jesus { position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 2; }
+.mary-jose { position: absolute; bottom: 8%; left: 35%; font-size: 2.5rem; z-index: 2; }
+@keyframes star-burst { 0%, 100% { transform: scale(1.5); filter: drop-shadow(0 0 15px #FFD54F); } 50% { transform: scale(1.8); filter: drop-shadow(0 0 30px #FFD54F); } }
+@keyframes baby-glow { 0%, 100% { filter: drop-shadow(0 0 10px #FFD54F); } 50% { filter: drop-shadow(0 0 25px #FFD54F); } }
+
+/* ================================================
+   Batismo - novos elementos
+   ================================================ */
+.joao-batista { position: absolute; top: 15%; right: 20%; font-size: 3rem; z-index: 2; }
+.river-light { position: absolute; bottom: 10%; left: 30%; width: 40%; height: 20%; background: radial-gradient(ellipse, rgba(255,255,255,0.3) 0%, transparent 70%); pointer-events: none; }
+
+/* ================================================
+   Cura do cego - novos elementos
+   ================================================ */
+
+/* ================================================
+   Flores - Ressurreicao
+   ================================================ */
+.flowers { position: absolute; bottom: 5%; left: 10%; font-size: 2rem; z-index: 2; animation: flower-sway 2s ease-in-out infinite; }
+@keyframes flower-sway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+
+/* Cruz - child-prays no lugar de yoyo-prays */
+.child-prays { position: absolute; bottom: 5%; right: 20%; font-size: 3rem; z-index: 3; }
+
+/* ================================================
+   QUIZ / ESCOLHA / COMPLETAR / CONTAR
+   ================================================ */
+.quiz-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 10;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: fade-in 0.5s ease-out;
+}
+
+.quiz-question {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #E65100;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 3px solid #FFD54F;
+    border-radius: 15px;
+    background: #FFF8E1;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5D4037;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover {
+    transform: scale(1.03);
+    background: #FFE082;
+}
+
+.quiz-option.correct {
+    background: #C8E6C9;
+    border-color: #66BB6A;
+    color: #2E7D32;
+    animation: correct-pulse 0.5s ease-out;
+}
+
+.quiz-option.wrong {
+    background: #FFCDD2;
+    border-color: #EF5350;
+    color: #C62828;
+}
+
+@keyframes correct-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.quiz-letter {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #FFD54F;
+    color: #E65100;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+/* Escolha */
+.escolha-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+    animation: fade-in 0.5s ease-out;
+}
+
+/* Completar */
+.completar-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 10;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: fade-in 0.5s ease-out;
+}
+
+.completar-frase {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #E65100;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.completar-option {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 5px;
+    border: 3px solid #FFD54F;
+    border-radius: 15px;
+    background: #FFF8E1;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5D4037;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.completar-option:hover {
+    transform: scale(1.05);
+    background: #FFE082;
+}
+
+.completar-option.correct {
+    background: #C8E6C9;
+    border-color: #66BB6A;
+    color: #2E7D32;
+}
+
+.completar-option.wrong {
+    background: #FFCDD2;
+    border-color: #EF5350;
+    color: #C62828;
+}
+
+/* ================================================
+   DRAG AND DROP
+   ================================================ */
+.draggable {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    touch-action: none;
+}
+
+.draggable.dragging {
+    cursor: grabbing;
+    z-index: 100;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+/* ================================================
+   PROGRESSO DE INTERACAO
+   ================================================ */
+.interaction-progress {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 8px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #E65100;
+    z-index: 10;
+}
+
+/* ================================================
+   CONFETE - Animação de recompensa
+   ================================================ */
+@keyframes confete-cair {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ================================================
+   TELA DE REVISÃO
+   ================================================ */
+.review-screen {
+    text-align: center;
+    padding: 20px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.review-header h2 {
+    color: #FFD54F;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    font-size: 1.8rem;
+}
+
+.review-intro {
+    font-size: 1.2rem;
+    color: #E0F2F1;
+    margin-bottom: 20px;
+}
+
+.review-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.review-phase-card {
+    background: linear-gradient(135deg, #FFF8E1, #FFE082);
+    border: 3px solid #FFB74D;
+    border-radius: 18px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.review-phase-emoji {
+    font-size: 2.5rem;
+}
+
+.review-phase-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #5D4037;
+    flex: 1;
+    min-width: 180px;
+    text-align: left;
+}
+
+.review-phase-status {
+    font-size: 0.85rem;
+    color: #795548;
+}
+
+.review-phase-btn {
+    padding: 10px 20px;
+    border: 2px solid #FF9800;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+    color: #E65100;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.review-phase-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #FFCC80, #FFB74D);
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #42A5F5, #1565C0);
+    color: white;
+}
+
+.quiz-review-box {
+    width: 100%;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    border: 3px solid #64B5F6;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.quiz-review-question {
+    font-size: 1.3rem;
+    color: #1565C0;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.quiz-review-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quiz-option-btn {
+    padding: 14px 20px;
+    border: 3px solid #90CAF9;
+    border-radius: 14px;
+    background: white;
+    color: #1565C0;
+    font-family: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+    transform: scale(1.03);
+    background: #E3F2FD;
+}
+
+.quiz-option-btn:disabled {
+    cursor: default;
+}
+
+.quiz-option-btn.correct {
+    background: linear-gradient(135deg, #A5D6A7, #81C784);
+    border-color: #4CAF50;
+    color: #1B5E20;
+    animation: gentle-pulse 0.5s ease-in-out 2;
+}
+
+.quiz-option-btn.wrong {
+    background: linear-gradient(135deg, #EF9A9A, #E57373);
+    border-color: #F44336;
+    color: #B71C1C;
+}
+
+.quiz-result {
+    background: linear-gradient(135deg, #FFF8E1, #FFE082);
+    border: 3px solid #FFB74D;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.quiz-result-score {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #E65100;
+    margin-bottom: 10px;
+}
+
+.quiz-result-msg {
+    font-size: 1.3rem;
+    color: #5D4037;
+}
+
+/* ================================================
+   CORDEIRINHO GUIA
+   ================================================ */
+.guide-lamb {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.guide-lamb:hover {
+    transform: scale(1.15);
+}
+
+.guide-emoji {
+    font-size: 2.5rem;
+    display: block;
+    animation: lamb-bounce 2s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes lamb-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.guide-lamb.celebrating .guide-emoji {
+    animation: lamb-celebrate 0.6s ease-in-out 3;
+}
+
+@keyframes lamb-celebrate {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-20px) rotate(-10deg) scale(1.2); }
+    50% { transform: translateY(-10px) rotate(0deg) scale(1.1); }
+    75% { transform: translateY(-20px) rotate(10deg) scale(1.2); }
+}
+
+.guide-bubble {
+    position: absolute;
+    bottom: 55px;
+    right: -5px;
+    background: white;
+    border: 3px solid #FFD54F;
+    border-radius: 18px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #5D4037;
+    max-width: 220px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.guide-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #FFD54F;
+}
+
+.guide-bubble.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.guide-bubble.celebrate {
+    border-color: #66BB6A;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+}
+
+.guide-bubble.celebrate::after {
+    border-top-color: #66BB6A;
+}
+
+/* ================================================
+   CERTIFICADO
+   ================================================ */
+.certificate-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in 0.4s ease-out;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.certificate-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.certificate-paper {
+    background: linear-gradient(135deg, #FFFDE7, #FFF8E1);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    max-width: 600px;
+    width: 100%;
+    animation: cert-appear 0.6s ease-out;
+}
+
+@keyframes cert-appear {
+    0% { opacity: 0; transform: scale(0.7) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.certificate-border {
+    border: 4px double #C5A028;
+    border-radius: 8px;
+    padding: 30px 25px;
+    text-align: center;
+    background: linear-gradient(135deg, #FFFDF5, #FFF9E6);
+}
+
+.certificate-emoji {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.certificate-title {
+    font-size: 2.2rem;
+    color: #B8860B;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.certificate-subtitle {
+    font-size: 1.3rem;
+    color: #8D6E63;
+    margin-bottom: 15px;
+}
+
+.certificate-divider {
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C5A028, transparent);
+    margin: 15px auto;
+}
+
+.certificate-body {
+    font-size: 1.1rem;
+    color: #5D4037;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.certificate-name {
+    font-size: 2.5rem;
+    color: #B8860B;
+    font-weight: bold;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+}
+
+.certificate-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.cert-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.cert-stat-num {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #B8860B;
+}
+
+.cert-stat-label {
+    font-size: 0.9rem;
+    color: #8D6E63;
+}
+
+.certificate-verse {
+    font-size: 1.05rem;
+    color: #6D4C41;
+    font-style: italic;
+    margin: 20px 0;
+    padding: 12px 20px;
+    background: rgba(255,213,79,0.15);
+    border-radius: 10px;
+}
+
+.certificate-signature {
+    margin-top: 25px;
+}
+
+.cert-sign-line {
+    width: 200px;
+    height: 1px;
+    background: #8D6E63;
+    margin: 0 auto 8px;
+}
+
+.cert-sign-text {
+    font-size: 1rem;
+    color: #5D4037;
+    font-style: italic;
+}
+
+.certificate-date {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #8D6E63;
+}
+
+.certificate-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cert-btn-print {
+    padding: 14px 28px;
+    border: 3px solid #1565C0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #42A5F5, #1565C0);
+    color: white;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cert-btn-print:hover {
+    transform: scale(1.08);
+}
+
+.cert-btn-close {
+    padding: 14px 28px;
+    border: 3px solid #EF5350;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #EF5350, #C62828);
+    color: white;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cert-btn-close:hover {
+    transform: scale(1.08);
+}
+
+.certificate-btn {
+    background: linear-gradient(135deg, #FFB74D, #E65100);
+    color: white;
+}
+
+/* ================================================
+   CONQUISTAS EXTRAS
+   ================================================ */
+.extra-achievements-section {
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.extra-achievements-section h3 {
+    color: #FFD54F;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.extra-achievements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.extra-achievement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    min-width: 90px;
+    max-width: 120px;
+    transition: all 0.3s;
+    opacity: 0.5;
+    filter: grayscale(80%);
+}
+
+.extra-achievement.unlocked {
+    opacity: 1;
+    filter: none;
+    background: linear-gradient(135deg, #FFF8E1, #FFE082);
+    border-color: #FFB74D;
+    cursor: pointer;
+    animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+.extra-achievement.unlocked:hover {
+    transform: scale(1.1);
+}
+
+.extra-ach-emoji {
+    font-size: 2rem;
+}
+
+.extra-ach-name {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #5D4037;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.extra-ach-desc {
+    font-size: 0.6rem;
+    color: #8D6E63;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.extra-achievement:not(.unlocked) .extra-ach-name,
+.extra-achievement:not(.unlocked) .extra-ach-desc {
+    color: rgba(255,255,255,0.4);
+}
+
+/* Notificação flutuante de conquista */
+.achievement-notif {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #FFF8E1, #FFE082);
+    border: 3px solid #FFB74D;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    z-index: 10001;
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    max-width: 90%;
+}
+
+.achievement-notif.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.achievement-notif-emoji {
+    font-size: 3rem;
+    animation: gentle-pulse 1s ease-in-out infinite;
+}
+
+.achievement-notif-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.achievement-notif-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #E65100;
+}
+
+.achievement-notif-desc {
+    font-size: 0.95rem;
+    color: #5D4037;
+}
+
+/* Impressao do certificado */
+@media print {
+    body * { visibility: hidden; }
+    .certificate-overlay,
+    .certificate-overlay * { visibility: visible; }
+    .certificate-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        padding: 0;
+    }
+    .certificate-paper {
+        box-shadow: none;
+        max-width: 100%;
+    }
+    .certificate-buttons { display: none; }
+    .certificate-modal { gap: 0; }
+}
+
+/* ================================================
+   ALTO CONTRASTE
+   ================================================ */
+body.high-contrast {
+    background: #000000;
+}
+
+body.high-contrast .container {
+    background: #000000;
+}
+
+body.high-contrast .game-header h1 {
+    color: #FFFF00;
+    text-shadow: 2px 2px 4px #000;
+}
+
+body.high-contrast .subtitle {
+    color: #FFFFFF;
+}
+
+body.high-contrast .scene-card {
+    border: 4px solid #FFFFFF;
+}
+
+body.high-contrast .speech-bubble {
+    background: #FFFFFF;
+    color: #000000;
+    border: 4px solid #FFFF00;
+    font-weight: bold;
+}
+
+body.high-contrast .phase-instruction {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+body.high-contrast .phase-badge {
+    background: #FFFF00;
+    color: #000000;
+    border: 3px solid #FFFFFF;
+    font-weight: bold;
+}
+
+body.high-contrast .stars-line {
+    color: #FFFF00;
+    font-weight: bold;
+}
+
+body.high-contrast .big-btn {
+    border: 4px solid #FFFFFF;
+    font-weight: bold;
+}
+
+body.high-contrast .big-btn .btn-text {
+    color: #FFFFFF;
+}
+
+body.high-contrast .start-btn {
+    background: #0033CC;
+}
+
+body.high-contrast .continue-btn {
+    background: #006600;
+}
+
+body.high-contrast .restart-start-btn {
+    background: #CC0000;
+}
+
+body.high-contrast .review-btn {
+    background: #660066;
+}
+
+body.high-contrast .next-btn {
+    background: #006600;
+}
+
+body.high-contrast .restart-btn {
+    background: #CC0000;
+}
+
+body.high-contrast .quiz-btn {
+    background: #0033CC;
+}
+
+body.high-contrast .hint-btn {
+    background: #660066;
+}
+
+body.high-contrast .certificate-btn {
+    background: #CC6600;
+}
+
+body.high-contrast .lesson-card {
+    background: #FFFFFF;
+    border: 4px solid #FFFF00;
+}
+
+body.high-contrast .lesson-versiculo {
+    color: #000000;
+    border-bottom: 3px solid #000000;
+}
+
+body.high-contrast .lesson-licao {
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .prayer-btn {
+    background: #FFFFFF;
+    border: 4px solid #000000;
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .prayer-text {
+    background: #FFFF00;
+    border: 4px solid #000000;
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .verse-challenge {
+    background: #FFFF00;
+    border: 4px solid #000000;
+}
+
+body.high-contrast .verse-challenge-title {
+    color: #000000;
+}
+
+body.high-contrast .verse-challenge-text {
+    background: #FFFFFF;
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .verse-repeat-btn,
+body.high-contrast .verse-memorized-btn {
+    border: 3px solid #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .verse-memorized-btn.done {
+    background: #00AA00;
+    color: #FFFFFF;
+}
+
+body.high-contrast .medals-section {
+    background: #FFFFFF;
+    border: 3px solid #FFFF00;
+}
+
+body.high-contrast .medal {
+    border: 3px solid #000000;
+}
+
+body.high-contrast .medal.unlocked {
+    background: #FFFF00;
+}
+
+body.high-contrast .extra-achievement.unlocked {
+    background: #FFFF00;
+    border: 3px solid #FFFFFF;
+}
+
+body.high-contrast .extra-ach-name {
+    color: #000000;
+}
+
+body.high-contrast .extra-ach-desc {
+    color: #000000;
+}
+
+body.high-contrast .review-phase-card {
+    background: #FFFFFF;
+    border: 4px solid #FFFF00;
+}
+
+body.high-contrast .review-phase-title {
+    color: #000000;
+}
+
+body.high-contrast .quiz-review-box {
+    background: #FFFFFF;
+    border: 4px solid #000000;
+}
+
+body.high-contrast .quiz-review-question {
+    color: #000000;
+}
+
+body.high-contrast .quiz-option-btn {
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .quiz-option-btn.correct {
+    background: #00AA00;
+    color: #FFFFFF;
+}
+
+body.high-contrast .quiz-option-btn.wrong {
+    background: #CC0000;
+    color: #FFFFFF;
+}
+
+body.high-contrast .quiz-result {
+    background: #FFFF00;
+    border: 4px solid #000000;
+}
+
+body.high-contrast .quiz-result-score {
+    color: #000000;
+}
+
+body.high-contrast .quiz-result-msg {
+    color: #000000;
+}
+
+body.high-contrast .name-screen,
+body.high-contrast .start-screen {
+    color: #FFFFFF;
+}
+
+body.high-contrast .name-screen h2,
+body.high-contrast .start-screen h2 {
+    color: #FFFF00;
+}
+
+body.high-contrast .name-msg,
+body.high-contrast .start-msg {
+    color: #FFFFFF;
+}
+
+body.high-contrast .welcome-name {
+    color: #FFFF00;
+    font-weight: bold;
+}
+
+body.high-contrast .name-display {
+    background: #FFFFFF;
+    color: #000000;
+    border: 4px solid #FFFF00;
+}
+
+body.high-contrast .key {
+    background: #FFFFFF;
+    color: #000000;
+    border: 3px solid #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .key:hover {
+    background: #FFFF00;
+}
+
+body.high-contrast .gender-btn {
+    border: 4px solid #FFFFFF;
+}
+
+body.high-contrast .gender-btn.selected {
+    background: #FFFF00;
+    color: #000000;
+}
+
+body.high-contrast .guide-bubble {
+    background: #FFFFFF;
+    border: 4px solid #FFFF00;
+    color: #000000;
+    font-weight: bold;
+}
+
+body.high-contrast .guide-bubble.celebrate {
+    background: #00AA00;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+body.high-contrast .achievement-notif {
+    background: #FFFF00;
+    border: 4px solid #FFFFFF;
+}
+
+body.high-contrast .achievement-notif-title {
+    color: #000000;
+}
+
+body.high-contrast .achievement-notif-desc {
+    color: #000000;
+}
+
+body.high-contrast .certificate-paper {
+    background: #FFFFFF;
+}
+
+body.high-contrast .certificate-border {
+    border: 4px double #000000;
+    background: #FFFFFF;
+}
+
+body.high-contrast .certificate-title {
+    color: #000000;
+}
+
+body.high-contrast .certificate-name {
+    color: #000000;
+}
+
+body.high-contrast .certificate-body {
+    color: #000000;
+}
+
+body.high-contrast .story-dot {
+    border: 2px solid #FFFFFF;
+}
+
+body.high-contrast .story-dot.active {
+    background: #FFFF00;
+    color: #000000;
+}
+
+body.high-contrast .story-dot.completed {
+    background: #00AA00;
 }

@@ -12,25 +12,105 @@
 
     <div class="container">
         <header class="game-header">
+            <div class="header-controls">
+                <button class="btn-music" id="btn-music" title="Ligar/desligar música">🎵</button>
+                <button class="btn-font" id="btn-font-decrease" title="Diminuir fonte">A-</button>
+                <button class="btn-font" id="btn-font-increase" title="Aumentar fonte">A+</button>
+                <button class="btn-contrast" id="btn-contrast" title="Alto contraste">🌓</button>
+            </div>
             <h1>✝️ MEU AMIGO JESUS</h1>
-            <p class="subtitle">A jornada de Jesus com a Yoyo</p>
+            <p class="subtitle">A jornada de Jesus do nascimento a Pentecostes</p>
         </header>
 
         <main class="game">
+            <!-- Tela de nome -->
+            <div class="name-screen" id="name-screen" style="display:none;">
+                <div class="name-emoji">✝️</div>
+                <h2>Qual é o seu nome?</h2>
+                <p class="name-msg">Toque nas letras para escrever seu nome!</p>
+
+                <!-- Display do nome sendo digitado -->
+                <div class="name-display" id="name-display"></div>
+
+                <!-- Teclado virtual -->
+                <div class="virtual-keyboard" id="virtual-keyboard"></div>
+
+                <!-- Botões: apagar e espaço -->
+                <div class="kb-action-row">
+                    <button class="kb-action-btn" id="kb-backspace" type="button">⬅️ APAGAR</button>
+                    <button class="kb-action-btn" id="kb-clear" type="button">🧹 LIMPAR</button>
+                </div>
+
+                <!-- Seleção de gênero com figuras grandes -->
+                <div class="gender-select">
+                    <p class="gender-msg">Você é menino ou menina?</p>
+                    <div class="gender-buttons">
+                        <button class="gender-figure-btn" id="gender-boy" type="button">
+                            <span class="gender-figure">👦</span>
+                            <span class="gender-figure-label">MENINO</span>
+                        </button>
+                        <button class="gender-figure-btn" id="gender-girl" type="button">
+                            <span class="gender-figure">👧</span>
+                            <span class="gender-figure-label">MENINA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="big-btn name-btn" id="btn-confirm-name">
+                    <span class="btn-emoji">👼</span>
+                    <span class="btn-text">SOU AMIGO DE JESUS!</span>
+                </button>
+            </div>
+
             <!-- Tela inicial -->
-            <div class="start-screen" id="start-screen">
+            <div class="start-screen" id="start-screen" style="display:none;">
                 <div class="start-emoji">✝️</div>
                 <h2>Vamos aprender com Jesus!</h2>
-                <p class="start-msg">Acompanhe Jesus do nascimento à ressurreição</p>
-                <button class="big-btn start-btn" id="btn-start">
-                    <span class="btn-emoji">▶️</span>
-                    <span class="btn-text">COMEÇAR</span>
-                </button>
+                <p class="welcome-name" id="welcome-name" style="display:none;"></p>
+                <p class="start-msg">Acompanhe Jesus da Anunciação a Pentecostes</p>
+                <div class="start-buttons">
+                    <button class="big-btn start-btn" id="btn-start">
+                        <span class="btn-emoji">▶️</span>
+                        <span class="btn-text">CONTINUAR VIAGEM</span>
+                    </button>
+                    <button class="big-btn continue-btn" id="btn-continue" style="display:none;">
+                        <span class="btn-emoji">📖</span>
+                        <span class="btn-text">CONTINUAR</span>
+                    </button>
+                    <button class="big-btn restart-start-btn" id="btn-restart-start">
+                        <span class="btn-emoji">🔄</span>
+                        <span class="btn-text">RECOMEÇAR</span>
+                    </button>
+                    <button class="big-btn review-btn" id="btn-review" style="display:none;">
+                        <span class="btn-emoji">📚</span>
+                        <span class="btn-text">REVISAR FASES</span>
+                    </button>
+                </div>
                 <div class="start-medals" id="start-medals"></div>
+                <div class="extra-achievements-section">
+                    <h3>🏅 CONQUISTAS ESPECIAIS</h3>
+                    <div class="extra-achievements" id="extra-achievements"></div>
+                </div>
+            </div>
+
+            <!-- Tela de revisão -->
+            <div class="review-screen" id="review-screen" style="display:none;">
+                <div class="review-header">
+                    <button class="btn-home" id="btn-review-back">🏠</button>
+                    <h2>📚 REVISAR FASES</h2>
+                </div>
+                <p class="review-intro" id="review-intro"></p>
+                <div class="review-phases" id="review-phases"></div>
             </div>
 
             <!-- Tela do jogo -->
             <div class="game-screen" id="game-screen" style="display:none;">
+                <!-- Cordeirinho guia -->
+                <div class="guide-lamb" id="guide-lamb">
+                    <span class="guide-emoji">🐑</span>
+                    <div class="guide-bubble" id="guide-bubble"></div>
+                </div>
+
                 <!-- Topo -->
                 <div class="game-top">
                     <button class="btn-home" id="btn-home">🏠</button>
@@ -49,7 +129,7 @@
 
                 <!-- Balão de fala -->
                 <div class="speech-bubble" id="speech-bubble">
-                    Olá, Yoyo! Eu sou Jesus, seu amigo! ✨
+                    Olá! Eu sou Jesus, seu amigo! ✨
                 </div>
 
                 <!-- Área da fase -->
@@ -58,6 +138,9 @@
                     <div class="phase-title" id="phase-title">JESUS NASCE</div>
                     <div class="phase-instruction" id="phase-instruction">Toque na estrela!</div>
                 </div>
+
+                <!-- Área de lição (aparece após completar) -->
+                <div class="lesson-area" id="lesson-area" style="display:none;"></div>
 
                 <!-- Botões -->
                 <div class="phase-buttons" id="phase-buttons"></div>
@@ -71,11 +154,14 @@
         </main>
 
         <footer>
-            <p>Feito com 💜 para a Yoyo aprender sobre Jesus</p>
+            <p>Feito com 💜 para crianças aprenderem sobre Jesus</p>
         </footer>
     </div>
 
     <script src="tts.js"></script>
+    <script src="music.js"></script>
+    <script src="phases.js"></script>
+    <script src="interactions.js"></script>
     <script src="game.js"></script>
 </body>
 </html>
