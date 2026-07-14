@@ -1,0 +1,597 @@
+/* MEU AMIGO JESUS - Estilo completo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Estrelas de fundo */
+.stars-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.game-header {
+    text-align: center;
+    padding: 20px 15px;
+    margin-bottom: 15px;
+}
+
+.game-header h1 {
+    font-size: 2.2rem;
+    color: #FFD54F;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #FFF9C4;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+/* Tela inicial */
+.start-screen {
+    background: linear-gradient(135deg, #FFF8E1, #FFD54F);
+    border-radius: 30px;
+    padding: 40px 25px;
+    text-align: center;
+    border: 5px solid #FF8F00;
+    box-shadow: 0 10px 40px rgba(255,143,0,0.3);
+    animation: fade-in 0.8s ease-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.start-emoji {
+    font-size: 6rem;
+    margin-bottom: 15px;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.start-screen h2 {
+    font-size: 1.8rem;
+    color: #E65100;
+    margin-bottom: 10px;
+}
+
+.start-msg {
+    font-size: 1.3rem;
+    color: #5D4037;
+    margin-bottom: 25px;
+}
+
+.start-medals {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.start-medal {
+    font-size: 2rem;
+    filter: grayscale(1) opacity(0.4);
+    transition: filter 0.3s;
+}
+
+.start-medal.unlocked {
+    filter: none;
+}
+
+/* Botão grande */
+.big-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    min-width: 160px;
+    min-height: 110px;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #66BB6A, #2E7D32);
+    color: white;
+}
+
+.big-btn:hover {
+    transform: scale(1.05);
+}
+
+.big-btn:active {
+    transform: scale(0.95);
+}
+
+.btn-emoji {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.btn-text {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+/* Tela do jogo */
+.game-screen {
+    animation: fade-in 0.5s ease-out;
+}
+
+.game-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #FFF8E1, #FFE082);
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+}
+
+.btn-home {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.btn-home:hover {
+    transform: scale(1.1);
+}
+
+.phase-badge {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #E65100;
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 15px;
+    letter-spacing: 1px;
+}
+
+.stars-line {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #FF8F00;
+}
+
+/* Barra de progresso */
+.story-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.story-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #E0E0E0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    border: 3px solid #BDBDBD;
+}
+
+.story-dot:hover {
+    transform: scale(1.1);
+}
+
+.story-dot.active {
+    background: #FFD54F;
+    border-color: #FF8F00;
+    transform: scale(1.15);
+}
+
+.story-dot.completed {
+    background: #81C784;
+    border-color: #388E3C;
+}
+
+/* Cenário */
+.scene-card {
+    background: #fff;
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 4px solid #FFD54F;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.scene-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+.scene-background.nascimento { background: linear-gradient(180deg, #0d1b2a 0%, #1b2838 50%, #2c3e50 100%); }
+.scene-background.batismo { background: linear-gradient(180deg, #87CEEB 0%, #B2EBF2 40%, #E0F7FA 70%, #90CAF9 100%); }
+.scene-background.deserto { background: linear-gradient(180deg, #FFE0B2 0%, #FFCC80 30%, #FFAB91 60%, #8D6E63 100%); }
+.scene-background.pescadores { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 50%, #4FC3F7 80%, #0277BD 100%); }
+.scene-background.monte { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 40%, #A5D6A7 60%, #66BB6A 100%); }
+.scene-background.curaciego { background: linear-gradient(180deg, #FFF3E0 0%, #FFE0B2 50%, #FFCC80 100%); }
+.scene-background.paes { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 30%, #A5D6A7 70%, #66BB6A 100%); }
+.scene-background.aguas { background: linear-gradient(180deg, #263238 0%, #37474F 30%, #455A64 60%, #1C313A 100%); }
+.scene-background.zaqueu { background: linear-gradient(180deg, #B3E5FC 0%, #E1F5FE 40%, #C8E6C9 70%, #A5D6A7 100%); }
+.scene-background.jerusalem { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
+.scene-background.ceia { background: linear-gradient(180deg, #3E2723 0%, #5D4037 50%, #795548 100%); }
+.scene-background.cruz { background: linear-gradient(180deg, #1A237E 0%, #283593 30%, #3949AB 60%, #F3E5F5 100%); }
+.scene-background.ressurreicao { background: linear-gradient(180deg, #FFEB3B 0%, #FFF176 20%, #E1F5FE 50%, #A5D6A7 100%); }
+
+.scene-content {
+    position: relative;
+    z-index: 1;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Elementos interativos */
+.interactive-element {
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 4rem;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.interactive-element:hover {
+    transform: scale(1.15);
+}
+
+/* Nascimento */
+.stable { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 6rem; z-index: 1; }
+.star-of-bethlehem { position: absolute; top: 20px; right: 30px; font-size: 4rem; cursor: pointer; animation: star-twinkle 1.5s ease-in-out infinite; z-index: 2; }
+@keyframes star-twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.2); } }
+.angel { position: absolute; top: 30px; left: 20px; font-size: 3rem; animation: angel-float 3s ease-in-out infinite; }
+@keyframes angel-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* Batismo */
+.river { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, #4FC3F7, #0277BD); border-radius: 0 0 20px 20px; overflow: hidden; }
+.river::before { content: '〰️〰️〰️〰️〰️'; position: absolute; top: 10px; left: 0; right: 0; font-size: 2rem; color: rgba(255,255,255,0.5); animation: river-flow 3s linear infinite; }
+@keyframes river-flow { 0% { transform: translateX(0); } 100% { transform: translateX(-50px); } }
+.jesus-in-river { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; cursor: pointer; }
+.dove { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 3rem; opacity: 0; transition: opacity 0.5s, transform 0.5s; }
+.dove.show { opacity: 1; animation: dove-descend 2s ease-in-out; }
+@keyframes dove-descend { 0% { transform: translateX(-50%) translateY(-50px); } 100% { transform: translateX(-50%) translateY(0); } }
+
+/* Deserto */
+.desert-rock { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, #A1887F, #5D4037); border-radius: 0 0 20px 20px; }
+.jesus-in-desert { position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; }
+.temptation-choice { display: flex; gap: 20px; margin-top: 20px; z-index: 3; }
+.food-temptation { font-size: 3rem; animation: shake 1s ease-in-out infinite; }
+@keyframes shake { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+.bible-choice { font-size: 3rem; padding: 10px; background: rgba(255,255,255,0.8); border-radius: 15px; cursor: pointer; transition: transform 0.2s; }
+.bible-choice:hover { transform: scale(1.1); }
+
+/* Pescadores */
+.boat { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 5rem; animation: boat-rock 2s ease-in-out infinite; z-index: 2; cursor: pointer; }
+@keyframes boat-rock { 0%, 100% { transform: translateX(-50%) rotate(-3deg); } 50% { transform: translateX(-50%) rotate(3deg); } }
+.fisherman { position: absolute; bottom: 35%; font-size: 3rem; transition: transform 0.3s; cursor: pointer; }
+.fisherman:hover { transform: scale(1.2); }
+.fish { position: absolute; bottom: 10%; font-size: 2rem; animation: fish-swim 4s linear infinite; }
+@keyframes fish-swim { 0% { transform: translateX(-100px); } 100% { transform: translateX(100px); } }
+
+/* Monte */
+.mountain { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 8rem; z-index: 1; }
+.jesus-on-mountain { position: absolute; bottom: 30%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 2; }
+.children-group { display: flex; gap: 25px; position: absolute; bottom: 15%; z-index: 3; }
+.child { font-size: 3rem; transition: transform 0.3s; cursor: pointer; }
+.sun { position: absolute; top: 20px; right: 20px; font-size: 4rem; }
+@keyframes sun-pulse { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.2); filter: brightness(1.3); } }
+
+/* Cura do cego */
+.village-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, #D7CCC8, #8D6E63); border-radius: 0 0 20px 20px; }
+.jesus-healer { position: absolute; bottom: 25%; left: 30%; font-size: 4rem; z-index: 2; }
+.blind-man { position: absolute; bottom: 25%; right: 30%; font-size: 4rem; z-index: 2; transition: transform 0.3s; }
+.mud { position: absolute; bottom: 15%; left: 45%; font-size: 2rem; z-index: 2; opacity: 0.7; }
+.healed-eyes { position: absolute; bottom: 35%; right: 28%; font-size: 3rem; opacity: 0; transition: opacity 0.5s; z-index: 3; }
+@keyframes eyes-blink { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+/* Pães */
+.grass { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, #A5D6A7, #66BB6A); border-radius: 0 0 20px 20px; }
+.crowd { position: absolute; bottom: 25%; font-size: 2.5rem; z-index: 2; }
+.basket { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 3; transition: transform 0.3s; cursor: pointer; }
+.food-items { display: flex; gap: 5px; position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); z-index: 4; flex-wrap: wrap; justify-content: center; max-width: 200px; }
+.food-item { font-size: 2rem; animation: food-pop 0.5s ease-out; }
+.food-multiplied .food-item { animation: food-pop 0.5s ease-out backwards; }
+@keyframes food-pop { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.jesus-bread { position: absolute; bottom: 40%; left: 20%; font-size: 4rem; z-index: 2; }
+
+/* Águas */
+.stormy-sea { position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, #37474F, #1A237E); border-radius: 0 0 20px 20px; overflow: hidden; transition: background 2s; }
+.stormy-sea::before { content: '〰️〰️〰️〰️〰️〰️'; position: absolute; top: 10px; left: 0; right: 0; font-size: 2rem; color: rgba(255,255,255,0.3); animation: storm-wave 1s linear infinite; }
+@keyframes storm-wave { 0% { transform: translateX(0); } 100% { transform: translateX(-30px); } }
+.calm-sea { background: linear-gradient(180deg, #4FC3F7, #0277BD) !important; }
+.boat-storm { position: absolute; bottom: 35%; left: 20%; font-size: 4rem; z-index: 2; animation: boat-rock 1s ease-in-out infinite; }
+.jesus-walking { position: absolute; bottom: 35%; left: 30%; font-size: 4rem; z-index: 3; cursor: pointer; transition: transform 2s; }
+.disciples-scared { position: absolute; bottom: 40%; left: 15%; font-size: 2.5rem; z-index: 2; }
+.lightning { position: absolute; top: 10px; right: 30px; font-size: 3rem; animation: lightning-flash 2s ease-in-out infinite; }
+@keyframes lightning-flash { 0%, 90%, 100% { opacity: 0; } 95% { opacity: 1; } }
+@keyframes boat-calm { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(2deg); } }
+
+/* Zaqueu */
+.city-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, #D7CCC8, #A1887F); border-radius: 0 0 20px 20px; }
+.tree { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 7rem; z-index: 2; cursor: pointer; transition: transform 0.5s; transform-origin: bottom center; }
+.zaqueu { position: absolute; bottom: 55%; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 3; transition: transform 1s; }
+.jesus-looks-up { position: absolute; bottom: 5%; left: 20%; font-size: 4rem; z-index: 3; }
+.house { position: absolute; bottom: 5%; right: 15%; font-size: 4rem; z-index: 2; transition: transform 0.5s, box-shadow 0.5s; }
+
+/* Jerusalém */
+.city-gate { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, #D7CCC8, #8D6E63); border-radius: 0 0 20px 20px; }
+.jesus-on-donkey { position: absolute; bottom: 25%; left: 20%; font-size: 4rem; z-index: 2; }
+@keyframes donkey-walk { 0% { transform: translateX(0); } 100% { transform: translateX(100px); } }
+.crowd-cheering { position: absolute; bottom: 35%; font-size: 2.5rem; z-index: 2; animation: crowd-jump 0.8s ease-in-out infinite; }
+@keyframes crowd-jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.palms-group { display: flex; gap: 30px; position: absolute; bottom: 10%; z-index: 3; }
+.palm { font-size: 3rem; cursor: pointer; transition: transform 0.2s; transform-origin: bottom center; }
+@keyframes palm-wave { 0%, 100% { transform: rotate(-20deg) scale(1.3); } 50% { transform: rotate(20deg) scale(1.3); } }
+.hosana-text { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 2rem; font-weight: bold; color: #E65100; background: rgba(255,255,255,0.8); padding: 8px 20px; border-radius: 15px; opacity: 0; transition: opacity 0.5s, transform 0.5s; z-index: 4; }
+@keyframes hosana-bounce { 0%, 100% { transform: translateX(-50%) scale(1.5); } 50% { transform: translateX(-50%) scale(1.7); } }
+
+/* Ceia */
+.dinner-room { position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(180deg, #6D4C41, #3E2723); border-radius: 0 0 20px 20px; }
+.table { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; }
+.bread { position: absolute; bottom: 30%; left: 35%; font-size: 3rem; z-index: 3; cursor: pointer; transition: transform 0.3s; }
+.wine { position: absolute; bottom: 30%; right: 35%; font-size: 3rem; z-index: 3; cursor: pointer; transition: transform 0.3s; }
+.disciples-table { position: absolute; bottom: 40%; font-size: 2.5rem; z-index: 2; }
+@keyframes disciples-eat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.jesus-at-table { position: absolute; bottom: 50%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 3; }
+
+/* Cruz */
+.calvary-hill { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, #A5D6A7, #66BB6A); border-radius: 0 0 20px 20px; }
+.sky-glow { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 40%, rgba(255,215,0,0.3) 0%, transparent 70%); border-radius: 20px; pointer-events: none; }
+.cross-gentle { position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%); font-size: 5rem; z-index: 2; transition: box-shadow 1s; }
+.love-heart { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 3; cursor: pointer; transition: transform 0.3s; }
+@keyframes heart-grow { 0%, 100% { transform: translateX(-50%) scale(1.5); } 50% { transform: translateX(-50%) scale(1.8); } }
+.angels-comfort { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 2; animation: angel-float 3s ease-in-out infinite; }
+.yoyo-prays { position: absolute; bottom: 5%; right: 20%; font-size: 3rem; z-index: 3; }
+@keyframes yoyo-pray { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Ressurreição */
+.garden-morning { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, #A5D6A7, #66BB6A); border-radius: 0 0 20px 20px; }
+.tomb { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); font-size: 6rem; z-index: 2; transition: box-shadow 1s; }
+.stone { position: absolute; bottom: 20%; left: 35%; font-size: 3rem; z-index: 3; cursor: pointer; transition: transform 0.3s; }
+.jesus-risen { position: absolute; bottom: 35%; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 4; opacity: 0; transition: opacity 1s, transform 1s; }
+@keyframes jesus-glow { 0%, 100% { filter: drop-shadow(0 0 10px #FFD54F); } 50% { filter: drop-shadow(0 0 30px #FFD54F); } }
+.sun-rise { position: absolute; top: 20px; right: 20px; font-size: 4rem; z-index: 1; }
+@keyframes sun-rise-big { 0% { transform: scale(1); } 100% { transform: scale(1.5); filter: brightness(1.5); } }
+.angels-tomb { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); font-size: 3rem; z-index: 2; animation: angel-float 3s ease-in-out infinite; }
+
+/* Balão de fala */
+.speech-bubble {
+    background: #fff;
+    border: 4px solid #FFD54F;
+    border-radius: 25px;
+    padding: 18px 22px;
+    font-size: 1.5rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(255,213,79,0.2);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 15px solid #FFD54F;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #fff;
+}
+
+/* Área de fase */
+.phase-area {
+    background: linear-gradient(135deg, #FFF9C4, #FFF59D);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 3px solid #FDD835;
+}
+
+.phase-emoji { font-size: 4.5rem; margin-bottom: 10px; }
+.phase-title { font-size: 1.8rem; font-weight: bold; color: #F57F17; letter-spacing: 2px; margin-bottom: 8px; }
+.phase-instruction { font-size: 1.3rem; color: #666; }
+
+/* Botões de fase */
+.phase-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.choice-btn { background: linear-gradient(135deg, #AB47BC, #7B1FA2); }
+.choice-btn.yes { background: linear-gradient(135deg, #66BB6A, #2E7D32); }
+.choice-btn.no { background: linear-gradient(135deg, #EF5350, #C62828); }
+
+/* Medalhas */
+.medals-section {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.medals-section h3 {
+    text-align: center;
+    color: #2E7D32;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.medals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+}
+
+.medal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    opacity: 0.6;
+}
+
+.medal:hover { transform: scale(1.05); }
+
+.medal.unlocked {
+    opacity: 1;
+    background: #FFF8E1;
+    border: 2px solid #FFD54F;
+}
+
+.medal-emoji { font-size: 2.2rem; line-height: 1; margin-bottom: 5px; }
+.medal-name { font-size: 0.8rem; font-weight: bold; color: #2E7D32; text-align: center; }
+
+/* Efeitos especiais */
+.heart-pop {
+    position: absolute;
+    font-size: 2rem;
+    animation: heart-float 1.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes heart-float {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+}
+
+.light-ray {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(180deg, rgba(255,215,0,0.8), transparent);
+    animation: ray-fall 2s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes ray-fall {
+    0% { opacity: 1; transform: translateX(-50%) translateY(-50px); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(50px); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #FFF9C4;
+    font-size: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .story-dot { width: 36px; height: 36px; font-size: 1.2rem; }
+    .phase-emoji { font-size: 3.5rem; }
+    .phase-title { font-size: 1.5rem; }
+    .big-btn { min-width: 140px; min-height: 100px; }
+    .game-header h1 { font-size: 1.8rem; }
+    .speech-bubble { font-size: 1.3rem; }
+    .scene-card { min-height: 240px; padding: 15px; }
+}

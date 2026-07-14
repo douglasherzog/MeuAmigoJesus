@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Amigo Jesus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝️</text></svg>">
+</head>
+<body>
+    <div class="stars-bg" id="stars-bg"></div>
+
+    <div class="container">
+        <header class="game-header">
+            <h1>✝️ MEU AMIGO JESUS</h1>
+            <p class="subtitle">A jornada de Jesus com a Yoyo</p>
+        </header>
+
+        <main class="game">
+            <!-- Tela inicial -->
+            <div class="start-screen" id="start-screen">
+                <div class="start-emoji">✝️</div>
+                <h2>Vamos aprender com Jesus!</h2>
+                <p class="start-msg">Acompanhe Jesus do nascimento à ressurreição</p>
+                <button class="big-btn start-btn" id="btn-start">
+                    <span class="btn-emoji">▶️</span>
+                    <span class="btn-text">COMEÇAR</span>
+                </button>
+                <div class="start-medals" id="start-medals"></div>
+            </div>
+
+            <!-- Tela do jogo -->
+            <div class="game-screen" id="game-screen" style="display:none;">
+                <!-- Topo -->
+                <div class="game-top">
+                    <button class="btn-home" id="btn-home">🏠</button>
+                    <div class="phase-badge" id="phase-badge">FASE 1</div>
+                    <div class="stars-line">⭐ <span id="stars-count">0</span></div>
+                </div>
+
+                <!-- Barra de progresso -->
+                <div class="story-progress" id="story-progress"></div>
+
+                <!-- Cenário -->
+                <div class="scene-card" id="scene-card">
+                    <div class="scene-background" id="scene-background"></div>
+                    <div class="scene-content" id="scene-content"></div>
+                </div>
+
+                <!-- Balão de fala -->
+                <div class="speech-bubble" id="speech-bubble">
+                    Olá, Yoyo! Eu sou Jesus, seu amigo! ✨
+                </div>
+
+                <!-- Área da fase -->
+                <div class="phase-area" id="phase-area">
+                    <div class="phase-emoji" id="phase-emoji">⭐</div>
+                    <div class="phase-title" id="phase-title">JESUS NASCE</div>
+                    <div class="phase-instruction" id="phase-instruction">Toque na estrela!</div>
+                </div>
+
+                <!-- Botões -->
+                <div class="phase-buttons" id="phase-buttons"></div>
+
+                <!-- Medalhas -->
+                <div class="medals-section" id="medals-section">
+                    <h3>🏆 MINHAS MEDALHAS</h3>
+                    <div class="medals-grid" id="medals-grid"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Feito com 💜 para a Yoyo aprender sobre Jesus</p>
+        </footer>
+    </div>
+
+    <script src="tts.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
