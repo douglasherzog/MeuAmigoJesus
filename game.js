@@ -535,6 +535,14 @@ function mostrarEtapaLicao(fase) {
         var btnNext = document.querySelector('.next-btn');
         if (btnNext) btnNext.style.display = 'none';
     }
+    if (memorizado) {
+        var btnPrayer = document.getElementById('btn-prayer');
+        var btnRepeat = document.getElementById('btn-verse-repeat');
+        var btnMem = document.getElementById('btn-verse-memorized');
+        if (btnPrayer) { btnPrayer.classList.remove('disabled'); btnPrayer.disabled = false; }
+        if (btnRepeat) { btnRepeat.classList.remove('disabled'); btnRepeat.disabled = false; }
+        if (btnMem) { btnMem.classList.remove('disabled'); btnMem.disabled = false; }
+    }
 }
 
 function avancarEtapa(fase) {
@@ -567,11 +575,15 @@ function mostrarLicao(fase) {
     var memorizado = estado.versiculosMemorizados && estado.versiculosMemorizados.includes(fase.id);
     var nome = estado.nome || '';
     var ouviuVersiculo = false;
+    var rezou = false;
+    var btnPrayerDisabled = memorizado ? '' : ' disabled';
+    var btnRepeatDisabled = memorizado ? '' : ' disabled';
+    var btnMemDisabled = memorizado ? '' : ' disabled';
     licaoEl.innerHTML = ''
         + '<div class="lesson-card">'
         +   '<div class="lesson-versiculo">📖 ' + versiculo + '</div>'
         +   '<div class="lesson-licao">💡 ' + licao + '</div>'
-        +   '<button class="prayer-btn" id="btn-prayer" type="button">'
+        +   '<button class="prayer-btn' + (memorizado ? '' : ' disabled') + '" id="btn-prayer" type="button"' + btnPrayerDisabled + '>'
         +     '<span class="btn-emoji">🙏</span><span class="btn-text">REZAR JUNTO</span>'
         +   '</button>'
         +   '<div class="prayer-text" id="prayer-text" style="display:none;">' + oracao + '</div>'
@@ -579,8 +591,8 @@ function mostrarLicao(fase) {
         +     '<div class="verse-challenge-title">⭐ DESAFIO DA SEMANA ⭐</div>'
         +     '<div class="verse-challenge-text" id="verse-challenge-text">' + versiculo + '</div>'
         +     '<div class="verse-challenge-buttons">'
-        +       '<button class="verse-repeat-btn" id="btn-verse-repeat" type="button">🔊 OUVIR O VERSÍCULO</button>'
-        +       '<button class="verse-memorized-btn disabled' + (memorizado ? ' done' : '') + '" id="btn-verse-memorized" type="button"' + (memorizado ? '' : ' disabled') + '>'
+        +       '<button class="verse-repeat-btn disabled" id="btn-verse-repeat" type="button"' + btnRepeatDisabled + '>🔊 OUVIR O VERSÍCULO</button>'
+        +       '<button class="verse-memorized-btn disabled' + (memorizado ? ' done' : '') + '" id="btn-verse-memorized" type="button"' + btnMemDisabled + '>'
         +         (memorizado ? '✅ MEMORIZADO!' : '🧠 JÁ MEMORIZEI!')
         +       '</button>'
         +     '</div>'
@@ -588,9 +600,16 @@ function mostrarLicao(fase) {
         +   '</div>'
         + '</div>';
     falar(licao);
+    aoTerminarFala = function() {
+        if (!memorizado) {
+            var btnP = document.getElementById('btn-prayer');
+            if (btnP) { btnP.classList.remove('disabled'); btnP.disabled = false; }
+        }
+    };
     var btnPrayer = document.getElementById('btn-prayer');
     if (btnPrayer) btnPrayer.addEventListener('click', function() {
         if (falando) return;
+        if (rezou || memorizado) return;
         var prayerEl = document.getElementById('prayer-text');
         if (prayerEl) {
             prayerEl.style.display = 'block';
@@ -603,10 +622,20 @@ function mostrarLicao(fase) {
             salvarEstado();
             mostrarNotificacaoConquista(CONQUISTAS_EXTRAS.find(function(c) { return c.id === 'primeira_oracao'; }));
         }
+        aoTerminarFala = function() {
+            rezou = true;
+            btnPrayer.classList.add('done');
+            btnPrayer.disabled = true;
+            if (!memorizado) {
+                var btnRep = document.getElementById('btn-verse-repeat');
+                if (btnRep) { btnRep.classList.remove('disabled'); btnRep.disabled = false; }
+            }
+        };
     });
     var btnRepeat = document.getElementById('btn-verse-repeat');
     if (btnRepeat) btnRepeat.addEventListener('click', function() {
         if (falando) return;
+        if (!rezou && !memorizado) return;
         falar(versiculo);
         ouviuVersiculo = true;
         var btnMem = document.getElementById('btn-verse-memorized');

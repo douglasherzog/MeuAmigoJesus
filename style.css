@@ -2668,3 +2668,15 @@ body.high-contrast .story-dot.completed {
     cursor: not-allowed;
     filter: grayscale(0.5);
 }
+
+.prayer-btn.disabled,
+.verse-repeat-btn.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.prayer-btn.done {
+    opacity: 0.6;
+    cursor: default;
+}
