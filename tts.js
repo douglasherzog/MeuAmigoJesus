@@ -7,6 +7,10 @@ function selecionarVozPTBR() {
            voices[0];
 }
 
+function prepararTextoFalado(texto) {
+    return texto.replace(/(\d+)\s*:\s*(\d+)/g, 'capítulo $1, versículo $2');
+}
+
 function falarWeb(texto) {
     if (!('speechSynthesis' in window)) return false;
     window.speechSynthesis.cancel();
@@ -21,6 +25,7 @@ function falarWeb(texto) {
 
 function falar(texto) {
     if (!texto) return;
+    texto = prepararTextoFalado(texto);
     const url = `http://127.0.0.1:8766/falar?texto=${encodeURIComponent(texto)}`;
     fetch(url)
         .then(response => {
