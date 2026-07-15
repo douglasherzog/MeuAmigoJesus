@@ -18,7 +18,7 @@ const FASES = [
     {
         id: 'nascimento', numero: 2, emoji: '⭐', titulo: 'JESUS NASCE',
         historia: 'Jesus nasceu em Belém, numa manjedoura, porque não havia lugar na hospedaria. Uma estrela brilhante apareceu no céu!',
-        fala: 'Eu nasci em Belém, num lugar bem simples, deitado numa manjedoura. Sabes por quê, {nome}? Porque o verdadeiro tesouro não está no luxo, mas no amor. O mais importante é o coração, meu pequeno!',
+        fala: 'Eu nasci em Belém, num lugar bem simples, deitado numa manjedoura. Sabe por quê, {nome}? Porque o verdadeiro tesouro não está no luxo, mas no amor. O mais importante é o coração, meu pequeno!',
         instrucao: 'Toque na estrela para guiar os pastores até Jesus!',
         cenario: 'nascimento', interacao: 'clicar',
         dados: { alvo: 'star-bethlehem', emoji: '⭐' },
@@ -44,7 +44,7 @@ const FASES = [
     {
         id: 'reismagos', numero: 4, emoji: '👑', titulo: 'OS REIS MAGOS',
         historia: 'Três reis magos seguiram a estrela por muitos dias até encontrar Jesus. Trouxeram ouro, incenso e mirra.',
-        fala: 'Três reis sábios viajaram por muitos dias, seguindo uma estrela brilhante no céu, só para me visitar! Eles trouxeram presentes preciosos. Sabes o melhor presente que podes me dar, {nome}? O teu coração cheio de amor!',
+        fala: 'Três reis sábios viajaram por muitos dias, seguindo uma estrela brilhante no céu, só para me visitar! Eles trouxeram presentes preciosos. Sabe qual é o melhor presente que você pode me dar, {nome}? O seu coração cheio de amor!',
         instrucao: 'Toque nas estrelas na ordem certa para guiar os Reis Magos!',
         cenario: 'reismagos', interacao: 'sequencia',
         dados: { sequencia: ['estrela1', 'estrela2', 'estrela3', 'estrela4'] },
@@ -74,7 +74,7 @@ const FASES = [
     {
         id: 'templo12', numero: 6, emoji: '📖', titulo: 'JESUS AOS 12 ANOS',
         historia: 'Aos 12 anos, Jesus ficou no templo conversando com os mestres. Todos se admiravam de sua sabedoria!',
-        fala: 'Quando eu tinha 12 anos, fiquei no templo conversando com os mestres da lei. Eles ficaram admirados com as minhas palavras! Eu amava estudar sobre meu Pai. Aprender sobre Deus é como plantar uma semente que cresce e dá muitos frutos, {nome}. Tu também podes aprender muito sobre o Pai celestial!',
+        fala: 'Quando eu tinha 12 anos, fiquei no templo conversando com os mestres da lei. Eles ficaram admirados com as minhas palavras! Eu amava estudar sobre meu Pai. Aprender sobre Deus é como plantar uma semente que cresce e dá muitos frutos, {nome}. Você também pode aprender muito sobre o Pai celestial!',
         instrucao: 'Responda: onde Maria e José encontraram Jesus?',
         cenario: 'templo12', interacao: 'quiz',
         dados: {
@@ -104,7 +104,7 @@ const FASES = [
     {
         id: 'deserto', numero: 8, emoji: '🪨', titulo: 'A TENTAÇÃO',
         historia: 'No deserto, Jesus ficou 40 dias sem comer. O diabo tentou Jesus, mas Ele escolheu obedecer a Deus sempre!',
-        fala: 'No deserto, fiquei 40 dias sem comer. O tentador me ofereceu comida e poder, mas eu escolhi obedecer a meu Pai. A Palavra de Deus é mais forte que qualquer coisa deste mundo, {nome}! Lembra-te: nem só de pão vive o homem, mas de toda palavra de Deus.',
+        fala: 'No deserto, fiquei 40 dias sem comer. O tentador me ofereceu comida e poder, mas eu escolhi obedecer a meu Pai. A Palavra de Deus é mais forte que qualquer coisa deste mundo, {nome}! Lembre-se: nem só de pão vive o homem, mas de toda palavra de Deus.',
         instrucao: 'Escolha: o que Jesus escolheu — comida ou a Palavra de Deus?',
         cenario: 'deserto', interacao: 'escolha',
         dados: {
@@ -120,7 +120,7 @@ const FASES = [
     {
         id: 'discipulos', numero: 9, emoji: '🎣', titulo: 'PESCADORES DE HOMENS',
         historia: 'Jesus chamou pescadores para segui-lo: Pedro, André, Tiago e João. Ele disse: "Vou fazer de vocês pescadores de homens!"',
-        fala: 'Caminhando à beira do mar, vi pescadores lançando suas redes. Chamei Pedro, André, Tiago e João. Eles deixaram tudo para me seguir! Sabes, {nome}, eu também chamo você. Você também é meu amigo!',
+        fala: 'Caminhando à beira do mar, vi pescadores lançando suas redes. Chamei Pedro, André, Tiago e João. Eles deixaram tudo para me seguir! Saiba que eu também chamo você, {nome}. Você também é meu amigo!',
         instrucao: 'Toque nos 4 pescadores para eles seguirem Jesus!',
         cenario: 'pescadores', interacao: 'clicar-multi',
         dados: { alvos: ['p1', 'p2', 'p3', 'p4'], total: 4 },
@@ -323,67 +323,67 @@ const FASES = [
     {
         id: 'promessa', numero: 24, emoji: '🕊️', titulo: 'A PROMESSA DO CONSOLADOR',
         historia: 'Antes de subir ao céu, Jesus prometeu: "Não fiquem tristes! Eu vou enviar o Espírito Santo, o Consolador. Ele viverá em vocês para sempre!"',
-        fala: 'Antes de subir ao céu, prometi aos meus amigos que nao os deixaria sozinhos. Enviarei o Espirito Santo, o Consolador, {nome}. Ele sera seu Amigo para sempre, vivendo no seu coracao! Nao fique triste, pois eu estarei com voce sempre!',
+        fala: 'Antes de subir ao céu, prometi aos meus amigos que não os deixaria sozinhos. Enviarei o Espírito Santo, o Consolador, {nome}. Ele será seu Amigo para sempre, vivendo no seu coração! Não fique triste, pois eu estarei com você sempre!',
         instrucao: 'Toque em Jesus para ouvir Sua promessa do Consolador!',
         cenario: 'promessa', interacao: 'clicar',
         dados: { alvo: 'jesus-promessa', emoji: '🕊️' },
         medalha: 'promessa',
         versiculo: 'João 14:16 - "Eu pedirei ao Pai, e Ele dará a vocês outro Consolador, para estar com vocês para sempre."',
         licao: 'Jesus prometeu o Espírito Santo, o Consolador que nunca nos deixa sozinhos!',
-        oracao: 'Jesus, obrigado por prometer o Espirito Santo. Ajuda-me a confiar na Tua promessa. Amem.',
+        oracao: 'Jesus, obrigado por prometer o Espírito Santo. Ajude-me a confiar na Tua promessa. Amém.',
         som: 'Jesus cumpre suas promessas!'
     },
     {
         id: 'espera', numero: 25, emoji: '🙏', titulo: 'ESPERANDO EM ORAÇÃO',
         historia: 'Os amigos de Jesus voltaram a Jerusalém e ficaram todos juntos, orando e esperando o Consolador que Jesus prometeu. Eles esperaram com fé e alegria!',
-        fala: 'Os meus amigos voltaram para Jerusalém e ficaram todos juntos, orando e esperando com fé, {nome}. Eles sabiam que eu cumprio as minhas promessas! Voce tambem pode esperar com fe, pois o Consolador vai chegar ao seu coracao!',
+        fala: 'Meus amigos voltaram para Jerusalém e ficaram todos juntos, orando e esperando com fé, {nome}. Eles sabiam que eu cumpria as minhas promessas! Você também pode esperar com fé, pois o Consolador vai chegar ao seu coração!',
         instrucao: 'Toque em cada amigo orando para unir todos em oração!',
         cenario: 'espera', interacao: 'clicar-multi',
         dados: { alvos: ['amigo1', 'amigo2', 'amigo3', 'amigo4'], emoji: '🙏' },
         medalha: 'espera',
         versiculo: 'Atos 1:14 - "Todos eles se reuniam sempre em oração, junto com as mulheres."',
         licao: 'Quando esperamos em oração, nossos corações se preparam para receber o Espírito Santo!',
-        oracao: 'Querido Deus, ajuda-me a orar e esperar com fe, como os amigos de Jesus. Amem.',
-        som: 'A oracao prepara o coracao!'
+        oracao: 'Querido Deus, ajude-me a orar e esperar com fé, como os amigos de Jesus. Amém.',
+        som: 'A oração prepara o coração!' 
     },
     {
         id: 'pentecostes', numero: 26, emoji: '🔥', titulo: 'PENTECOSTES - O ESPÍRITO DESCE!',
         historia: 'No dia de Pentecostes, veio um som do céu como um vento forte! Apareceram línguas de fogo sobre cada um e todos ficaram cheios do Espírito Santo!',
-        fala: 'No dia de Pentecostes, o Espirito Santo desceu como vento e fogo, {nome}! Todos ficaram cheios do Espirito de Deus e começaram a falar das maravilhas de Deus! O Consolador que prometi chegou! Ele e o Espirito de Deus vivendo em voce!',
+        fala: 'No dia de Pentecostes, o Espírito Santo desceu como vento e fogo, {nome}! Todos ficaram cheios do Espírito de Deus e começaram a falar das maravilhas de Deus! O Consolador que prometi chegou! Ele é o Espírito de Deus vivendo em você!',
         instrucao: 'Toque em cada língua de fogo para receber o Espírito Santo!',
         cenario: 'pentecostes', interacao: 'clicar-multi',
         dados: { alvos: ['fogo1', 'fogo2', 'fogo3', 'fogo4', 'fogo5'], emoji: '🔥' },
         medalha: 'pentecostes',
         versiculo: 'Atos 2:4 - "Todos ficaram cheios do Espírito Santo e começaram a falar."',
         licao: 'O Espírito Santo desceu em Pentecostes e encheu os corações com o amor de Deus!',
-        oracao: 'Espirito Santo, enche o meu coracao com o amor de Deus, como em Pentecostes. Amem.',
-        som: 'O Espirito Santo desceu!'
+        oracao: 'Espírito Santo, encha o meu coração com o amor de Deus, como em Pentecostes. Amém.',
+        som: 'O Espírito Santo desceu!' 
     },
     {
         id: 'consolador', numero: 27, emoji: '💜', titulo: 'O CONSOLADOR NO CORAÇÃO',
         historia: 'O Espírito Santo é o Consolador que Jesus enviou. Ele vive em nosso coração, nos ensina, nos consola e nos lembra de tudo que Jesus disse!',
-        fala: 'O Espirito Santo e o meu Consolador que vive no seu coracao, {nome}! Ele te ensina, te consola quando voce esta triste, e te lembra das minhas palavras. Voce pode falar com Ele a qualquer momento! Ele e o meu Espirito, vivendo em voce para sempre!',
+        fala: 'O Espírito Santo é o meu Consolador que vive no seu coração, {nome}! Ele ensina você, consola quando você está triste e lembra você das minhas palavras. Você pode falar com Ele a qualquer momento! Ele é o meu Espírito, vivendo em você para sempre!',
         instrucao: 'Toque no coração para receber o Consolador e descobrir Seus frutos!',
         cenario: 'consolador', interacao: 'clicar',
         dados: { alvo: 'coracao-consolador', emoji: '💜' },
         medalha: 'consolador',
         versiculo: 'João 14:26 - "O Consolador, o Espírito Santo, ensinará a vocês todas as coisas."',
         licao: 'O Espírito Santo vive em nosso coração! Ele nos ensina, consola e lembra de Jesus!',
-        oracao: 'Espirito Santo, obrigado por viver no meu coracao. Ensina-me e consola-me sempre. Amem.',
+        oracao: 'Espírito Santo, obrigado por viver no meu coração. Ensine-me e console-me sempre. Amém.',
         som: 'O Consolador vive em mim!'
     },
     {
         id: 'frutos', numero: 28, emoji: '🌳', titulo: 'OS FRUTOS DO ESPÍRITO',
-        historia: 'Quando o Espírito Santo vive em nós, Ele produz frutos: amor, alegria, paz, paciência, bondade, bondade, fidelidade, mansidão e domínio próprio!',
-        fala: 'Quando o Espirito Santo vive em voce, {nome}, Ele produz frutos lindos! Amor, alegria, paz, paciencia, bondade, fidelidade, mansidao e dominio proprio! Cada fruto mostra que o meu Espirito esta em voce. Deixe o Espirito produzir esses frutos na sua vida!',
+        historia: 'Quando o Espírito Santo vive em nós, Ele produz frutos: amor, alegria, paz, paciência, bondade, fidelidade, mansidão e domínio próprio!',
+        fala: 'Quando o Espírito Santo vive em você, {nome}, Ele produz frutos lindos: amor, alegria, paz, paciência, bondade, fidelidade, mansidão e domínio próprio! Cada fruto mostra que o meu Espírito está em você. Deixe o Espírito produzir esses frutos na sua vida!',
         instrucao: 'Toque em cada fruto na árvore para descobrir os frutos do Espírito!',
         cenario: 'frutos', interacao: 'clicar-multi',
         dados: { alvos: ['fruto1', 'fruto2', 'fruto3', 'fruto4', 'fruto5', 'fruto6'], emoji: '🌳' },
         medalha: 'frutos',
         versiculo: 'Gálatas 5:22 - "O fruto do Espírito é amor, alegria, paz, paciência, bondade, fidelidade."',
         licao: 'O Espírito Santo produz em nós frutos bonitos: amor, alegria, paz e muito mais!',
-        oracao: 'Espirito Santo, produz em mim os Teus frutos: amor, alegria e paz. Amem.',
-        som: 'Os frutos do Espirito!'
+        oracao: 'Espírito Santo, produza em mim os Teus frutos: amor, alegria e paz. Amém.',
+        som: 'Os frutos do Espírito!'
     }
 ];
 

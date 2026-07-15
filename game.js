@@ -329,7 +329,7 @@ function mostrarQuizRevisao(fase) {
                 + '</div>';
             if (acertos === perguntas.length) {
                 soltarConfete(30);
-                guideCelebrar((estado.nome || '') + ', voce acertou tudo! Que maravilha!');
+                guideCelebrar((estado.nome || '') + ', você acertou tudo! Que maravilha!');
             }
             falar(acertos + ' de ' + perguntas.length + ' corretas!');
             var btnBack = document.createElement('button');
@@ -365,7 +365,7 @@ function mostrarQuizRevisao(fase) {
                 } else {
                     btn.classList.add('wrong');
                     allBtns[p.correta].classList.add('correct');
-                    falar('A resposta certa e: ' + p.opcoes[p.correta]);
+                    falar('A resposta certa é: ' + p.opcoes[p.correta]);
                 }
                 setTimeout(function() {
                     perguntaIdx++;
@@ -385,17 +385,17 @@ function gerarPerguntasRevisao(fase) {
     var todas = [
         {
             pergunta: 'O que aprendemos na fase "' + fase.titulo + '"?',
-            opcoes: [fase.licao, 'Jesus nao nos ama', 'Nao precisamos orar', 'Deus nao nos ouve'],
+            opcoes: [fase.licao, 'Jesus não nos ama', 'Não precisamos orar', 'Deus não nos ouve'],
             correta: 0
         },
         {
-            pergunta: 'Qual e o versiculo da fase "' + fase.titulo + '"?',
-            opcoes: [fase.versiculo, 'Joao 3:16 - "Porque Deus amou o mundo"', 'Genesis 1:1 - "No principio criou Deus"', 'Salmos 23:1 - "O Senhor e meu pastor"'],
+            pergunta: 'Qual é o versículo da fase "' + fase.titulo + '"?',
+            opcoes: [fase.versiculo, 'João 3:16 - "Porque Deus amou o mundo"', 'Gênesis 1:1 - "No princípio criou Deus"', 'Salmos 23:1 - "O Senhor é meu pastor"'],
             correta: 0
         },
         {
-            pergunta: 'Qual e a oracao que aprendemos?',
-            opcoes: ['Pai nosso que estais nos ceus', fase.oracao, 'Ave Maria cheia de graca', 'Gloria ao Pai ao Filho e ao Espirito Santo'],
+            pergunta: 'Qual é a oração que aprendemos?',
+            opcoes: ['Pai nosso que estais nos céus', fase.oracao, 'Ave Maria cheia de graça', 'Glória ao Pai, ao Filho e ao Espírito Santo'],
             correta: 1
         },
         {
@@ -543,8 +543,8 @@ function mostrarLicao(fase) {
         btnMemorized.textContent = '✅ MEMORIZADO!';
         btnMemorized.classList.add('done');
         soltarConfete(25);
-        guideCelebrar(nome + ', voce memorizou o versiculo! Que beleza!');
-        falar('Parabens, ' + nome + '! Voce memorizou o versiculo da semana!');
+        guideCelebrar(nome + ', você memorizou o versículo! Que beleza!');
+        falar('Parabéns, ' + nome + '! Você memorizou o versículo da semana!');
         atualizarContadorVersiculos();
         verificarConquistas();
     });
@@ -555,7 +555,7 @@ function atualizarContadorVersiculos() {
     var el = document.getElementById('verse-count');
     if (!el) return;
     var total = estado.versiculosMemorizados ? estado.versiculosMemorizados.length : 0;
-    el.textContent = 'Versiculos memorizados: ' + total + ' de ' + FASES.length;
+    el.textContent = 'Versículos memorizados: ' + total + ' de ' + FASES.length;
 }
 
 // ============================================
@@ -569,7 +569,7 @@ function atualizarBotoesConclusao(fase) {
     var nome = estado.nome || '';
     var amigo = estado.genero === 'feminino' ? 'amiga' : 'amigo';
     setTimeout(function() {
-        guideCelebrar('Muito bem, ' + nome + '! Voce e um(a) ' + amigo + ' especial!');
+        guideCelebrar('Muito bem, ' + nome + '! Você é um(a) ' + amigo + ' especial!');
     }, 1500);
 
     var container = document.getElementById('phase-buttons');
@@ -710,7 +710,7 @@ function gerarCertificado() {
         if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     });
 
-    falar(nome + ', aqui esta o seu certificado de ' + amigo + ' de Jesus! Voce completou toda a jornada!');
+    falar(nome + ', aqui está o seu certificado de ' + amigo + ' de Jesus! Você completou toda a jornada!');
     soltarConfete(50);
 }
 
@@ -759,8 +759,8 @@ function guideDicaFase(fase) {
         'sequencia': 'Toque nas figuras na ordem certa!',
         'clicar-multi': 'Toque em todas as figuras!',
         'quiz': 'Escolha a resposta certa. Pense bem!',
-        'escolha': 'Escolha a opcao certa!',
-        'arrastar': 'Arraste as figuras ate o destino!',
+        'escolha': 'Escolha a opção certa!',
+        'arrastar': 'Arraste as figuras até o destino!',
         'completar': 'Escolha a palavra que completa a frase!',
         'contar': 'Conte com cuidado e escolha a resposta!',
         'orar': 'Toque em cada gota para orar com Jesus!'
@@ -892,16 +892,16 @@ var CONQUISTAS_EXTRAS = [
     { id: 'primeira_estrela', nome: 'PRIMEIRA ESTRELA', emoji: '⭐', desc: 'Ganhou sua primeira estrela!' },
     { id: 'cinco_estrelas', nome: 'CINCO ESTRELAS', emoji: '🌟', desc: 'Juntou 5 estrelas!' },
     { id: 'dez_estrelas', nome: 'DEZ ESTRELAS', emoji: '💫', desc: 'Juntou 10 estrelas!' },
-    { id: 'todas_estrelas', nome: 'CEU ESTRELADO', emoji: '✨', desc: 'Conquistou todas as 28 estrelas!' },
+    { id: 'todas_estrelas', nome: 'CÉU ESTRELADO', emoji: '✨', desc: 'Conquistou todas as 28 estrelas!' },
     { id: 'primeira_medalha', nome: 'PRIMEIRA MEDALHA', emoji: '🥇', desc: 'Ganhou sua primeira medalha!' },
     { id: 'metade_medalhas', nome: 'METADE DO CAMINHO', emoji: '🎖️', desc: 'Conquistou 14 medalhas!' },
-    { id: 'todas_medalhas', nome: 'CAMPEAO DE JESUS', emoji: '🏆', desc: 'Conquistou todas as 28 medalhas!' },
-    { id: 'primeiro_versiculo', nome: 'PRIMEIRO VERSICULO', emoji: '📖', desc: 'Memorizou seu primeiro versiculo!' },
-    { id: 'cinco_versiculos', nome: 'GUARDIAO DA PALAVRA', emoji: '📚', desc: 'Memorizou 5 versiculos!' },
-    { id: 'todos_versiculos', nome: 'CORACAO CHEIO', emoji: '💜', desc: 'Memorizou todos os 28 versiculos!' },
-    { id: 'primeira_oracao', nome: 'CRIANCA QUE ORA', emoji: '🙏', desc: 'Fez sua primeira oracao!' },
+    { id: 'todas_medalhas', nome: 'CAMPEÃO DE JESUS', emoji: '🏆', desc: 'Conquistou todas as 28 medalhas!' },
+    { id: 'primeiro_versiculo', nome: 'PRIMEIRO VERSÍCULO', emoji: '📖', desc: 'Memorizou seu primeiro versículo!' },
+    { id: 'cinco_versiculos', nome: 'GUARDIÃO DA PALAVRA', emoji: '📚', desc: 'Memorizou 5 versículos!' },
+    { id: 'todos_versiculos', nome: 'CORAÇÃO CHEIO', emoji: '💜', desc: 'Memorizou todos os 28 versículos!' },
+    { id: 'primeira_oracao', nome: 'CRIANÇA QUE ORA', emoji: '🙏', desc: 'Fez sua primeira oração!' },
     { id: 'tres_dias', nome: 'AMIGO FIEL', emoji: '🔥', desc: 'Jogou 3 dias seguidos!' },
-    { id: 'sete_dias', nome: 'DISCIPULO DEDICADO', emoji: '💎', desc: 'Jogou 7 dias seguidos!' },
+    { id: 'sete_dias', nome: 'DISCÍPULO DEDICADO', emoji: '💎', desc: 'Jogou 7 dias seguidos!' },
     { id: 'jornada_completa', nome: 'AMIGO DE JESUS', emoji: '✝️', desc: 'Completou toda a jornada de Jesus!' }
 ];
 
@@ -943,7 +943,7 @@ function mostrarNotificacaoConquista(c) {
     var nome = estado.nome || '';
     soltarConfete(30);
     guideCelebrar(nome + '! Nova conquista: ' + c.nome + '!');
-    falar(nome + ', voce conquistou: ' + c.nome + '! ' + c.desc);
+    falar(nome + ', você conquistou: ' + c.nome + '! ' + c.desc);
 
     var notif = document.createElement('div');
     notif.className = 'achievement-notif';
