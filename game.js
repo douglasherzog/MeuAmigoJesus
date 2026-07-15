@@ -530,6 +530,11 @@ function mostrarEtapaLicao(fase) {
     atualizarIndicadorEtapa(3);
     mostrarLicao(fase);
     atualizarBotoesConclusao(fase);
+    var memorizado = estado.versiculosMemorizados && estado.versiculosMemorizados.includes(fase.id);
+    if (!memorizado) {
+        var btnNext = document.querySelector('.next-btn');
+        if (btnNext) btnNext.style.display = 'none';
+    }
 }
 
 function avancarEtapa(fase) {
@@ -561,6 +566,7 @@ function mostrarLicao(fase) {
     var versiculo = fase.versiculo || '';
     var memorizado = estado.versiculosMemorizados && estado.versiculosMemorizados.includes(fase.id);
     var nome = estado.nome || '';
+    var ouviuVersiculo = false;
     licaoEl.innerHTML = ''
         + '<div class="lesson-card">'
         +   '<div class="lesson-versiculo">📖 ' + versiculo + '</div>'
@@ -573,8 +579,8 @@ function mostrarLicao(fase) {
         +     '<div class="verse-challenge-title">⭐ DESAFIO DA SEMANA ⭐</div>'
         +     '<div class="verse-challenge-text" id="verse-challenge-text">' + versiculo + '</div>'
         +     '<div class="verse-challenge-buttons">'
-        +       '<button class="verse-repeat-btn" id="btn-verse-repeat" type="button">🔊 OUVIR DE NOVO</button>'
-        +       '<button class="verse-memorized-btn' + (memorizado ? ' done' : '') + '" id="btn-verse-memorized" type="button">'
+        +       '<button class="verse-repeat-btn" id="btn-verse-repeat" type="button">🔊 OUVIR O VERSÍCULO</button>'
+        +       '<button class="verse-memorized-btn disabled' + (memorizado ? ' done' : '') + '" id="btn-verse-memorized" type="button"' + (memorizado ? '' : ' disabled') + '>'
         +         (memorizado ? '✅ MEMORIZADO!' : '🧠 JÁ MEMORIZEI!')
         +       '</button>'
         +     '</div>'
@@ -602,6 +608,12 @@ function mostrarLicao(fase) {
     if (btnRepeat) btnRepeat.addEventListener('click', function() {
         if (falando) return;
         falar(versiculo);
+        ouviuVersiculo = true;
+        var btnMem = document.getElementById('btn-verse-memorized');
+        if (btnMem && !memorizado) {
+            btnMem.disabled = false;
+            btnMem.classList.remove('disabled');
+        }
         var vText = document.getElementById('verse-challenge-text');
         if (vText) {
             vText.classList.remove('verse-highlight');
@@ -612,6 +624,7 @@ function mostrarLicao(fase) {
     var btnMemorized = document.getElementById('btn-verse-memorized');
     if (btnMemorized) btnMemorized.addEventListener('click', function() {
         if (falando) return;
+        if (!ouviuVersiculo && !memorizado) return;
         if (!estado.versiculosMemorizados) estado.versiculosMemorizados = [];
         if (!estado.versiculosMemorizados.includes(fase.id)) {
             estado.versiculosMemorizados.push(fase.id);
@@ -624,6 +637,8 @@ function mostrarLicao(fase) {
         falar('Parabéns, ' + nome + '! Você memorizou o versículo da semana!');
         atualizarContadorVersiculos();
         verificarConquistas();
+        var btnNext = document.querySelector('.next-btn');
+        if (btnNext) btnNext.style.display = '';
     });
     atualizarContadorVersiculos();
 }

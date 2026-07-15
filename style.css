@@ -2662,3 +2662,9 @@ body.high-contrast .story-dot.completed {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.08); }
 }
+
+.verse-memorized-btn.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
