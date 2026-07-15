@@ -2670,7 +2670,8 @@ body.high-contrast .story-dot.completed {
 }
 
 .prayer-btn.disabled,
-.verse-repeat-btn.disabled {
+.verse-repeat-btn.disabled,
+.next-btn.disabled {
     opacity: 0.45;
     cursor: not-allowed;
     filter: grayscale(0.5);

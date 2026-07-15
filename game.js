@@ -493,13 +493,17 @@ function mostrarEtapaHistoria(fase) {
     var container = document.getElementById('phase-buttons');
     container.innerHTML = '';
 
+    var btn = document.createElement('button');
+    btn.className = 'big-btn next-btn disabled';
+    btn.disabled = true;
+    btn.innerHTML = '<span class="btn-emoji">▶️</span><span class="btn-text">CONTINUAR</span>';
+    btn.addEventListener('click', function() { if (!falando) avancarEtapa(fase); });
+    container.appendChild(btn);
+
     falar(historia);
     aoTerminarFala = function() {
-        var btn = document.createElement('button');
-        btn.className = 'big-btn next-btn';
-        btn.innerHTML = '<span class="btn-emoji">▶️</span><span class="btn-text">CONTINUAR</span>';
-        btn.addEventListener('click', function() { if (!falando) avancarEtapa(fase); });
-        container.appendChild(btn);
+        btn.disabled = false;
+        btn.classList.remove('disabled');
     };
 }
 
