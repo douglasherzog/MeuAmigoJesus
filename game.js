@@ -3,7 +3,7 @@
 // FASES e MEDALHAS definidas em phases.js
 // Renderizadores e interações em interactions.js
 
-var estado = { nome: '', genero: '', faseIndex: 0, estrelas: 0, medalhas: [], fasesCompletas: [] };
+var estado = { nome: '', genero: '', faseIndex: 0, estrelas: 0, medalhas: [], fasesCompletas: [], etapa: 1 };
 var generoSelecionado = '';
 var nomeDigitado = '';
 
@@ -436,15 +436,75 @@ function atualizarTela() {
     var fase = FASES[estado.faseIndex];
     if (!fase) return;
 
+    estado.etapa = 1;
+
     document.getElementById('phase-badge').textContent = 'FASE ' + fase.numero + ' DE ' + FASES.length;
     document.getElementById('stars-count').textContent = estado.estrelas;
     document.getElementById('phase-emoji').textContent = fase.emoji;
     document.getElementById('phase-title').textContent = fase.titulo;
-    var instrucao = fase.instrucao;
-    if (estado.nome) {
-        instrucao = instrucao.replace(/\{nome\}/g, estado.nome);
+
+    var licaoEl = document.getElementById('lesson-area');
+    if (licaoEl) licaoEl.style.display = 'none';
+
+    atualizarProgresso();
+    atualizarMedalhas();
+    mostrarEtapa(fase);
+}
+
+function atualizarIndicadorEtapa(etapa) {
+    var el = document.getElementById('step-indicator');
+    if (!el) return;
+    var nomes = ['', 'História', 'Interação', 'Lição'];
+    var html = '';
+    for (var i = 1; i <= 3; i++) {
+        var cls = i === etapa ? 'step-dot active' : (i < etapa ? 'step-dot done' : 'step-dot');
+        html += '<span class="' + cls + '">' + (i < etapa ? '✓' : i) + '</span>';
+        if (i < 3) html += '<span class="step-line' + (i < etapa ? ' done' : '') + '"></span>';
     }
-    document.getElementById('phase-instruction').textContent = adaptarGenero(instrucao);
+    el.innerHTML = html;
+    el.style.display = 'flex';
+}
+
+function mostrarEtapa(fase) {
+    if (estado.etapa === 1) mostrarEtapaHistoria(fase);
+    else if (estado.etapa === 2) mostrarEtapaInteracao(fase);
+    else if (estado.etapa === 3) mostrarEtapaLicao(fase);
+}
+
+function mostrarEtapaHistoria(fase) {
+    atualizarIndicadorEtapa(1);
+
+    var historia = fase.historia || fase.fala;
+    if (estado.nome) {
+        historia = historia.replace(/\{nome\}/g, estado.nome);
+    }
+    historia = adaptarGenero(historia);
+    document.getElementById('speech-bubble').textContent = historia;
+
+    document.getElementById('phase-instruction').textContent = 'Escute a história com atenção...';
+
+    var content = document.getElementById('scene-content');
+    var bg = document.getElementById('scene-background');
+    bg.className = 'scene-background ' + fase.cenario;
+    content.innerHTML = '<div class="etapa-historia-overlay"><span class="etapa-historia-emoji">' + fase.emoji + '</span></div>';
+
+    if (typeof tocarEfeitoFase === 'function') tocarEfeitoFase(fase.cenario);
+
+    var container = document.getElementById('phase-buttons');
+    container.innerHTML = '';
+
+    falar(historia);
+    aoTerminarFala = function() {
+        var btn = document.createElement('button');
+        btn.className = 'big-btn next-btn';
+        btn.innerHTML = '<span class="btn-emoji">▶️</span><span class="btn-text">CONTINUAR</span>';
+        btn.addEventListener('click', function() { if (!falando) avancarEtapa(fase); });
+        container.appendChild(btn);
+    };
+}
+
+function mostrarEtapaInteracao(fase) {
+    atualizarIndicadorEtapa(2);
 
     var fala = fase.fala;
     if (estado.nome) {
@@ -452,17 +512,31 @@ function atualizarTela() {
     }
     fala = adaptarGenero(fala);
     document.getElementById('speech-bubble').textContent = fala;
-    falar(fala);
 
-    var licaoEl = document.getElementById('lesson-area');
-    if (licaoEl) licaoEl.style.display = 'none';
+    var instrucao = fase.instrucao;
+    if (estado.nome) {
+        instrucao = instrucao.replace(/\{nome\}/g, estado.nome);
+    }
+    document.getElementById('phase-instruction').textContent = adaptarGenero(instrucao);
 
     renderizarCenario(fase);
-    if (typeof tocarEfeitoFase === 'function') tocarEfeitoFase(fase.cenario);
     guideDicaFase(fase);
     atualizarBotoes(fase);
-    atualizarProgresso();
-    atualizarMedalhas();
+
+    falar(fala);
+}
+
+function mostrarEtapaLicao(fase) {
+    atualizarIndicadorEtapa(3);
+    mostrarLicao(fase);
+    atualizarBotoesConclusao(fase);
+}
+
+function avancarEtapa(fase) {
+    estado.etapa++;
+    if (estado.etapa <= 3) {
+        mostrarEtapa(fase);
+    }
 }
 
 // renderizarCenario e executarInteracao estão em interactions.js
@@ -510,6 +584,7 @@ function mostrarLicao(fase) {
     falar(licao);
     var btnPrayer = document.getElementById('btn-prayer');
     if (btnPrayer) btnPrayer.addEventListener('click', function() {
+        if (falando) return;
         var prayerEl = document.getElementById('prayer-text');
         if (prayerEl) {
             prayerEl.style.display = 'block';
@@ -525,6 +600,7 @@ function mostrarLicao(fase) {
     });
     var btnRepeat = document.getElementById('btn-verse-repeat');
     if (btnRepeat) btnRepeat.addEventListener('click', function() {
+        if (falando) return;
         falar(versiculo);
         var vText = document.getElementById('verse-challenge-text');
         if (vText) {
@@ -535,6 +611,7 @@ function mostrarLicao(fase) {
     });
     var btnMemorized = document.getElementById('btn-verse-memorized');
     if (btnMemorized) btnMemorized.addEventListener('click', function() {
+        if (falando) return;
         if (!estado.versiculosMemorizados) estado.versiculosMemorizados = [];
         if (!estado.versiculosMemorizados.includes(fase.id)) {
             estado.versiculosMemorizados.push(fase.id);
@@ -578,7 +655,7 @@ function atualizarBotoesConclusao(fase) {
     var btn = document.createElement('button');
     btn.className = 'big-btn next-btn';
     btn.innerHTML = '<span class="btn-emoji">▶️</span><span class="btn-text">PRÓXIMO</span>';
-    btn.addEventListener('click', avancarFase);
+    btn.addEventListener('click', function() { if (!falando) avancarFase(); });
     container.appendChild(btn);
 }
 
@@ -593,6 +670,7 @@ function atualizarBotoes(fase) {
     hint.className = 'big-btn hint-btn';
     hint.innerHTML = '<span class="btn-emoji">💡</span><span class="btn-text">AJUDA</span>';
     hint.addEventListener('click', function() {
+        if (falando) return;
         var inst = fase.instrucao;
         if (estado.nome) {
             inst = inst.replace(/\{nome\}/g, estado.nome);
@@ -607,6 +685,8 @@ function atualizarBotoes(fase) {
 // AVANÇAR FASE
 // ============================================
 function avancarFase() {
+    var el = document.getElementById('step-indicator');
+    if (el) el.style.display = 'none';
     if (estado.faseIndex < FASES.length - 1) {
         estado.faseIndex++;
         salvarEstado();

@@ -393,7 +393,7 @@ var CENARIO_RENDERERS = {
 function bindClick(elementId, fase) {
     setTimeout(function() {
         var el = document.getElementById(elementId);
-        if (el) el.addEventListener('click', function() { executarInteracao(fase); });
+        if (el) el.addEventListener('click', function() { if (falando) return; executarInteracao(fase); });
     }, 100);
 }
 
@@ -405,6 +405,7 @@ function bindClicarMulti(alvos, fase) {
         alvos.forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener('click', function() {
+                if (falando) return;
                 if (el.classList.contains('done')) return;
                 el.classList.add('done');
                 estadoInteracao.progresso++;
@@ -426,6 +427,7 @@ function bindEncontrar(alvos, fase) {
         alvos.forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener('click', function() {
+                if (falando) return;
                 if (el.classList.contains('found')) return;
                 el.classList.add('found');
                 estadoInteracao.progresso++;
@@ -448,6 +450,7 @@ function bindSequencia(sequencia, fase) {
         sequencia.forEach(function(id, idx) {
             var el = document.getElementById(id);
             if (el) el.addEventListener('click', function() {
+                if (falando) return;
                 if (el.classList.contains('done')) return;
                 if (idx === estadoInteracao.sequenciaIdx) {
                     el.classList.add('done');
@@ -484,6 +487,7 @@ function bindArrastar(alvos, destinoId, fase) {
             var offsetX = 0, offsetY = 0;
 
             function startDrag(e) {
+                if (falando) return;
                 if (el.classList.contains('dropped')) return;
                 e.preventDefault();
                 isDragging = true;
@@ -549,6 +553,7 @@ function bindOrar(alvos, fase) {
         alvos.forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener('click', function() {
+                if (falando) return;
                 if (el.classList.contains('prayed')) return;
                 el.classList.add('prayed');
                 estadoInteracao.progresso++;
@@ -576,6 +581,7 @@ function renderQuiz(content, fase) {
         btn.className = 'quiz-option';
         btn.innerHTML = '<span class="quiz-letter">' + String.fromCharCode(65 + idx) + '</span> ' + opcao;
         btn.addEventListener('click', function() {
+            if (falando) return;
             if (idx === dados.correta) {
                 btn.classList.add('correct');
                 div.querySelectorAll('.quiz-option').forEach(function(b) { b.disabled = true; });
@@ -601,6 +607,7 @@ function renderEscolha(content, fase) {
     btnYes.className = 'big-btn choice-btn yes';
     btnYes.innerHTML = '<span class="btn-emoji">' + dados.opcaoCerta.emoji + '</span><span class="btn-text">' + dados.opcaoCerta.texto + '</span>';
     btnYes.addEventListener('click', function() {
+        if (falando) return;
         executarInteracao(fase);
     });
     div.appendChild(btnYes);
@@ -609,6 +616,7 @@ function renderEscolha(content, fase) {
     btnNo.className = 'big-btn choice-btn no';
     btnNo.innerHTML = '<span class="btn-emoji">' + dados.opcaoErrada.emoji + '</span><span class="btn-text">' + dados.opcaoErrada.texto + '</span>';
     btnNo.addEventListener('click', function() {
+        if (falando) return;
         btnNo.style.animation = 'shake 0.5s';
         document.getElementById('speech-bubble').textContent = 'Jesus escolheu obedecer a Deus! Tente de novo! 📖';
         falar('Tente de novo! Escolha a Palavra de Deus!');
@@ -628,6 +636,7 @@ function renderCompletar(content, fase) {
         btn.className = 'completar-option';
         btn.textContent = opcao;
         btn.addEventListener('click', function() {
+            if (falando) return;
             if (idx === dados.correta) {
                 btn.classList.add('correct');
                 div.querySelectorAll('.completar-option').forEach(function(b) { b.disabled = true; });
@@ -655,6 +664,7 @@ function renderContar(content, fase) {
         btn.className = 'quiz-option';
         btn.innerHTML = '<span class="quiz-letter">' + String.fromCharCode(65 + idx) + '</span> ' + opcao;
         btn.addEventListener('click', function() {
+            if (falando) return;
             if (idx === dados.correta) {
                 btn.classList.add('correct');
                 div.querySelectorAll('.quiz-option').forEach(function(b) { b.disabled = true; });
@@ -690,9 +700,10 @@ function executarInteracao(fase) {
     // Som de conclusão
     if (fase.som) setTimeout(function() { falar(fase.som); }, 500);
 
-    // Atualizar UI
-    mostrarLicao(fase);
-    atualizarBotoesConclusao(fase);
+    // Avançar para a etapa de lição
+    setTimeout(function() {
+        avancarEtapa(fase);
+    }, 1500);
 }
 
 // ============================================

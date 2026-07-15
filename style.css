@@ -2572,3 +2572,93 @@ body.high-contrast .story-dot.active {
 body.high-contrast .story-dot.completed {
     background: #00AA00;
 }
+
+/* ============================================
+   INDICADOR DE ETAPAS
+   ============================================ */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 8px 0 4px;
+}
+
+.step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    background: #e0e0e0;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background: #6C5CE7;
+    color: #fff;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
+}
+
+.step-dot.done {
+    background: #00B894;
+    color: #fff;
+}
+
+.step-line {
+    width: 24px;
+    height: 3px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.step-line.done {
+    background: #00B894;
+}
+
+/* ============================================
+   OVERLAY DE BLOQUEIO DURANTE TTS
+   ============================================ */
+.tts-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background: transparent;
+}
+
+.tts-overlay.active {
+    display: block;
+}
+
+/* ============================================
+   OVERLAY DA ETAPA DE HISTÓRIA
+   ============================================ */
+.etapa-historia-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.etapa-historia-emoji {
+    font-size: 5em;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes pulse-soft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
