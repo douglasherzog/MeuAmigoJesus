@@ -64,7 +64,7 @@ function criarElementoImagem(config, classeExtra, id) {
     if (id) el.id = id;
     if (config.alt) el.alt = config.alt;
     if (config.width) el.style.width = config.width;
-    if (config.height) el.style.height = config.height;
+    if (config.width) el.style.height = config.width;
     if (config.bottom !== undefined) el.style.bottom = config.bottom;
     if (config.top !== undefined) el.style.top = config.top;
     if (config.left !== undefined) el.style.left = config.left;
@@ -115,7 +115,7 @@ function aplicarImagens(content, fase) {
         el.innerHTML = '';
         el.classList.add('imagem-overlay-container');
         if (config.width) el.style.width = config.width;
-        if (config.height) el.style.height = config.height;
+        if (config.width) el.style.height = config.width;
         if (config.bottom !== undefined) el.style.bottom = config.bottom;
         if (config.top !== undefined) el.style.top = config.top;
         if (config.left !== undefined) el.style.left = config.left;
