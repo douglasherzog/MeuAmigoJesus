@@ -12,7 +12,7 @@ if (typeof FASES !== 'undefined') {
 
 // Estado da interação atual
 var estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0 };
-var usarImagensGeradas = false;
+var usarImagensGeradas = true;
 
 // Cache de imagens já pré-carregadas
 var imagensPrecarregadas = {};
@@ -127,6 +127,8 @@ function aplicarImagens(content, fase) {
         if (!config || !config.src) continue;
         var el = document.getElementById(chave) || content.querySelector('.' + chave);
         if (!el) continue;
+        if (!el.classList.contains('interactive-element') && !el.classList.contains('draggable')) continue;
+
         el.innerHTML = '';
         el.classList.add('imagem-overlay-container');
         if (config.width) el.style.width = config.width;
@@ -148,12 +150,6 @@ function aplicarImagens(content, fase) {
         img.onerror = function() { img.style.display = 'none'; };
         el.appendChild(img);
 
-        if (config.titulo) {
-            var balao = document.createElement('div');
-            balao.className = 'sprite-balao';
-            balao.textContent = config.titulo;
-            el.appendChild(balao);
-        }
     }
 }
 
