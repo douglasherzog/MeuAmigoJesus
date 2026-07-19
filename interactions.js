@@ -93,6 +93,7 @@ function aplicarImagens(content, fase) {
         img.className = 'cenario-imagem-overlay entrada-cena';
         img.alt = chave;
         if (config.titulo) img.title = config.titulo;
+        img.onerror = function() { img.style.display = 'none'; };
         el.appendChild(img);
     }
 }

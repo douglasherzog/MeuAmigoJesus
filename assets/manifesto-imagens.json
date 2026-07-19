@@ -1,0 +1,1034 @@
+{
+  "geradoEm": "2026-07-19T17:18:08.936Z",
+  "instrucoes": "Preencha OPENAI_API_KEY e execute scripts/gerar-imagens.js para gerar as imagens automaticamente.",
+  "imagens": [
+    {
+      "tipo": "background",
+      "fase": "anunciacao",
+      "titulo": "A ANUNCIAÇÃO",
+      "arquivo": "assets/backgrounds/anunciacao-bg.webp",
+      "prompt": "A peaceful room interior in ancient Nazareth, soft morning light streaming through a window, a simple wooden room with warm beige walls, gentle sunbeams, olive tree visible through window, lilies in a vase, children's book illustration, soft pastel colors, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "anunciacao",
+      "chave": "mary-kneeling",
+      "titulo": "Maria",
+      "arquivo": "assets/sprites/mary-kneeling.png",
+      "prompt": "Cute children's book illustration of \"Maria\" from the Bible story \"A ANUNCIAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "anunciacao",
+      "chave": "anjo-gabriel",
+      "titulo": "Anjo Gabriel",
+      "arquivo": "assets/sprites/anjo-gabriel.png",
+      "prompt": "Cute children's book illustration of \"Anjo Gabriel\" from the Bible story \"A ANUNCIAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "anunciacao",
+      "chave": "lily-flower",
+      "titulo": "Flor de lírio",
+      "arquivo": "assets/sprites/lily-flower.png",
+      "prompt": "Cute children's book illustration of \"Flor de lírio\" from the Bible story \"A ANUNCIAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "nascimento",
+      "titulo": "JESUS NASCE",
+      "arquivo": "assets/backgrounds/nascimento-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "nascimento",
+      "chave": "star-bethlehem",
+      "titulo": "Estrela de Belém",
+      "arquivo": "assets/sprites/star-bethlehem.png",
+      "prompt": "Cute children's book illustration of \"Estrela de Belém\" from the Bible story \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "nascimento",
+      "chave": "angel",
+      "titulo": "Anjo",
+      "arquivo": "assets/sprites/angel.png",
+      "prompt": "Cute children's book illustration of \"Anjo\" from the Bible story \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "nascimento",
+      "chave": "stable",
+      "titulo": "Estábulo",
+      "arquivo": "assets/sprites/stable.png",
+      "prompt": "Cute children's book illustration of \"Estábulo\" from the Bible story \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "nascimento",
+      "chave": "baby-jesus",
+      "titulo": "Menino Jesus",
+      "arquivo": "assets/sprites/baby-jesus.png",
+      "prompt": "Cute children's book illustration of \"Menino Jesus\" from the Bible story \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "nascimento",
+      "chave": "mary-jose",
+      "titulo": "Maria e José",
+      "arquivo": "assets/sprites/mary-jose.png",
+      "prompt": "Cute children's book illustration of \"Maria e José\" from the Bible story \"JESUS NASCE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "pastores",
+      "titulo": "OS PASTORES",
+      "arquivo": "assets/backgrounds/pastores-bg.webp",
+      "prompt": "Night field with gentle hills, dark blue sky with stars, sheep resting in the grass, campfire glow, shepherds' tents in distance, peaceful night landscape, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pastores",
+      "chave": "pastor1",
+      "titulo": "Pastor 1",
+      "arquivo": "assets/sprites/pastor1.png",
+      "prompt": "Cute children's book illustration of \"Pastor 1\" from the Bible story \"OS PASTORES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pastores",
+      "chave": "pastor2",
+      "titulo": "Pastor 2",
+      "arquivo": "assets/sprites/pastor2.png",
+      "prompt": "Cute children's book illustration of \"Pastor 2\" from the Bible story \"OS PASTORES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pastores",
+      "chave": "pastor3",
+      "titulo": "Pastor 3",
+      "arquivo": "assets/sprites/pastor3.png",
+      "prompt": "Cute children's book illustration of \"Pastor 3\" from the Bible story \"OS PASTORES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "reismagos",
+      "titulo": "OS REIS MAGOS",
+      "arquivo": "assets/backgrounds/reismagos-bg.webp",
+      "prompt": "Desert night with sand dunes, three wise men traveling in the distance, big bright star shining above, camels silhouette, deep blue and purple sky, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "reismagos",
+      "chave": "estrela1",
+      "titulo": "Estrela 1",
+      "arquivo": "assets/sprites/estrela1.png",
+      "prompt": "Cute children's book illustration of \"Estrela 1\" from the Bible story \"OS REIS MAGOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "reismagos",
+      "chave": "estrela2",
+      "titulo": "Estrela 2",
+      "arquivo": "assets/sprites/estrela2.png",
+      "prompt": "Cute children's book illustration of \"Estrela 2\" from the Bible story \"OS REIS MAGOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "reismagos",
+      "chave": "estrela3",
+      "titulo": "Estrela 3",
+      "arquivo": "assets/sprites/estrela3.png",
+      "prompt": "Cute children's book illustration of \"Estrela 3\" from the Bible story \"OS REIS MAGOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "reismagos",
+      "chave": "estrela4",
+      "titulo": "Estrela 4",
+      "arquivo": "assets/sprites/estrela4.png",
+      "prompt": "Cute children's book illustration of \"Estrela 4\" from the Bible story \"OS REIS MAGOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "reismagos",
+      "chave": "big-star",
+      "titulo": "Estrela guia",
+      "arquivo": "assets/sprites/big-star.png",
+      "prompt": "Cute children's book illustration of \"Estrela guia\" from the Bible story \"OS REIS MAGOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "templosimeao",
+      "titulo": "SIMEÃO NO TEMPLO",
+      "arquivo": "assets/backgrounds/templosimeao-bg.webp",
+      "prompt": "Interior of an ancient Jewish temple in Jerusalem, tall stone columns, warm golden light, altar area, menorah, peaceful sacred atmosphere, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templosimeao",
+      "chave": "simeao-old",
+      "titulo": "Simeão",
+      "arquivo": "assets/sprites/simeao-old.png",
+      "prompt": "Cute children's book illustration of \"Simeão\" from the Bible story \"SIMEÃO NO TEMPLO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templosimeao",
+      "chave": "baby-in-arms",
+      "titulo": "Jesus no colo",
+      "arquivo": "assets/sprites/baby-in-arms.png",
+      "prompt": "Cute children's book illustration of \"Jesus no colo\" from the Bible story \"SIMEÃO NO TEMPLO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templosimeao",
+      "chave": "mary-jose-temple",
+      "titulo": "Maria e José",
+      "arquivo": "assets/sprites/mary-jose-temple.png",
+      "prompt": "Cute children's book illustration of \"Maria e José\" from the Bible story \"SIMEÃO NO TEMPLO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "templo12",
+      "titulo": "JESUS AOS 12 ANOS",
+      "arquivo": "assets/backgrounds/templo12-bg.webp",
+      "prompt": "Inside an ancient temple, scrolls and teachers, warm light, stone columns, peaceful learning environment, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templo12",
+      "chave": "jesus-boy",
+      "titulo": "Jesus menino",
+      "arquivo": "assets/sprites/jesus-boy.png",
+      "prompt": "Cute children's book illustration of \"Jesus menino\" from the Bible story \"JESUS AOS 12 ANOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templo12",
+      "chave": "teachers",
+      "titulo": "Mestres",
+      "arquivo": "assets/sprites/teachers.png",
+      "prompt": "Cute children's book illustration of \"Mestres\" from the Bible story \"JESUS AOS 12 ANOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "templo12",
+      "chave": "scroll",
+      "titulo": "Rolos de Torah",
+      "arquivo": "assets/sprites/scroll.png",
+      "prompt": "Cute children's book illustration of \"Rolos de Torah\" from the Bible story \"JESUS AOS 12 ANOS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "batismo",
+      "titulo": "O BATISMO",
+      "arquivo": "assets/backgrounds/batismo-bg.webp",
+      "prompt": "Jordan River landscape with calm water, lush green riverbank, blue sky with soft clouds, doves flying in distance, peaceful nature scene, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "batismo",
+      "chave": "jesus-river",
+      "titulo": "Jesus no rio",
+      "arquivo": "assets/sprites/jesus-river.png",
+      "prompt": "Cute children's book illustration of \"Jesus no rio\" from the Bible story \"O BATISMO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "batismo",
+      "chave": "dove",
+      "titulo": "Pomba do Espírito Santo",
+      "arquivo": "assets/sprites/dove.png",
+      "prompt": "Cute children's book illustration of \"Pomba do Espírito Santo\" from the Bible story \"O BATISMO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "batismo",
+      "chave": "joao-batista",
+      "titulo": "João Batista",
+      "arquivo": "assets/sprites/joao-batista.png",
+      "prompt": "Cute children's book illustration of \"João Batista\" from the Bible story \"O BATISMO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "deserto",
+      "titulo": "A TENTAÇÃO",
+      "arquivo": "assets/backgrounds/deserto-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"A TENTAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "deserto",
+      "chave": "jesus-in-desert",
+      "titulo": "Jesus no deserto",
+      "arquivo": "assets/sprites/jesus-in-desert.png",
+      "prompt": "Cute children's book illustration of \"Jesus no deserto\" from the Bible story \"A TENTAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "deserto",
+      "chave": "food-temptation",
+      "titulo": "Comida",
+      "arquivo": "assets/sprites/food-temptation.png",
+      "prompt": "Cute children's book illustration of \"Comida\" from the Bible story \"A TENTAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "deserto",
+      "chave": "bible",
+      "titulo": "Palavra de Deus",
+      "arquivo": "assets/sprites/bible.png",
+      "prompt": "Cute children's book illustration of \"Palavra de Deus\" from the Bible story \"A TENTAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "discipulos",
+      "titulo": "PESCADORES DE HOMENS",
+      "arquivo": "assets/backgrounds/discipulos-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "discipulos",
+      "chave": "p1",
+      "titulo": "Pescador 1",
+      "arquivo": "assets/sprites/p1.png",
+      "prompt": "Cute children's book illustration of \"Pescador 1\" from the Bible story \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "discipulos",
+      "chave": "p2",
+      "titulo": "Pescador 2",
+      "arquivo": "assets/sprites/p2.png",
+      "prompt": "Cute children's book illustration of \"Pescador 2\" from the Bible story \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "discipulos",
+      "chave": "p3",
+      "titulo": "Pescador 3",
+      "arquivo": "assets/sprites/p3.png",
+      "prompt": "Cute children's book illustration of \"Pescador 3\" from the Bible story \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "discipulos",
+      "chave": "p4",
+      "titulo": "Pescador 4",
+      "arquivo": "assets/sprites/p4.png",
+      "prompt": "Cute children's book illustration of \"Pescador 4\" from the Bible story \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "discipulos",
+      "chave": "boat",
+      "titulo": "Barco",
+      "arquivo": "assets/sprites/boat.png",
+      "prompt": "Cute children's book illustration of \"Barco\" from the Bible story \"PESCADORES DE HOMENS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "cana",
+      "titulo": "BODAS DE CANÁ",
+      "arquivo": "assets/backgrounds/cana-bg.webp",
+      "prompt": "Wedding celebration in ancient Cana village, decorated tables with food, colorful banners, joyful outdoor feast, warm evening light, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cana",
+      "chave": "jarra1",
+      "titulo": "Jarra 1",
+      "arquivo": "assets/sprites/jarra1.png",
+      "prompt": "Cute children's book illustration of \"Jarra 1\" from the Bible story \"BODAS DE CANÁ\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cana",
+      "chave": "jarra2",
+      "titulo": "Jarra 2",
+      "arquivo": "assets/sprites/jarra2.png",
+      "prompt": "Cute children's book illustration of \"Jarra 2\" from the Bible story \"BODAS DE CANÁ\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cana",
+      "chave": "jarra3",
+      "titulo": "Jarra 3",
+      "arquivo": "assets/sprites/jarra3.png",
+      "prompt": "Cute children's book illustration of \"Jarra 3\" from the Bible story \"BODAS DE CANÁ\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cana",
+      "chave": "jesus-cana",
+      "titulo": "Jesus em Caná",
+      "arquivo": "assets/sprites/jesus-cana.png",
+      "prompt": "Cute children's book illustration of \"Jesus em Caná\" from the Bible story \"BODAS DE CANÁ\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cana",
+      "chave": "wedding-table",
+      "titulo": "Mesa do casamento",
+      "arquivo": "assets/sprites/wedding-table.png",
+      "prompt": "Cute children's book illustration of \"Mesa do casamento\" from the Bible story \"BODAS DE CANÁ\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "bemaventurancas",
+      "titulo": "AS BEM-AVENTURANÇAS",
+      "arquivo": "assets/backgrounds/bemaventurancas-bg.webp",
+      "prompt": "Green hilltop (Mount of Beatitudes), blue sky with fluffy clouds, grass and wildflowers, peaceful landscape overlooking Sea of Galilee, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bemaventurancas",
+      "chave": "jesus-on-mountain",
+      "titulo": "Jesus no monte",
+      "arquivo": "assets/sprites/jesus-on-mountain.png",
+      "prompt": "Cute children's book illustration of \"Jesus no monte\" from the Bible story \"AS BEM-AVENTURANÇAS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bemaventurancas",
+      "chave": "c1",
+      "titulo": "Criança 1",
+      "arquivo": "assets/sprites/c1.png",
+      "prompt": "Cute children's book illustration of \"Criança 1\" from the Bible story \"AS BEM-AVENTURANÇAS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bemaventurancas",
+      "chave": "c2",
+      "titulo": "Criança 2",
+      "arquivo": "assets/sprites/c2.png",
+      "prompt": "Cute children's book illustration of \"Criança 2\" from the Bible story \"AS BEM-AVENTURANÇAS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bemaventurancas",
+      "chave": "c3",
+      "titulo": "Criança 3",
+      "arquivo": "assets/sprites/c3.png",
+      "prompt": "Cute children's book illustration of \"Criança 3\" from the Bible story \"AS BEM-AVENTURANÇAS\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "curaciego",
+      "titulo": "JESUS CURA O CEGO",
+      "arquivo": "assets/backgrounds/curaciego-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"JESUS CURA O CEGO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "curaciego",
+      "chave": "blind-man",
+      "titulo": "Cego",
+      "arquivo": "assets/sprites/blind-man.png",
+      "prompt": "Cute children's book illustration of \"Cego\" from the Bible story \"JESUS CURA O CEGO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "curaciego",
+      "chave": "jesus-healer",
+      "titulo": "Jesus",
+      "arquivo": "assets/sprites/jesus-healer.png",
+      "prompt": "Cute children's book illustration of \"Jesus\" from the Bible story \"JESUS CURA O CEGO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "curaciego",
+      "chave": "mud",
+      "titulo": "Lama",
+      "arquivo": "assets/sprites/mud.png",
+      "prompt": "Cute children's book illustration of \"Lama\" from the Bible story \"JESUS CURA O CEGO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "curaciego",
+      "chave": "healed-eyes",
+      "titulo": "Olhos curados",
+      "arquivo": "assets/sprites/healed-eyes.png",
+      "prompt": "Cute children's book illustration of \"Olhos curados\" from the Bible story \"JESUS CURA O CEGO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "paes",
+      "titulo": "MULTIPLICAÇÃO DOS PÃES",
+      "arquivo": "assets/backgrounds/paes-bg.webp",
+      "prompt": "Green grassy field with gentle hills, blue sky, baskets and loaves of bread on the grass, crowd area, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "paes",
+      "chave": "basket",
+      "titulo": "Cesta",
+      "arquivo": "assets/sprites/basket.png",
+      "prompt": "Cute children's book illustration of \"Cesta\" from the Bible story \"MULTIPLICAÇÃO DOS PÃES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "paes",
+      "chave": "food-items",
+      "titulo": "Pães e peixes",
+      "arquivo": "assets/sprites/food-items.png",
+      "prompt": "Cute children's book illustration of \"Pães e peixes\" from the Bible story \"MULTIPLICAÇÃO DOS PÃES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "paes",
+      "chave": "jesus-bread",
+      "titulo": "Jesus",
+      "arquivo": "assets/sprites/jesus-bread.png",
+      "prompt": "Cute children's book illustration of \"Jesus\" from the Bible story \"MULTIPLICAÇÃO DOS PÃES\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "aguas",
+      "titulo": "JESUS ANDA SOBRE A ÁGUA",
+      "arquivo": "assets/backgrounds/aguas-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"JESUS ANDA SOBRE A ÁGUA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "aguas",
+      "chave": "jesus-walking",
+      "titulo": "Jesus sobre a água",
+      "arquivo": "assets/sprites/jesus-walking.png",
+      "prompt": "Cute children's book illustration of \"Jesus sobre a água\" from the Bible story \"JESUS ANDA SOBRE A ÁGUA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "aguas",
+      "chave": "boat-storm",
+      "titulo": "Barco na tempestade",
+      "arquivo": "assets/sprites/boat-storm.png",
+      "prompt": "Cute children's book illustration of \"Barco na tempestade\" from the Bible story \"JESUS ANDA SOBRE A ÁGUA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "aguas",
+      "chave": "disciples-scared",
+      "titulo": "Discípulos",
+      "arquivo": "assets/sprites/disciples-scared.png",
+      "prompt": "Cute children's book illustration of \"Discípulos\" from the Bible story \"JESUS ANDA SOBRE A ÁGUA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "semeador",
+      "titulo": "A PARÁBOLA DO SEMEADOR",
+      "arquivo": "assets/backgrounds/semeador-bg.webp",
+      "prompt": "Sunny farmland with paths, rocky soil, thorny bushes, and good fertile soil, sower's field, bright cheerful day, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "semeador",
+      "chave": "semente1",
+      "titulo": "Semente 1",
+      "arquivo": "assets/sprites/semente1.png",
+      "prompt": "Cute children's book illustration of \"Semente 1\" from the Bible story \"A PARÁBOLA DO SEMEADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "semeador",
+      "chave": "semente2",
+      "titulo": "Semente 2",
+      "arquivo": "assets/sprites/semente2.png",
+      "prompt": "Cute children's book illustration of \"Semente 2\" from the Bible story \"A PARÁBOLA DO SEMEADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "semeador",
+      "chave": "semente3",
+      "titulo": "Semente 3",
+      "arquivo": "assets/sprites/semente3.png",
+      "prompt": "Cute children's book illustration of \"Semente 3\" from the Bible story \"A PARÁBOLA DO SEMEADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "semeador",
+      "chave": "boa-terra",
+      "titulo": "Boa terra",
+      "arquivo": "assets/sprites/boa-terra.png",
+      "prompt": "Cute children's book illustration of \"Boa terra\" from the Bible story \"A PARÁBOLA DO SEMEADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "semeador",
+      "chave": "farmer",
+      "titulo": "Semeador",
+      "arquivo": "assets/sprites/farmer.png",
+      "prompt": "Cute children's book illustration of \"Semeador\" from the Bible story \"A PARÁBOLA DO SEMEADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "zaqueu",
+      "titulo": "ZAQUEU NA ÁRVORE",
+      "arquivo": "assets/backgrounds/zaqueu-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"ZAQUEU NA ÁRVORE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "zaqueu",
+      "chave": "tree",
+      "titulo": "Árvore de Zaqueu",
+      "arquivo": "assets/sprites/tree.png",
+      "prompt": "Cute children's book illustration of \"Árvore de Zaqueu\" from the Bible story \"ZAQUEU NA ÁRVORE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "zaqueu",
+      "chave": "zaqueu",
+      "titulo": "Zaqueu",
+      "arquivo": "assets/sprites/zaqueu.png",
+      "prompt": "Cute children's book illustration of \"Zaqueu\" from the Bible story \"ZAQUEU NA ÁRVORE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "zaqueu",
+      "chave": "jesus-looks-up",
+      "titulo": "Jesus",
+      "arquivo": "assets/sprites/jesus-looks-up.png",
+      "prompt": "Cute children's book illustration of \"Jesus\" from the Bible story \"ZAQUEU NA ÁRVORE\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "bomsamaritano",
+      "titulo": "O BOM SAMARITANO",
+      "arquivo": "assets/backgrounds/bomsamaritano-bg.webp",
+      "prompt": "Dusty road between Jericho and Jerusalem, desert rocks, an inn in the distance, warm afternoon light, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bomsamaritano",
+      "chave": "cena-ferido",
+      "titulo": "Homem ferido",
+      "arquivo": "assets/sprites/cena-ferido.png",
+      "prompt": "Cute children's book illustration of \"Homem ferido\" from the Bible story \"O BOM SAMARITANO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bomsamaritano",
+      "chave": "cena-sacerdote",
+      "titulo": "Sacerdote",
+      "arquivo": "assets/sprites/cena-sacerdote.png",
+      "prompt": "Cute children's book illustration of \"Sacerdote\" from the Bible story \"O BOM SAMARITANO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bomsamaritano",
+      "chave": "cena-samaritano",
+      "titulo": "Samaritano",
+      "arquivo": "assets/sprites/cena-samaritano.png",
+      "prompt": "Cute children's book illustration of \"Samaritano\" from the Bible story \"O BOM SAMARITANO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "bomsamaritano",
+      "chave": "cena-cuidado",
+      "titulo": "Cuidado",
+      "arquivo": "assets/sprites/cena-cuidado.png",
+      "prompt": "Cute children's book illustration of \"Cuidado\" from the Bible story \"O BOM SAMARITANO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "jerusalem",
+      "titulo": "ENTRADA EM JERUSALÉM",
+      "arquivo": "assets/backgrounds/jerusalem-bg.webp",
+      "prompt": "Jerusalem city gates, streets lined with people, palm branches on the ground, golden walls, festive atmosphere, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "jerusalem",
+      "chave": "palm1",
+      "titulo": "Ramo 1",
+      "arquivo": "assets/sprites/palm1.png",
+      "prompt": "Cute children's book illustration of \"Ramo 1\" from the Bible story \"ENTRADA EM JERUSALÉM\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "jerusalem",
+      "chave": "palm2",
+      "titulo": "Ramo 2",
+      "arquivo": "assets/sprites/palm2.png",
+      "prompt": "Cute children's book illustration of \"Ramo 2\" from the Bible story \"ENTRADA EM JERUSALÉM\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "jerusalem",
+      "chave": "palm3",
+      "titulo": "Ramo 3",
+      "arquivo": "assets/sprites/palm3.png",
+      "prompt": "Cute children's book illustration of \"Ramo 3\" from the Bible story \"ENTRADA EM JERUSALÉM\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "jerusalem",
+      "chave": "palm4",
+      "titulo": "Ramo 4",
+      "arquivo": "assets/sprites/palm4.png",
+      "prompt": "Cute children's book illustration of \"Ramo 4\" from the Bible story \"ENTRADA EM JERUSALÉM\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "jerusalem",
+      "chave": "jesus-on-donkey",
+      "titulo": "Jesus no jumento",
+      "arquivo": "assets/sprites/jesus-on-donkey.png",
+      "prompt": "Cute children's book illustration of \"Jesus no jumento\" from the Bible story \"ENTRADA EM JERUSALÉM\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "ceia",
+      "titulo": "A ÚLTIMA CEIA",
+      "arquivo": "assets/backgrounds/ceia-bg.webp",
+      "prompt": "Upper room with a long table, bread and wine cups, warm candlelight, stone walls with windows, intimate atmosphere, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ceia",
+      "chave": "last-bread",
+      "titulo": "Pão",
+      "arquivo": "assets/sprites/last-bread.png",
+      "prompt": "Cute children's book illustration of \"Pão\" from the Bible story \"A ÚLTIMA CEIA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ceia",
+      "chave": "last-wine",
+      "titulo": "Vinho",
+      "arquivo": "assets/sprites/last-wine.png",
+      "prompt": "Cute children's book illustration of \"Vinho\" from the Bible story \"A ÚLTIMA CEIA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ceia",
+      "chave": "disciples-table",
+      "titulo": "Discípulos",
+      "arquivo": "assets/sprites/disciples-table.png",
+      "prompt": "Cute children's book illustration of \"Discípulos\" from the Bible story \"A ÚLTIMA CEIA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ceia",
+      "chave": "jesus-at-table",
+      "titulo": "Jesus",
+      "arquivo": "assets/sprites/jesus-at-table.png",
+      "prompt": "Cute children's book illustration of \"Jesus\" from the Bible story \"A ÚLTIMA CEIA\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "getsemani",
+      "titulo": "JESUS NO GETSÊMANI",
+      "arquivo": "assets/backgrounds/getsemani-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "gota1",
+      "titulo": "Oração 1",
+      "arquivo": "assets/sprites/gota1.png",
+      "prompt": "Cute children's book illustration of \"Oração 1\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "gota2",
+      "titulo": "Oração 2",
+      "arquivo": "assets/sprites/gota2.png",
+      "prompt": "Cute children's book illustration of \"Oração 2\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "gota3",
+      "titulo": "Oração 3",
+      "arquivo": "assets/sprites/gota3.png",
+      "prompt": "Cute children's book illustration of \"Oração 3\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "gota4",
+      "titulo": "Oração 4",
+      "arquivo": "assets/sprites/gota4.png",
+      "prompt": "Cute children's book illustration of \"Oração 4\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "gota5",
+      "titulo": "Oração 5",
+      "arquivo": "assets/sprites/gota5.png",
+      "prompt": "Cute children's book illustration of \"Oração 5\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "getsemani",
+      "chave": "jesus-praying",
+      "titulo": "Jesus orando",
+      "arquivo": "assets/sprites/jesus-praying.png",
+      "prompt": "Cute children's book illustration of \"Jesus orando\" from the Bible story \"JESUS NO GETSÊMANI\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "cruz",
+      "titulo": "O AMOR MAIOR",
+      "arquivo": "assets/backgrounds/cruz-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"O AMOR MAIOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cruz",
+      "chave": "love-heart",
+      "titulo": "Coração do amor",
+      "arquivo": "assets/sprites/love-heart.png",
+      "prompt": "Cute children's book illustration of \"Coração do amor\" from the Bible story \"O AMOR MAIOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cruz",
+      "chave": "cross-gentle",
+      "titulo": "Cruz",
+      "arquivo": "assets/sprites/cross-gentle.png",
+      "prompt": "Cute children's book illustration of \"Cruz\" from the Bible story \"O AMOR MAIOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "cruz",
+      "chave": "child-prays",
+      "titulo": "Criança orando",
+      "arquivo": "assets/sprites/child-prays.png",
+      "prompt": "Cute children's book illustration of \"Criança orando\" from the Bible story \"O AMOR MAIOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "ressurreicao",
+      "titulo": "JESUS RESSUSCITOU",
+      "arquivo": "assets/backgrounds/ressurreicao-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"JESUS RESSUSCITOU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ressurreicao",
+      "chave": "stone",
+      "titulo": "Pedra da tumba",
+      "arquivo": "assets/sprites/stone.png",
+      "prompt": "Cute children's book illustration of \"Pedra da tumba\" from the Bible story \"JESUS RESSUSCITOU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ressurreicao",
+      "chave": "tomb",
+      "titulo": "Tumba",
+      "arquivo": "assets/sprites/tomb.png",
+      "prompt": "Cute children's book illustration of \"Tumba\" from the Bible story \"JESUS RESSUSCITOU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ressurreicao",
+      "chave": "jesus-risen",
+      "titulo": "Jesus ressuscitado",
+      "arquivo": "assets/sprites/jesus-risen.png",
+      "prompt": "Cute children's book illustration of \"Jesus ressuscitado\" from the Bible story \"JESUS RESSUSCITOU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "ascensao",
+      "titulo": "A ASCENSÃO AO CÉU",
+      "arquivo": "assets/backgrounds/ascensao-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"A ASCENSÃO AO CÉU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ascensao",
+      "chave": "jesus-ascend",
+      "titulo": "Jesus ascende",
+      "arquivo": "assets/sprites/jesus-ascend.png",
+      "prompt": "Cute children's book illustration of \"Jesus ascende\" from the Bible story \"A ASCENSÃO AO CÉU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "ascensao",
+      "chave": "disciples-watching",
+      "titulo": "Discípulos",
+      "arquivo": "assets/sprites/disciples-watching.png",
+      "prompt": "Cute children's book illustration of \"Discípulos\" from the Bible story \"A ASCENSÃO AO CÉU\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "promessa",
+      "titulo": "A PROMESSA DO CONSOLADOR",
+      "arquivo": "assets/backgrounds/promessa-bg.webp",
+      "prompt": "Mount with Jesus and disciples, clouds with soft heavenly light, blue sky, peaceful atmosphere, sense of promise and hope, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "promessa",
+      "chave": "jesus-promessa",
+      "titulo": "Jesus",
+      "arquivo": "assets/sprites/jesus-promessa.png",
+      "prompt": "Cute children's book illustration of \"Jesus\" from the Bible story \"A PROMESSA DO CONSOLADOR\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "espera",
+      "titulo": "ESPERANDO EM ORAÇÃO",
+      "arquivo": "assets/backgrounds/espera-bg.webp",
+      "prompt": "Upper room with disciples praying, candles, warm light, closed windows, atmosphere of waiting and expectation, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "espera",
+      "chave": "amigo1",
+      "titulo": "Amigo orando 1",
+      "arquivo": "assets/sprites/amigo1.png",
+      "prompt": "Cute children's book illustration of \"Amigo orando 1\" from the Bible story \"ESPERANDO EM ORAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "espera",
+      "chave": "amigo2",
+      "titulo": "Amigo orando 2",
+      "arquivo": "assets/sprites/amigo2.png",
+      "prompt": "Cute children's book illustration of \"Amigo orando 2\" from the Bible story \"ESPERANDO EM ORAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "espera",
+      "chave": "amigo3",
+      "titulo": "Amigo orando 3",
+      "arquivo": "assets/sprites/amigo3.png",
+      "prompt": "Cute children's book illustration of \"Amigo orando 3\" from the Bible story \"ESPERANDO EM ORAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "espera",
+      "chave": "amigo4",
+      "titulo": "Amigo orando 4",
+      "arquivo": "assets/sprites/amigo4.png",
+      "prompt": "Cute children's book illustration of \"Amigo orando 4\" from the Bible story \"ESPERANDO EM ORAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "pentecostes",
+      "titulo": "PENTECOSTES - O ESPÍRITO DESCE!",
+      "arquivo": "assets/backgrounds/pentecostes-bg.webp",
+      "prompt": "Cute children's book illustration background scene for \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, wide scene background, no characters, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pentecostes",
+      "chave": "fogo1",
+      "titulo": "Fogo 1",
+      "arquivo": "assets/sprites/fogo1.png",
+      "prompt": "Cute children's book illustration of \"Fogo 1\" from the Bible story \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pentecostes",
+      "chave": "fogo2",
+      "titulo": "Fogo 2",
+      "arquivo": "assets/sprites/fogo2.png",
+      "prompt": "Cute children's book illustration of \"Fogo 2\" from the Bible story \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pentecostes",
+      "chave": "fogo3",
+      "titulo": "Fogo 3",
+      "arquivo": "assets/sprites/fogo3.png",
+      "prompt": "Cute children's book illustration of \"Fogo 3\" from the Bible story \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pentecostes",
+      "chave": "fogo4",
+      "titulo": "Fogo 4",
+      "arquivo": "assets/sprites/fogo4.png",
+      "prompt": "Cute children's book illustration of \"Fogo 4\" from the Bible story \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "pentecostes",
+      "chave": "fogo5",
+      "titulo": "Fogo 5",
+      "arquivo": "assets/sprites/fogo5.png",
+      "prompt": "Cute children's book illustration of \"Fogo 5\" from the Bible story \"PENTECOSTES - O ESPÍRITO DESCE!\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "consolador",
+      "titulo": "O CONSOLADOR NO CORAÇÃO",
+      "arquivo": "assets/backgrounds/consolador-bg.webp",
+      "prompt": "Soft purple and pink background with glowing heart shape in center, dove silhouette, warm spiritual light, inner peace, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "consolador",
+      "chave": "coracao-consolador",
+      "titulo": "Coração com o Consolador",
+      "arquivo": "assets/sprites/coracao-consolador.png",
+      "prompt": "Cute children's book illustration of \"Coração com o Consolador\" from the Bible story \"O CONSOLADOR NO CORAÇÃO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "background",
+      "fase": "frutos",
+      "titulo": "OS FRUTOS DO ESPÍRITO",
+      "arquivo": "assets/backgrounds/frutos-bg.webp",
+      "prompt": "Fruit tree full of colorful glowing fruits on a green hill, love hearts, peace signs, stars, joyful garden, children's book illustration, no characters, wide background scene"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto1",
+      "titulo": "Fruto 1",
+      "arquivo": "assets/sprites/fruto1.png",
+      "prompt": "Cute children's book illustration of \"Fruto 1\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto2",
+      "titulo": "Fruto 2",
+      "arquivo": "assets/sprites/fruto2.png",
+      "prompt": "Cute children's book illustration of \"Fruto 2\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto3",
+      "titulo": "Fruto 3",
+      "arquivo": "assets/sprites/fruto3.png",
+      "prompt": "Cute children's book illustration of \"Fruto 3\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto4",
+      "titulo": "Fruto 4",
+      "arquivo": "assets/sprites/fruto4.png",
+      "prompt": "Cute children's book illustration of \"Fruto 4\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto5",
+      "titulo": "Fruto 5",
+      "arquivo": "assets/sprites/fruto5.png",
+      "prompt": "Cute children's book illustration of \"Fruto 5\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    },
+    {
+      "tipo": "sprite",
+      "fase": "frutos",
+      "chave": "fruto6",
+      "titulo": "Fruto 6",
+      "arquivo": "assets/sprites/fruto6.png",
+      "prompt": "Cute children's book illustration of \"Fruto 6\" from the Bible story \"OS FRUTOS DO ESPÍRITO\", soft warm pastel colors, gentle lighting, rounded friendly shapes, storybook art style, transparent background, PNG cutout, single isolated element, no text, no watermark"
+    }
+  ]
+}
