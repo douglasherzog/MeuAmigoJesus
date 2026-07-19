@@ -12,12 +12,13 @@ if (typeof FASES !== 'undefined') {
 
 // Estado da interação atual
 var estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0 };
+var usarImagensGeradas = false;
 
 // Cache de imagens já pré-carregadas
 var imagensPrecarregadas = {};
 
 function precarregarImagens(fase) {
-    if (!fase || !fase.imagens) return;
+    if (!usarImagensGeradas || !fase || !fase.imagens) return;
     var srcs = [];
     if (fase.imagens.fundo) srcs.push(fase.imagens.fundo);
     if (fase.imagens.fundoHistoria) srcs.push(fase.imagens.fundoHistoria);
@@ -47,13 +48,12 @@ function precarregarFaseAtualEProxima(faseIndex) {
 function renderFundo(bg, fase, modoHistoria) {
     var imagens = fase.imagens || {};
     var fundoSrc = modoHistoria && imagens.fundoHistoria ? imagens.fundoHistoria : imagens.fundo;
-    if (fundoSrc) {
+    bg.className = 'scene-background ' + fase.cenario;
+    bg.style.background = '';
+
+    if (usarImagensGeradas && fundoSrc) {
         bg.style.background = 'url(' + fundoSrc + ') center/cover no-repeat';
         bg.classList.add('imagem-fundo');
-    } else {
-        bg.style.background = '';
-        bg.classList.remove('imagem-fundo');
-        bg.className = 'scene-background ' + fase.cenario;
     }
 }
 
@@ -118,6 +118,8 @@ function renderObjeto(content, chave, configFase, classeExtra, id) {
 
 // Aplica imagens sobre elementos já renderizados (emoji ou HTML) sem perder event listeners
 function aplicarImagens(content, fase) {
+    if (!usarImagensGeradas) return;
+
     var mapa = (fase.imagens && fase.imagens.mapa) ? fase.imagens.mapa : {};
     for (var chave in mapa) {
         if (!mapa.hasOwnProperty(chave)) continue;
