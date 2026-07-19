@@ -13,7 +13,8 @@ const FASES = [
         versiculo: 'Lucas 1:38 - "Eu sou a serva do Senhor!"',
         licao: 'Maria confiou em Deus. Nós também podemos confiar!',
         oracao: 'Querido Deus, ajuda-me a confiar em Ti como Maria confiou. Amém.',
-        som: 'Alegria no céu!'
+        som: 'Alegria no céu!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'nascimento', numero: 2, emoji: '⭐', titulo: 'JESUS NASCE',
@@ -26,7 +27,8 @@ const FASES = [
         versiculo: 'Lucas 2:7 - "Ela o enrolou em panos e o colocou numa manjedoura."',
         licao: 'Jesus nasceu humilde. O amor é o maior tesouro!',
         oracao: 'Obrigado, Jesus, por nascer por nós. Ensina-me a ser humilde. Amém.',
-        som: 'Brilha, brilha estrelinha!'
+        som: 'Brilha, brilha estrelinha!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'pastores', numero: 3, emoji: '🐑', titulo: 'OS PASTORES',
@@ -39,7 +41,8 @@ const FASES = [
         versiculo: 'Lucas 2:16 - "Foram apressadamente e encontraram Maria, José e o menino."',
         licao: 'Os primeiros a saber foram os humildes. Deus ama todos!',
         oracao: 'Pai, ajuda-me a ter um coração humilde como os pastores. Amém.',
-        som: 'Glória a Deus nas alturas!'
+        som: 'Glória a Deus nas alturas!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'reismagos', numero: 4, emoji: '👑', titulo: 'OS REIS MAGOS',
@@ -52,7 +55,8 @@ const FASES = [
         versiculo: 'Mateus 2:11 - "Abriram seus tesouros e lhe ofereceram presentes."',
         licao: 'Devemos oferecer nosso coração a Jesus!',
         oracao: 'Jesus, ofereço meu coração para Ti, como os reis magos ofereceram presentes. Amém.',
-        som: 'Vamos seguir a estrela!'
+        som: 'Vamos seguir a estrela!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'templosimeao', numero: 5, emoji: '🏛️', titulo: 'SIMEÃO NO TEMPLO',
@@ -69,7 +73,8 @@ const FASES = [
         versiculo: 'Lucas 2:30 - "Meus olhos viram a tua salvação!"',
         licao: 'Nunca devemos perder a esperança em Deus!',
         oracao: 'Deus, ensina-me a ter paciência e nunca perder a esperança. Amém.',
-        som: 'Agora posso descansar em paz!'
+        som: 'Agora posso descansar em paz!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'templo12', numero: 6, emoji: '📖', titulo: 'JESUS AOS 12 ANOS',
@@ -86,7 +91,8 @@ const FASES = [
         versiculo: 'Lucas 2:49 - "Não sabiam que eu devia estar na casa de meu Pai?"',
         licao: 'Jesus amava aprender sobre Deus. Nós também devemos!',
         oracao: 'Jesus, ajuda-me a amar aprender sobre Ti e sobre o Pai. Amém.',
-        som: 'Eu amo aprender!'
+        som: 'Eu amo aprender!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'batismo', numero: 7, emoji: '💧', titulo: 'O BATISMO',
@@ -99,7 +105,8 @@ const FASES = [
         versiculo: 'Mateus 3:17 - "Este é o meu Filho amado em quem me alegro!"',
         licao: 'O batismo mostra nossa obediência a Deus!',
         oracao: 'Pai, quero ser obediente a Ti como Jesus foi no batismo. Amém.',
-        som: 'Eis o Cordeiro de Deus!'
+        som: 'Eis o Cordeiro de Deus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'deserto', numero: 8, emoji: '🪨', titulo: 'A TENTAÇÃO',
@@ -115,7 +122,8 @@ const FASES = [
         versiculo: 'Mateus 4:4 - "Não só de pão viverá o homem, mas de toda palavra de Deus."',
         licao: 'Devemos escolher obedecer a Deus sempre!',
         oracao: 'Deus, ajuda-me a escolher a Tua Palavra sempre, mesmo quando é difícil. Amém.',
-        som: 'Eu escolho Deus!'
+        som: 'Eu escolho Deus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'discipulos', numero: 9, emoji: '🎣', titulo: 'PESCADORES DE HOMENS',
@@ -128,7 +136,8 @@ const FASES = [
         versiculo: 'Mateus 4:19 - "Sigam-me, e eu os farei pescadores de homens."',
         licao: 'Jesus chama cada um de nós para segui-lo!',
         oracao: 'Jesus, eu quero Te seguir como os discípulos. Mostra o caminho. Amém.',
-        som: 'Vamos seguir Jesus!'
+        som: 'Vamos seguir Jesus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'cana', numero: 10, emoji: '💧', titulo: 'BODAS DE CANÁ',
@@ -141,7 +150,8 @@ const FASES = [
         versiculo: 'João 2:11 - "Revelou assim sua glória, e os discípulos creram nele."',
         licao: 'Jesus cuida até das coisas pequenas da nossa vida!',
         oracao: 'Jesus, obrigado por cuidares de mim e das coisas pequenas da minha vida. Amém.',
-        som: 'Jesus faz milagres!'
+        som: 'Jesus faz milagres!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'bemaventurancas', numero: 11, emoji: '😊', titulo: 'AS BEM-AVENTURANÇAS',
@@ -158,7 +168,8 @@ const FASES = [
         versiculo: 'Mateus 5:3 - "Felizes os humildes em espírito, porque deles é o Reino dos céus."',
         licao: 'A verdadeira felicidade vem de ser humilde e amar!',
         oracao: 'Jesus, ajuda-me a ser humilde e a amar a Deus e ao próximo. Amém.',
-        som: 'Eu sou feliz com Jesus!'
+        som: 'Eu sou feliz com Jesus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'curaciego', numero: 12, emoji: '👁️', titulo: 'JESUS CURA O CEGO',
@@ -171,7 +182,8 @@ const FASES = [
         versiculo: 'João 9:11 - "Fui, lavei-me e agora vejo!"',
         licao: 'Jesus pode trazer luz para nossa vida!',
         oracao: 'Jesus, traz luz para a minha vida como trouxeste para o cego. Amém.',
-        som: 'Agora eu vejo!'
+        som: 'Agora eu vejo!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'paes', numero: 13, emoji: '🍞', titulo: 'MULTIPLICAÇÃO DOS PÃES',
@@ -188,7 +200,8 @@ const FASES = [
         versiculo: 'João 6:11 - "Então Jesus tomou os pães e os distribuiu."',
         licao: 'Quando compartilhamos com amor, Deus multiplica!',
         oracao: 'Deus, ensina-me a compartilhar com amor o que eu tenho. Amém.',
-        som: 'Obrigado, Jesus!'
+        som: 'Obrigado, Jesus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'aguas', numero: 14, emoji: '🌊', titulo: 'JESUS ANDA SOBRE A ÁGUA',
@@ -201,7 +214,8 @@ const FASES = [
         versiculo: 'Mateus 14:27 - "Tenham coragem! Sou eu. Não tenham medo!"',
         licao: 'Com Jesus, nós não precisamos ter medo!',
         oracao: 'Jesus, ajuda-me a não ter medo. Com Tu ao meu lado, estou em paz. Amém.',
-        som: 'Jesus tem poder!'
+        som: 'Jesus tem poder!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'semeador', numero: 15, emoji: '🌱', titulo: 'A PARÁBOLA DO SEMEADOR',
@@ -214,7 +228,8 @@ const FASES = [
         versiculo: 'Mateus 13:23 - "A semente em boa terra são os que ouvem e compreendem."',
         licao: 'Nós somos a boa terra quando ouvimos e praticamos a Palavra!',
         oracao: 'Jesus, faz do meu coração uma boa terra para a Tua Palavra crescer. Amém.',
-        som: 'A Palavra de Deus cresce em mim!'
+        som: 'A Palavra de Deus cresce em mim!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'zaqueu', numero: 16, emoji: '🌳', titulo: 'ZAQUEU NA ÁRVORE',
@@ -227,7 +242,8 @@ const FASES = [
         versiculo: 'Lucas 19:5 - "Zaqueu, desce depressa. Hoje vou ficar na sua casa!"',
         licao: 'Jesus aceita todos, mesmo os que erraram. Ele nos dá uma nova chance!',
         oracao: 'Jesus, obrigado por me aceitar e me dar sempre uma nova chance. Amém.',
-        som: 'Jesus vem na minha casa!'
+        som: 'Jesus vem na minha casa!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'bomsamaritano', numero: 17, emoji: '❤️', titulo: 'O BOM SAMARITANO',
@@ -240,7 +256,8 @@ const FASES = [
         versiculo: 'Lucas 10:37 - "Vai e faz o mesmo."',
         licao: 'Nosso próximo é qualquer pessoa que precisa de ajuda!',
         oracao: 'Deus, ajuda-me a ser bom para todos que precisam de ajuda. Amém.',
-        som: 'Vou ajudar meu próximo!'
+        som: 'Vou ajudar meu próximo!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'jerusalem', numero: 18, emoji: '🌿', titulo: 'ENTRADA EM JERUSALÉM',
@@ -253,7 +270,8 @@ const FASES = [
         versiculo: 'Mateus 21:9 - "Hosana ao Filho de Davi! Bendito o que vem em nome do Senhor!"',
         licao: 'Devemos receber Jesus com alegria em nosso coração!',
         oracao: 'Jesus, eu Te recebo com alegria no meu coração. Hosana! Amém.',
-        som: 'Hosana! Hosana!'
+        som: 'Hosana! Hosana!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'ceia', numero: 19, emoji: '🍞', titulo: 'A ÚLTIMA CEIA',
@@ -266,7 +284,8 @@ const FASES = [
         versiculo: 'Lucas 22:19 - "Façam isto em memória de mim."',
         licao: 'Jesus quer que nós sempre nos lembremos do seu amor!',
         oracao: 'Jesus, eu sempre me lembrarei do Teu amor por mim. Amém.',
-        som: 'Eu me lembro de você, Jesus!'
+        som: 'Eu me lembro de você, Jesus!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'getsemani', numero: 20, emoji: '🌙', titulo: 'JESUS NO GETSÊMANI',
@@ -279,7 +298,8 @@ const FASES = [
         versiculo: 'Lucas 22:42 - "Não seja como eu quero, mas como Tu queres."',
         licao: 'Mesmo nas horas difíceis, podemos confiar em Deus!',
         oracao: 'Pai, nas horas difíceis, ajuda-me a confiar em Ti como Jesus confiou. Amém.',
-        som: 'Pai, seja feita a tua vontade!'
+        som: 'Pai, seja feita a tua vontade!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'cruz', numero: 21, emoji: '✝️', titulo: 'O AMOR MAIOR',
@@ -292,7 +312,8 @@ const FASES = [
         versiculo: 'João 15:13 - "Ninguém tem maior amor do que dar a vida pelos amigos."',
         licao: 'Jesus nos ama tanto que deu sua vida por nós!',
         oracao: 'Jesus, obrigado por me amar tanto. Eu também Te amo. Amém.',
-        som: 'Jesus me ama!'
+        som: 'Jesus me ama!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'ressurreicao', numero: 22, emoji: '🌅', titulo: 'JESUS RESSUSCITOU',
@@ -305,7 +326,8 @@ const FASES = [
         versiculo: 'Mateus 28:6 - "Ele não está aqui! Ressuscitou, como tinha dito!"',
         licao: 'Jesus venceu a morte! Ele vive e nos dá vida eterna!',
         oracao: 'Jesus ressuscitado, obrigado por me dar a vida eterna. Aleluia! Amém.',
-        som: 'Jesus vive! Aleluia!'
+        som: 'Jesus vive! Aleluia!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'ascensao', numero: 23, emoji: '☁️', titulo: 'A ASCENSÃO AO CÉU',
@@ -318,7 +340,8 @@ const FASES = [
         versiculo: 'Mateus 28:20 - "Eu estarei com vocês todos os dias, até o fim dos tempos!"',
         licao: 'Jesus está sempre conosco! Devemos contar seu amor a todos!',
         oracao: 'Jesus, obrigado por estar sempre comigo. Ajuda-me a contar o Teu amor a todos. Amém.',
-        som: 'Jesus está sempre comigo!'
+        som: 'Jesus está sempre comigo!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'promessa', numero: 24, emoji: '🕊️', titulo: 'A PROMESSA DO CONSOLADOR',
@@ -331,7 +354,8 @@ const FASES = [
         versiculo: 'João 14:16 - "Eu pedirei ao Pai, e Ele dará a vocês outro Consolador, para estar com vocês para sempre."',
         licao: 'Jesus prometeu o Espírito Santo, o Consolador que nunca nos deixa sozinhos!',
         oracao: 'Jesus, obrigado por prometer o Espírito Santo. Ajude-me a confiar na Tua promessa. Amém.',
-        som: 'Jesus cumpre suas promessas!'
+        som: 'Jesus cumpre suas promessas!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'espera', numero: 25, emoji: '🙏', titulo: 'ESPERANDO EM ORAÇÃO',
@@ -344,7 +368,8 @@ const FASES = [
         versiculo: 'Atos 1:14 - "Todos eles se reuniam sempre em oração, junto com as mulheres."',
         licao: 'Quando esperamos em oração, nossos corações se preparam para receber o Espírito Santo!',
         oracao: 'Querido Deus, ajude-me a orar e esperar com fé, como os amigos de Jesus. Amém.',
-        som: 'A oração prepara o coração!' 
+        som: 'A oração prepara o coração!' ,
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'pentecostes', numero: 26, emoji: '🔥', titulo: 'PENTECOSTES - O ESPÍRITO DESCE!',
@@ -357,7 +382,8 @@ const FASES = [
         versiculo: 'Atos 2:4 - "Todos ficaram cheios do Espírito Santo e começaram a falar."',
         licao: 'O Espírito Santo desceu em Pentecostes e encheu os corações com o amor de Deus!',
         oracao: 'Espírito Santo, encha o meu coração com o amor de Deus, como em Pentecostes. Amém.',
-        som: 'O Espírito Santo desceu!' 
+        som: 'O Espírito Santo desceu!' ,
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'consolador', numero: 27, emoji: '💜', titulo: 'O CONSOLADOR NO CORAÇÃO',
@@ -370,7 +396,8 @@ const FASES = [
         versiculo: 'João 14:26 - "O Consolador, o Espírito Santo, ensinará a vocês todas as coisas."',
         licao: 'O Espírito Santo vive em nosso coração! Ele nos ensina, consola e lembra de Jesus!',
         oracao: 'Espírito Santo, obrigado por viver no meu coração. Ensine-me e console-me sempre. Amém.',
-        som: 'O Consolador vive em mim!'
+        som: 'O Consolador vive em mim!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     },
     {
         id: 'frutos', numero: 28, emoji: '🌳', titulo: 'OS FRUTOS DO ESPÍRITO',
@@ -383,7 +410,8 @@ const FASES = [
         versiculo: 'Gálatas 5:22 - "O fruto do Espírito é amor, alegria, paz, paciência, bondade, fidelidade."',
         licao: 'O Espírito Santo produz em nós frutos bonitos: amor, alegria, paz e muito mais!',
         oracao: 'Espírito Santo, produza em mim os Teus frutos: amor, alegria e paz. Amém.',
-        som: 'Os frutos do Espírito!'
+        som: 'Os frutos do Espírito!',
+        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
     }
 ];
 

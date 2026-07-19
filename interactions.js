@@ -70,13 +70,28 @@ function renderObjeto(content, chave, configFase, classeExtra, id) {
     return null;
 }
 
+// Aplica imagens sobre elementos já renderizados (emoji ou HTML) sem perder event listeners
+function aplicarImagens(content, fase) {
+    var mapa = (fase.imagens && fase.imagens.mapa) ? fase.imagens.mapa : {};
+    for (var chave in mapa) {
+        if (!mapa.hasOwnProperty(chave)) continue;
+        var config = mapa[chave];
+        if (!config || !config.src) continue;
+        var el = document.getElementById(chave) || content.querySelector('.' + chave);
+        if (!el) continue;
+        el.innerHTML = '';
+        el.classList.add('imagem-overlay-container');
+        var img = criarElementoImagem(config, 'cenario-imagem-overlay', null);
+        el.appendChild(img);
+    }
+}
+
 // ============================================
 // RENDERIZAR CENÁRIO - despacha para cada fase
 // ============================================
 function renderizarCenario(fase) {
     var bg = document.getElementById('scene-background');
     var content = document.getElementById('scene-content');
-    var sceneCard = document.getElementById('scene-card');
 
     renderFundo(bg, fase, false);
 
@@ -89,6 +104,8 @@ function renderizarCenario(fase) {
 
     var renderer = CENARIO_RENDERERS[fase.cenario];
     if (renderer) renderer(content, fase);
+
+    aplicarImagens(content, fase);
 }
 
 // ============================================
