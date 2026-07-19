@@ -12,9 +12,14 @@ MANIFESTO = Path(__file__).parent.parent / "assets" / "manifesto-imagens.json"
 PHASES_JS = Path(__file__).parent.parent / "phases.js"
 
 
-def ler_cookie(caminho):
+def ler_cookies(caminho):
     with open(caminho, "r", encoding="utf-8") as f:
-        return f.read().strip()
+        linhas = [linha.strip() for linha in f.read().strip().splitlines() if linha.strip()]
+    if len(linhas) == 0:
+        raise ValueError("Arquivo de cookie vazio")
+    if len(linhas) == 1:
+        return linhas[0], None
+    return linhas[0], linhas[1]
 
 
 def baixar_imagem(url, destino):
@@ -55,14 +60,14 @@ def atualizar_phases_js(gerados):
 
 def main():
     if len(sys.argv) < 2:
-        print("Uso: python scripts/gerar-imagens-bing.py <caminho-do-arquivo-com-cookie-_U>")
+        print("Uso: python scripts/gerar-imagens-bing.py <caminho-do-arquivo-com-cookies>")
         print("")
-        print("Como obter o cookie _U:")
+        print("Como obter os cookies:")
         print("1. Acesse https://www.bing.com/images/create no navegador")
         print("2. Faca login com sua conta Microsoft")
         print("3. Abra o DevTools (F12) -> Aplicacao/Storage -> Cookies -> https://www.bing.com")
-        print("4. Copie o valor do cookie chamado '_U'")
-        print("5. Salve em um arquivo de texto e passe o caminho como argumento")
+        print("4. Copie os valores dos cookies '_U' e 'SRCHHPGUSR'")
+        print("5. Salve ambos em um arquivo de texto, um por linha, e passe o caminho como argumento")
         sys.exit(1)
 
     cookie_path = Path(sys.argv[1])
@@ -70,10 +75,14 @@ def main():
         print(f"Erro: arquivo nao encontrado: {cookie_path}")
         sys.exit(1)
 
-    cookie = ler_cookie(cookie_path)
+    cookie_u, cookie_srch = ler_cookies(cookie_path)
+    if cookie_srch is None:
+        print("Erro: arquivo de cookie precisa conter '_U' na primeira linha e 'SRCHHPGUSR' na segunda linha.")
+        sys.exit(1)
+
     print("Inicializando ImageGen com Bing Image Creator...")
     try:
-        image_gen = ImageGen(auth_cookie=cookie, quiet=True)
+        image_gen = ImageGen(auth_cookie=cookie_u, auth_cookie_SRCHHPGUSR=cookie_srch, quiet=True)
     except Exception as e:
         print(f"Erro ao inicializar ImageGen: {e}")
         sys.exit(1)
