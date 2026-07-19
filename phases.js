@@ -14,7 +14,11 @@ const FASES = [
         licao: 'Maria confiou em Deus. Nós também podemos confiar!',
         oracao: 'Querido Deus, ajuda-me a confiar em Ti como Maria confiou. Amém.',
         som: 'Alegria no céu!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'mary-kneeling': {src:null,width:"120px",height:"120px",bottom:"10%",left:"15%",titulo:"Maria"},
+            'anjo-gabriel': {src:null,width:"130px",height:"130px",top:"20%",right:"20%",titulo:"Anjo Gabriel"},
+            'lily-flower': {src:null,width:"70px",height:"70px",bottom:"8%",left:"45%",titulo:"Flor de lírio"}
+        } }
     },
     {
         id: 'nascimento', numero: 2, emoji: '⭐', titulo: 'JESUS NASCE',
@@ -28,7 +32,13 @@ const FASES = [
         licao: 'Jesus nasceu humilde. O amor é o maior tesouro!',
         oracao: 'Obrigado, Jesus, por nascer por nós. Ensina-me a ser humilde. Amém.',
         som: 'Brilha, brilha estrelinha!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'star-bethlehem': {src:null,width:"100px",height:"100px",top:"15%",right:"20%",titulo:"Estrela de Belém"},
+            'angel': {src:null,width:"120px",height:"120px",top:"18%",left:"15%",titulo:"Anjo"},
+            'stable': {src:null,width:"220px",height:"180px",bottom:"12%",left:"50%",titulo:"Estábulo"},
+            'baby-jesus': {src:null,width:"90px",height:"90px",bottom:"12%",left:"50%",titulo:"Menino Jesus"},
+            'mary-jose': {src:null,width:"160px",height:"130px",bottom:"10%",right:"15%",titulo:"Maria e José"}
+        } }
     },
     {
         id: 'pastores', numero: 3, emoji: '🐑', titulo: 'OS PASTORES',
@@ -42,7 +52,11 @@ const FASES = [
         licao: 'Os primeiros a saber foram os humildes. Deus ama todos!',
         oracao: 'Pai, ajuda-me a ter um coração humilde como os pastores. Amém.',
         som: 'Glória a Deus nas alturas!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'pastor1': {src:null,width:"100px",height:"100px",top:"35%",left:"15%",titulo:"Pastor 1"},
+            'pastor2': {src:null,width:"100px",height:"100px",top:"40%",right:"20%",titulo:"Pastor 2"},
+            'pastor3': {src:null,width:"100px",height:"100px",top:"30%",left:"50%",titulo:"Pastor 3"}
+        } }
     },
     {
         id: 'reismagos', numero: 4, emoji: '👑', titulo: 'OS REIS MAGOS',
@@ -56,7 +70,13 @@ const FASES = [
         licao: 'Devemos oferecer nosso coração a Jesus!',
         oracao: 'Jesus, ofereço meu coração para Ti, como os reis magos ofereceram presentes. Amém.',
         som: 'Vamos seguir a estrela!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'estrela1': {src:null,width:"70px",height:"70px",top:"20%",left:"15%",titulo:"Estrela 1"},
+            'estrela2': {src:null,width:"70px",height:"70px",top:"30%",left:"35%",titulo:"Estrela 2"},
+            'estrela3': {src:null,width:"70px",height:"70px",top:"25%",left:"55%",titulo:"Estrela 3"},
+            'estrela4': {src:null,width:"70px",height:"70px",top:"35%",left:"75%",titulo:"Estrela 4"},
+            'big-star': {src:null,width:"90px",height:"90px",top:"10%",left:"50%",titulo:"Estrela guia"}
+        } }
     },
     {
         id: 'templosimeao', numero: 5, emoji: '🏛️', titulo: 'SIMEÃO NO TEMPLO',
@@ -74,7 +94,11 @@ const FASES = [
         licao: 'Nunca devemos perder a esperança em Deus!',
         oracao: 'Deus, ensina-me a ter paciência e nunca perder a esperança. Amém.',
         som: 'Agora posso descansar em paz!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'simeao-old': {src:null,width:"130px",height:"130px",bottom:"15%",right:"20%",titulo:"Simeão"},
+            'baby-in-arms': {src:null,width:"90px",height:"90px",bottom:"18%",left:"50%",titulo:"Jesus no colo"},
+            'mary-jose-temple': {src:null,width:"160px",height:"130px",bottom:"10%",left:"15%",titulo:"Maria e José"}
+        } }
     },
     {
         id: 'templo12', numero: 6, emoji: '📖', titulo: 'JESUS AOS 12 ANOS',
@@ -92,7 +116,11 @@ const FASES = [
         licao: 'Jesus amava aprender sobre Deus. Nós também devemos!',
         oracao: 'Jesus, ajuda-me a amar aprender sobre Ti e sobre o Pai. Amém.',
         som: 'Eu amo aprender!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-boy': {src:null,width:"120px",height:"120px",bottom:"15%",left:"25%",titulo:"Jesus menino"},
+            'teachers': {src:null,width:"180px",height:"120px",bottom:"15%",right:"20%",titulo:"Mestres"},
+            'scroll': {src:null,width:"90px",height:"70px",top:"30%",left:"50%",titulo:"Rolos de Torah"}
+        } }
     },
     {
         id: 'batismo', numero: 7, emoji: '💧', titulo: 'O BATISMO',
@@ -106,7 +134,11 @@ const FASES = [
         licao: 'O batismo mostra nossa obediência a Deus!',
         oracao: 'Pai, quero ser obediente a Ti como Jesus foi no batismo. Amém.',
         som: 'Eis o Cordeiro de Deus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-river': {src:null,width:"140px",height:"140px",bottom:"18%",left:"50%",titulo:"Jesus no rio"},
+            'dove': {src:null,width:"90px",height:"90px",top:"15%",left:"50%",titulo:"Pomba do Espírito Santo"},
+            'joao-batista': {src:null,width:"120px",height:"120px",bottom:"20%",left:"20%",titulo:"João Batista"}
+        } }
     },
     {
         id: 'deserto', numero: 8, emoji: '🪨', titulo: 'A TENTAÇÃO',
@@ -123,7 +155,11 @@ const FASES = [
         licao: 'Devemos escolher obedecer a Deus sempre!',
         oracao: 'Deus, ajuda-me a escolher a Tua Palavra sempre, mesmo quando é difícil. Amém.',
         som: 'Eu escolho Deus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-in-desert': {src:null,width:"140px",height:"140px",bottom:"18%",left:"40%",titulo:"Jesus no deserto"},
+            'food-temptation': {src:null,width:"90px",height:"90px",bottom:"25%",right:"15%",titulo:"Comida"},
+            'bible': {src:null,width:"90px",height:"90px",bottom:"25%",left:"15%",titulo:"Palavra de Deus"}
+        } }
     },
     {
         id: 'discipulos', numero: 9, emoji: '🎣', titulo: 'PESCADORES DE HOMENS',
@@ -137,7 +173,13 @@ const FASES = [
         licao: 'Jesus chama cada um de nós para segui-lo!',
         oracao: 'Jesus, eu quero Te seguir como os discípulos. Mostra o caminho. Amém.',
         som: 'Vamos seguir Jesus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'p1': {src:null,width:"100px",height:"100px",bottom:"20%",left:"25%",titulo:"Pescador 1"},
+            'p2': {src:null,width:"100px",height:"100px",bottom:"20%",right:"25%",titulo:"Pescador 2"},
+            'p3': {src:null,width:"100px",height:"100px",bottom:"50%",left:"40%",titulo:"Pescador 3"},
+            'p4': {src:null,width:"100px",height:"100px",bottom:"50%",right:"40%",titulo:"Pescador 4"},
+            'boat': {src:null,width:"200px",height:"120px",top:"30%",left:"50%",titulo:"Barco"}
+        } }
     },
     {
         id: 'cana', numero: 10, emoji: '💧', titulo: 'BODAS DE CANÁ',
@@ -151,7 +193,13 @@ const FASES = [
         licao: 'Jesus cuida até das coisas pequenas da nossa vida!',
         oracao: 'Jesus, obrigado por cuidares de mim e das coisas pequenas da minha vida. Amém.',
         som: 'Jesus faz milagres!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jarra1': {src:null,width:"80px",height:"100px",top:"25%",left:"20%",titulo:"Jarra 1"},
+            'jarra2': {src:null,width:"80px",height:"100px",top:"30%",left:"35%",titulo:"Jarra 2"},
+            'jarra3': {src:null,width:"80px",height:"100px",top:"25%",left:"50%",titulo:"Jarra 3"},
+            'jesus-cana': {src:null,width:"120px",height:"120px",bottom:"15%",right:"15%",titulo:"Jesus em Caná"},
+            'wedding-table': {src:null,width:"200px",height:"100px",bottom:"10%",left:"20%",titulo:"Mesa do casamento"}
+        } }
     },
     {
         id: 'bemaventurancas', numero: 11, emoji: '😊', titulo: 'AS BEM-AVENTURANÇAS',
@@ -169,7 +217,12 @@ const FASES = [
         licao: 'A verdadeira felicidade vem de ser humilde e amar!',
         oracao: 'Jesus, ajuda-me a ser humilde e a amar a Deus e ao próximo. Amém.',
         som: 'Eu sou feliz com Jesus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-on-mountain': {src:null,width:"130px",height:"130px",top:"25%",left:"50%",titulo:"Jesus no monte"},
+            'c1': {src:null,width:"80px",height:"80px",top:"45%",left:"38%",titulo:"Criança 1"},
+            'c2': {src:null,width:"80px",height:"80px",top:"45%",left:"48%",titulo:"Criança 2"},
+            'c3': {src:null,width:"80px",height:"80px",top:"45%",left:"58%",titulo:"Criança 3"}
+        } }
     },
     {
         id: 'curaciego', numero: 12, emoji: '👁️', titulo: 'JESUS CURA O CEGO',
@@ -183,7 +236,12 @@ const FASES = [
         licao: 'Jesus pode trazer luz para nossa vida!',
         oracao: 'Jesus, traz luz para a minha vida como trouxeste para o cego. Amém.',
         som: 'Agora eu vejo!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'blind-man': {src:null,width:"120px",height:"120px",bottom:"15%",left:"55%",titulo:"Cego"},
+            'jesus-healer': {src:null,width:"130px",height:"130px",bottom:"15%",left:"20%",titulo:"Jesus"},
+            'mud': {src:null,width:"70px",height:"70px",bottom:"18%",left:"42%",titulo:"Lama"},
+            'healed-eyes': {src:null,width:"80px",height:"70px",top:"20%",right:"20%",titulo:"Olhos curados"}
+        } }
     },
     {
         id: 'paes', numero: 13, emoji: '🍞', titulo: 'MULTIPLICAÇÃO DOS PÃES',
@@ -201,7 +259,11 @@ const FASES = [
         licao: 'Quando compartilhamos com amor, Deus multiplica!',
         oracao: 'Deus, ensina-me a compartilhar com amor o que eu tenho. Amém.',
         som: 'Obrigado, Jesus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'basket': {src:null,width:"100px",height:"100px",bottom:"20%",left:"35%",titulo:"Cesta"},
+            'food-items': {src:null,width:"120px",height:"90px",bottom:"30%",left:"50%",titulo:"Pães e peixes"},
+            'jesus-bread': {src:null,width:"130px",height:"130px",bottom:"15%",right:"15%",titulo:"Jesus"}
+        } }
     },
     {
         id: 'aguas', numero: 14, emoji: '🌊', titulo: 'JESUS ANDA SOBRE A ÁGUA',
@@ -215,7 +277,11 @@ const FASES = [
         licao: 'Com Jesus, nós não precisamos ter medo!',
         oracao: 'Jesus, ajuda-me a não ter medo. Com Tu ao meu lado, estou em paz. Amém.',
         som: 'Jesus tem poder!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-walking': {src:null,width:"130px",height:"130px",top:"45%",left:"55%",titulo:"Jesus sobre a água"},
+            'boat-storm': {src:null,width:"180px",height:"120px",top:"40%",left:"20%",titulo:"Barco na tempestade"},
+            'disciples-scared': {src:null,width:"140px",height:"90px",top:"50%",left:"20%",titulo:"Discípulos"}
+        } }
     },
     {
         id: 'semeador', numero: 15, emoji: '🌱', titulo: 'A PARÁBOLA DO SEMEADOR',
@@ -229,7 +295,13 @@ const FASES = [
         licao: 'Nós somos a boa terra quando ouvimos e praticamos a Palavra!',
         oracao: 'Jesus, faz do meu coração uma boa terra para a Tua Palavra crescer. Amém.',
         som: 'A Palavra de Deus cresce em mim!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'semente1': {src:null,width:"70px",height:"70px",top:"40%",left:"20%",titulo:"Semente 1"},
+            'semente2': {src:null,width:"70px",height:"70px",top:"45%",left:"50%",titulo:"Semente 2"},
+            'semente3': {src:null,width:"70px",height:"70px",top:"42%",left:"75%",titulo:"Semente 3"},
+            'boa-terra': {src:null,width:"100px",height:"100px",bottom:"15%",left:"50%",titulo:"Boa terra"},
+            'farmer': {src:null,width:"130px",height:"130px",bottom:"10%",right:"15%",titulo:"Semeador"}
+        } }
     },
     {
         id: 'zaqueu', numero: 16, emoji: '🌳', titulo: 'ZAQUEU NA ÁRVORE',
@@ -243,7 +315,11 @@ const FASES = [
         licao: 'Jesus aceita todos, mesmo os que erraram. Ele nos dá uma nova chance!',
         oracao: 'Jesus, obrigado por me aceitar e me dar sempre uma nova chance. Amém.',
         som: 'Jesus vem na minha casa!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'tree': {src:null,width:"160px",height:"220px",bottom:"10%",left:"50%",titulo:"Árvore de Zaqueu"},
+            'zaqueu': {src:null,width:"100px",height:"100px",bottom:"30%",left:"55%",titulo:"Zaqueu"},
+            'jesus-looks-up': {src:null,width:"120px",height:"120px",bottom:"10%",left:"25%",titulo:"Jesus"}
+        } }
     },
     {
         id: 'bomsamaritano', numero: 17, emoji: '❤️', titulo: 'O BOM SAMARITANO',
@@ -257,7 +333,12 @@ const FASES = [
         licao: 'Nosso próximo é qualquer pessoa que precisa de ajuda!',
         oracao: 'Deus, ajuda-me a ser bom para todos que precisam de ajuda. Amém.',
         som: 'Vou ajudar meu próximo!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'cena-ferido': {src:null,width:"100px",height:"100px",bottom:"15%",left:"10%",titulo:"Homem ferido"},
+            'cena-sacerdote': {src:null,width:"100px",height:"100px",bottom:"15%",left:"35%",titulo:"Sacerdote"},
+            'cena-samaritano': {src:null,width:"100px",height:"100px",bottom:"15%",left:"60%",titulo:"Samaritano"},
+            'cena-cuidado': {src:null,width:"100px",height:"100px",bottom:"15%",right:"10%",titulo:"Cuidado"}
+        } }
     },
     {
         id: 'jerusalem', numero: 18, emoji: '🌿', titulo: 'ENTRADA EM JERUSALÉM',
@@ -271,7 +352,13 @@ const FASES = [
         licao: 'Devemos receber Jesus com alegria em nosso coração!',
         oracao: 'Jesus, eu Te recebo com alegria no meu coração. Hosana! Amém.',
         som: 'Hosana! Hosana!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'palm1': {src:null,width:"80px",height:"80px",top:"35%",left:"20%",titulo:"Ramo 1"},
+            'palm2': {src:null,width:"80px",height:"80px",top:"40%",left:"35%",titulo:"Ramo 2"},
+            'palm3': {src:null,width:"80px",height:"80px",top:"38%",right:"35%",titulo:"Ramo 3"},
+            'palm4': {src:null,width:"80px",height:"80px",top:"35%",right:"20%",titulo:"Ramo 4"},
+            'jesus-on-donkey': {src:null,width:"150px",height:"130px",bottom:"15%",left:"50%",titulo:"Jesus no jumento"}
+        } }
     },
     {
         id: 'ceia', numero: 19, emoji: '🍞', titulo: 'A ÚLTIMA CEIA',
@@ -285,7 +372,12 @@ const FASES = [
         licao: 'Jesus quer que nós sempre nos lembremos do seu amor!',
         oracao: 'Jesus, eu sempre me lembrarei do Teu amor por mim. Amém.',
         som: 'Eu me lembro de você, Jesus!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'last-bread': {src:null,width:"90px",height:"90px",bottom:"25%",left:"30%",titulo:"Pão"},
+            'last-wine': {src:null,width:"90px",height:"90px",bottom:"25%",right:"30%",titulo:"Vinho"},
+            'disciples-table': {src:null,width:"200px",height:"100px",top:"35%",left:"50%",titulo:"Discípulos"},
+            'jesus-at-table': {src:null,width:"130px",height:"130px",bottom:"15%",left:"50%",titulo:"Jesus"}
+        } }
     },
     {
         id: 'getsemani', numero: 20, emoji: '🌙', titulo: 'JESUS NO GETSÊMANI',
@@ -299,7 +391,14 @@ const FASES = [
         licao: 'Mesmo nas horas difíceis, podemos confiar em Deus!',
         oracao: 'Pai, nas horas difíceis, ajuda-me a confiar em Ti como Jesus confiou. Amém.',
         som: 'Pai, seja feita a tua vontade!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'gota1': {src:null,width:"60px",height:"60px",top:"30%",left:"25%",titulo:"Oração 1"},
+            'gota2': {src:null,width:"60px",height:"60px",top:"45%",left:"40%",titulo:"Oração 2"},
+            'gota3': {src:null,width:"60px",height:"60px",top:"25%",left:"55%",titulo:"Oração 3"},
+            'gota4': {src:null,width:"60px",height:"60px",top:"50%",left:"65%",titulo:"Oração 4"},
+            'gota5': {src:null,width:"60px",height:"60px",top:"55%",left:"35%",titulo:"Oração 5"},
+            'jesus-praying': {src:null,width:"130px",height:"130px",bottom:"15%",left:"50%",titulo:"Jesus orando"}
+        } }
     },
     {
         id: 'cruz', numero: 21, emoji: '✝️', titulo: 'O AMOR MAIOR',
@@ -313,7 +412,11 @@ const FASES = [
         licao: 'Jesus nos ama tanto que deu sua vida por nós!',
         oracao: 'Jesus, obrigado por me amar tanto. Eu também Te amo. Amém.',
         som: 'Jesus me ama!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'love-heart': {src:null,width:"120px",height:"120px",top:"45%",left:"50%",titulo:"Coração do amor"},
+            'cross-gentle': {src:null,width:"110px",height:"180px",top:"25%",left:"50%",titulo:"Cruz"},
+            'child-prays': {src:null,width:"100px",height:"100px",bottom:"12%",right:"15%",titulo:"Criança orando"}
+        } }
     },
     {
         id: 'ressurreicao', numero: 22, emoji: '🌅', titulo: 'JESUS RESSUSCITOU',
@@ -327,7 +430,11 @@ const FASES = [
         licao: 'Jesus venceu a morte! Ele vive e nos dá vida eterna!',
         oracao: 'Jesus ressuscitado, obrigado por me dar a vida eterna. Aleluia! Amém.',
         som: 'Jesus vive! Aleluia!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'stone': {src:null,width:"100px",height:"90px",bottom:"15%",left:"40%",titulo:"Pedra da tumba"},
+            'tomb': {src:null,width:"180px",height:"150px",bottom:"10%",left:"50%",titulo:"Tumba"},
+            'jesus-risen': {src:null,width:"130px",height:"130px",top:"30%",right:"20%",titulo:"Jesus ressuscitado"}
+        } }
     },
     {
         id: 'ascensao', numero: 23, emoji: '☁️', titulo: 'A ASCENSÃO AO CÉU',
@@ -341,7 +448,10 @@ const FASES = [
         licao: 'Jesus está sempre conosco! Devemos contar seu amor a todos!',
         oracao: 'Jesus, obrigado por estar sempre comigo. Ajuda-me a contar o Teu amor a todos. Amém.',
         som: 'Jesus está sempre comigo!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-ascend': {src:null,width:"130px",height:"130px",top:"35%",left:"50%",titulo:"Jesus ascende"},
+            'disciples-watching': {src:null,width:"200px",height:"120px",bottom:"10%",left:"50%",titulo:"Discípulos"}
+        } }
     },
     {
         id: 'promessa', numero: 24, emoji: '🕊️', titulo: 'A PROMESSA DO CONSOLADOR',
@@ -355,7 +465,9 @@ const FASES = [
         licao: 'Jesus prometeu o Espírito Santo, o Consolador que nunca nos deixa sozinhos!',
         oracao: 'Jesus, obrigado por prometer o Espírito Santo. Ajude-me a confiar na Tua promessa. Amém.',
         som: 'Jesus cumpre suas promessas!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'jesus-promessa': {src:null,width:"130px",height:"130px",top:"40%",left:"50%",titulo:"Jesus"}
+        } }
     },
     {
         id: 'espera', numero: 25, emoji: '🙏', titulo: 'ESPERANDO EM ORAÇÃO',
@@ -369,7 +481,12 @@ const FASES = [
         licao: 'Quando esperamos em oração, nossos corações se preparam para receber o Espírito Santo!',
         oracao: 'Querido Deus, ajude-me a orar e esperar com fé, como os amigos de Jesus. Amém.',
         som: 'A oração prepara o coração!' ,
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'amigo1': {src:null,width:"90px",height:"90px",bottom:"15%",left:"15%",titulo:"Amigo orando 1"},
+            'amigo2': {src:null,width:"90px",height:"90px",bottom:"20%",left:"35%",titulo:"Amigo orando 2"},
+            'amigo3': {src:null,width:"90px",height:"90px",bottom:"20%",right:"35%",titulo:"Amigo orando 3"},
+            'amigo4': {src:null,width:"90px",height:"90px",bottom:"15%",right:"15%",titulo:"Amigo orando 4"}
+        } }
     },
     {
         id: 'pentecostes', numero: 26, emoji: '🔥', titulo: 'PENTECOSTES - O ESPÍRITO DESCE!',
@@ -383,7 +500,13 @@ const FASES = [
         licao: 'O Espírito Santo desceu em Pentecostes e encheu os corações com o amor de Deus!',
         oracao: 'Espírito Santo, encha o meu coração com o amor de Deus, como em Pentecostes. Amém.',
         som: 'O Espírito Santo desceu!' ,
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'fogo1': {src:null,width:"70px",height:"80px",top:"20%",left:"15%",titulo:"Fogo 1"},
+            'fogo2': {src:null,width:"70px",height:"80px",top:"15%",left:"35%",titulo:"Fogo 2"},
+            'fogo3': {src:null,width:"70px",height:"80px",top:"25%",left:"50%",titulo:"Fogo 3"},
+            'fogo4': {src:null,width:"70px",height:"80px",top:"18%",right:"35%",titulo:"Fogo 4"},
+            'fogo5': {src:null,width:"70px",height:"80px",top:"22%",right:"15%",titulo:"Fogo 5"}
+        } }
     },
     {
         id: 'consolador', numero: 27, emoji: '💜', titulo: 'O CONSOLADOR NO CORAÇÃO',
@@ -397,7 +520,9 @@ const FASES = [
         licao: 'O Espírito Santo vive em nosso coração! Ele nos ensina, consola e lembra de Jesus!',
         oracao: 'Espírito Santo, obrigado por viver no meu coração. Ensine-me e console-me sempre. Amém.',
         som: 'O Consolador vive em mim!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'coracao-consolador': {src:null,width:"160px",height:"160px",top:"30%",left:"50%",titulo:"Coração com o Consolador"}
+        } }
     },
     {
         id: 'frutos', numero: 28, emoji: '🌳', titulo: 'OS FRUTOS DO ESPÍRITO',
@@ -411,7 +536,14 @@ const FASES = [
         licao: 'O Espírito Santo produz em nós frutos bonitos: amor, alegria, paz e muito mais!',
         oracao: 'Espírito Santo, produza em mim os Teus frutos: amor, alegria e paz. Amém.',
         som: 'Os frutos do Espírito!',
-        imagens: { fundo: null, fundoHistoria: null, mapa: {} }
+        imagens: { fundo: null, fundoHistoria: null, mapa: {
+            'fruto1': {src:null,width:"70px",height:"70px",top:"25%",left:"25%",titulo:"Fruto 1"},
+            'fruto2': {src:null,width:"70px",height:"70px",top:"18%",left:"40%",titulo:"Fruto 2"},
+            'fruto3': {src:null,width:"70px",height:"70px",top:"22%",left:"55%",titulo:"Fruto 3"},
+            'fruto4': {src:null,width:"70px",height:"70px",top:"30%",right:"35%",titulo:"Fruto 4"},
+            'fruto5': {src:null,width:"70px",height:"70px",top:"25%",right:"20%",titulo:"Fruto 5"},
+            'fruto6': {src:null,width:"70px",height:"70px",top:"35%",left:"35%",titulo:"Fruto 6"}
+        } }
     }
 ];
 

@@ -81,7 +81,18 @@ function aplicarImagens(content, fase) {
         if (!el) continue;
         el.innerHTML = '';
         el.classList.add('imagem-overlay-container');
-        var img = criarElementoImagem(config, 'cenario-imagem-overlay', null);
+        if (config.width) el.style.width = config.width;
+        if (config.height) el.style.height = config.height;
+        if (config.bottom !== undefined) el.style.bottom = config.bottom;
+        if (config.top !== undefined) el.style.top = config.top;
+        if (config.left !== undefined) el.style.left = config.left;
+        if (config.right !== undefined) el.style.right = config.right;
+
+        var img = document.createElement('img');
+        img.src = config.src;
+        img.className = 'cenario-imagem-overlay entrada-cena';
+        img.alt = chave;
+        if (config.titulo) img.title = config.titulo;
         el.appendChild(img);
     }
 }
@@ -115,20 +126,12 @@ var CENARIO_RENDERERS = {
 
     // Fase 1: Anunciação
     anunciacao: function(content, fase) {
-        var img = fase.imagens || {};
         content.innerHTML = ''
             + '<div class="room-bg"></div>'
-            + '<div class="sunbeam"></div>';
-
-        var mary = renderPersonagem(content, 'maria', null, img.personagens, 'mary-kneeling', 'mary-kneeling');
-        if (!mary) content.insertAdjacentHTML('beforeend', '<div class="mary-kneeling" id="mary-kneeling">🧎‍♀️</div>');
-
-        var anjo = renderPersonagem(content, 'anjo', null, img.personagens, 'anjo-gabriel interactive-element', 'anjo-gabriel');
-        if (!anjo) content.insertAdjacentHTML('beforeend', '<div class="anjo-gabriel interactive-element" id="anjo-gabriel">👼</div>');
-
-        var lily = renderObjeto(content, 'lily', img.objetos, 'lily-flower', 'lily-flower');
-        if (!lily) content.insertAdjacentHTML('beforeend', '<div class="lily-flower" id="lily-flower">🌸</div>');
-
+            + '<div class="sunbeam"></div>'
+            + '<div class="mary-kneeling" id="mary-kneeling">🧎‍♀️</div>'
+            + '<div class="anjo-gabriel interactive-element" id="anjo-gabriel">👼</div>'
+            + '<div class="lily-flower" id="lily-flower">🌸</div>';
         bindClick('anjo-gabriel', fase);
     },
 
