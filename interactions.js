@@ -58,28 +58,41 @@ function renderFundo(bg, fase, modoHistoria) {
 }
 
 function criarElementoImagem(config, classeExtra, id) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'sprite-wrapper';
+    wrapper.style.position = 'absolute';
+    if (config.bottom !== undefined) wrapper.style.bottom = config.bottom;
+    if (config.top !== undefined) wrapper.style.top = config.top;
+    if (config.left !== undefined) wrapper.style.left = config.left;
+    if (config.right !== undefined) wrapper.style.right = config.right;
+    if (config.left === '50%') {
+        var w = parseInt(config.width, 10) || 0;
+        wrapper.style.marginLeft = (-w / 2) + 'px';
+    }
+    if (id) wrapper.id = id;
+
     var el = document.createElement('img');
     el.src = config.src;
     el.className = classeExtra;
-    if (id) el.id = id;
     if (config.alt) el.alt = config.alt;
     if (config.width) el.style.width = config.width;
     if (config.width) el.style.height = config.width;
-    if (config.bottom !== undefined) el.style.bottom = config.bottom;
-    if (config.top !== undefined) el.style.top = config.top;
-    if (config.left !== undefined) el.style.left = config.left;
-    if (config.right !== undefined) el.style.right = config.right;
-    if (config.left === '50%') {
-        var w = parseInt(config.width, 10) || 0;
-        el.style.marginLeft = (-w / 2) + 'px';
-    }
-    el.style.position = 'absolute';
     el.style.objectFit = 'cover';
     el.style.transition = 'transform 0.3s ease';
     el.onerror = function() {
-        el.style.display = 'none';
+        wrapper.style.display = 'none';
     };
-    return el;
+
+    wrapper.appendChild(el);
+
+    if (config.titulo) {
+        var balao = document.createElement('div');
+        balao.className = 'sprite-balao';
+        balao.textContent = config.titulo;
+        wrapper.appendChild(balao);
+    }
+
+    return wrapper;
 }
 
 function renderPersonagem(content, chave, configPadrao, configFase, classeExtra, id) {
@@ -132,6 +145,13 @@ function aplicarImagens(content, fase) {
         if (config.titulo) img.title = config.titulo;
         img.onerror = function() { img.style.display = 'none'; };
         el.appendChild(img);
+
+        if (config.titulo) {
+            var balao = document.createElement('div');
+            balao.className = 'sprite-balao';
+            balao.textContent = config.titulo;
+            el.appendChild(balao);
+        }
     }
 }
 
