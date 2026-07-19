@@ -1,0 +1,10 @@
+# Chaves de API
+*.key
+.env
+scripts/.openai-key
+
+# Dependências
+node_modules/
+
+# Logs
+*.log
