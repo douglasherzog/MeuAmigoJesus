@@ -336,7 +336,7 @@ body {
     margin-bottom: 15px;
     border: 4px solid #FFD54F;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     min-height: 280px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
@@ -349,6 +349,7 @@ body {
     bottom: 0;
     border-radius: 20px;
     z-index: 0;
+    overflow: hidden;
     transition: background 1.2s ease-in-out;
     animation: bg-fade-in 0.8s ease-out;
 }
@@ -375,6 +376,10 @@ body {
     top: 10%;
     left: 15%;
     animation: float-particle 8s ease-in-out infinite;
+}
+
+.scene-background.imagem-fundo::before {
+    display: none;
 }
 
 .scene-background::after {
