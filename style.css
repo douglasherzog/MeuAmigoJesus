@@ -2681,3 +2681,170 @@ body.high-contrast .story-dot.completed {
     opacity: 0.6;
     cursor: default;
 }
+
+/* ============================================
+   SUPORTE A IMAGENS E ANIMAÇÕES AVANÇADAS
+   ============================================ */
+
+/* Fundo com imagem */
+.imagem-fundo {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Camada parallax suave para cenários */
+.scene-background.imagem-fundo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12), transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(255,223,128,0.08), transparent 45%);
+    pointer-events: none;
+    animation: parallax-glow 12s ease-in-out infinite;
+}
+
+@keyframes parallax-glow {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Personagens e objetos como imagens */
+.personagem-imagem,
+.objeto-imagem {
+    position: absolute;
+    pointer-events: auto;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+    z-index: 2;
+}
+
+.personagem-imagem:hover,
+.objeto-imagem:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+}
+
+.personagem-imagem {
+    animation: personagem-respirar 4s ease-in-out infinite;
+}
+
+.objeto-imagem {
+    animation: objeto-flutuar 3s ease-in-out infinite;
+}
+
+/* Animação de respiração/leveza */
+@keyframes personagem-respirar {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.02); }
+}
+
+@keyframes objeto-flutuar {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Transição de entrada do conteúdo do cenário */
+.scene-fade-in {
+    animation: scene-fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.scene-fade-out {
+    animation: scene-fade-out 0.35s ease-in forwards;
+}
+
+.speech-fade-out {
+    animation: speech-fade-out 0.35s ease-in forwards;
+}
+
+.speech-fade-in {
+    animation: speech-fade-in 0.4s ease-out forwards;
+}
+
+@keyframes scene-fade-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-12px) scale(0.98); }
+}
+
+@keyframes speech-fade-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(8px); }
+}
+
+@keyframes speech-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scene-fade-in {
+    from { opacity: 0; transform: translateY(18px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Sistema de partículas */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    animation: particle-rise 2.5s ease-out forwards;
+}
+
+@keyframes particle-rise {
+    0% { opacity: 0.8; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+}
+
+/* Raios de luz aprimorados */
+.raio-de-luz {
+    position: absolute;
+    width: 6px;
+    height: 120px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), transparent);
+    border-radius: 3px;
+    filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top center;
+    animation: raio-cair 1.2s ease-out forwards;
+}
+
+@keyframes raio-cair {
+    0% { opacity: 1; transform: translateY(-40px) scaleY(0.5); }
+    100% { opacity: 0; transform: translateY(120px) scaleY(1.2); }
+}
+
+/* Brilho interativo */
+.interactive-glow {
+    position: relative;
+}
+
+.interactive-glow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(circle, rgba(255,215,0,0.35), transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.interactive-glow:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}

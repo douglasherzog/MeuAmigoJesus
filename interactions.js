@@ -1,8 +1,74 @@
 // INTERACTIONS - Renderizadores de cenário e handlers de interação
 // Meu Amigo Jesus - 23 fases com 10 tipos de interação diferentes
 
+// Inicializa estrutura de imagens em todas as fases (para fases que ainda não possuem)
+if (typeof FASES !== 'undefined') {
+    FASES.forEach(function(f) {
+        if (!f.imagens) {
+            f.imagens = { fundo: null, fundoHistoria: null, personagens: {}, objetos: {} };
+        }
+    });
+}
+
 // Estado da interação atual
 var estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0 };
+
+// ============================================
+// HELPERS DE RENDERIZAÇÃO COM IMAGENS
+// ============================================
+function renderFundo(bg, fase, modoHistoria) {
+    var imagens = fase.imagens || {};
+    var fundoSrc = modoHistoria && imagens.fundoHistoria ? imagens.fundoHistoria : imagens.fundo;
+    if (fundoSrc) {
+        bg.style.background = 'url(' + fundoSrc + ') center/cover no-repeat';
+        bg.classList.add('imagem-fundo');
+    } else {
+        bg.style.background = '';
+        bg.classList.remove('imagem-fundo');
+        bg.className = 'scene-background ' + fase.cenario;
+    }
+}
+
+function criarElementoImagem(config, classeExtra, id) {
+    var el = document.createElement('img');
+    el.src = config.src;
+    el.className = classeExtra;
+    if (id) el.id = id;
+    if (config.alt) el.alt = config.alt;
+    if (config.width) el.style.width = config.width;
+    if (config.height) el.style.height = config.height;
+    if (config.bottom !== undefined) el.style.bottom = config.bottom;
+    if (config.top !== undefined) el.style.top = config.top;
+    if (config.left !== undefined) el.style.left = config.left;
+    if (config.right !== undefined) el.style.right = config.right;
+    el.style.position = 'absolute';
+    el.style.transition = 'transform 0.3s ease';
+    el.onerror = function() {
+        el.style.display = 'none';
+    };
+    return el;
+}
+
+function renderPersonagem(content, chave, configPadrao, configFase, classeExtra, id) {
+    var config = configFase && configFase[chave] ? configFase[chave] : null;
+    if (!config && configPadrao) config = configPadrao;
+    if (config && config.src) {
+        var el = criarElementoImagem(config, 'personagem-imagem ' + (classeExtra || ''), id);
+        content.appendChild(el);
+        return el;
+    }
+    return null;
+}
+
+function renderObjeto(content, chave, configFase, classeExtra, id) {
+    var config = configFase && configFase[chave] ? configFase[chave] : null;
+    if (config && config.src) {
+        var el = criarElementoImagem(config, 'objeto-imagem ' + (classeExtra || ''), id);
+        content.appendChild(el);
+        return el;
+    }
+    return null;
+}
 
 // ============================================
 // RENDERIZAR CENÁRIO - despacha para cada fase
@@ -10,7 +76,14 @@ var estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0
 function renderizarCenario(fase) {
     var bg = document.getElementById('scene-background');
     var content = document.getElementById('scene-content');
-    bg.className = 'scene-background ' + fase.cenario;
+    var sceneCard = document.getElementById('scene-card');
+
+    renderFundo(bg, fase, false);
+
+    content.classList.remove('scene-fade-in');
+    void content.offsetWidth;
+    content.classList.add('scene-fade-in');
+
     content.innerHTML = '';
     estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0 };
 
@@ -25,12 +98,20 @@ var CENARIO_RENDERERS = {
 
     // Fase 1: Anunciação
     anunciacao: function(content, fase) {
+        var img = fase.imagens || {};
         content.innerHTML = ''
             + '<div class="room-bg"></div>'
-            + '<div class="sunbeam"></div>'
-            + '<div class="mary-kneeling">🧎‍♀️</div>'
-            + '<div class="anjo-gabriel interactive-element" id="anjo-gabriel">👼</div>'
-            + '<div class="lily-flower">🌸</div>';
+            + '<div class="sunbeam"></div>';
+
+        var mary = renderPersonagem(content, 'maria', null, img.personagens, 'mary-kneeling', 'mary-kneeling');
+        if (!mary) content.insertAdjacentHTML('beforeend', '<div class="mary-kneeling" id="mary-kneeling">🧎‍♀️</div>');
+
+        var anjo = renderPersonagem(content, 'anjo', null, img.personagens, 'anjo-gabriel interactive-element', 'anjo-gabriel');
+        if (!anjo) content.insertAdjacentHTML('beforeend', '<div class="anjo-gabriel interactive-element" id="anjo-gabriel">👼</div>');
+
+        var lily = renderObjeto(content, 'lily', img.objetos, 'lily-flower', 'lily-flower');
+        if (!lily) content.insertAdjacentHTML('beforeend', '<div class="lily-flower" id="lily-flower">🌸</div>');
+
         bindClick('anjo-gabriel', fase);
     },
 

@@ -479,13 +479,22 @@ function mostrarEtapaHistoria(fase) {
         historia = historia.replace(/\{nome\}/g, estado.nome);
     }
     historia = adaptarGenero(historia);
-    document.getElementById('speech-bubble').textContent = historia;
+
+    var bubble = document.getElementById('speech-bubble');
+    bubble.classList.remove('speech-fade-out');
+    bubble.textContent = historia;
+    bubble.classList.remove('speech-fade-in');
+    void bubble.offsetWidth;
+    bubble.classList.add('speech-fade-in');
 
     document.getElementById('phase-instruction').textContent = 'Escute a história com atenção...';
 
     var content = document.getElementById('scene-content');
     var bg = document.getElementById('scene-background');
-    bg.className = 'scene-background ' + fase.cenario;
+    renderFundo(bg, fase, true);
+    content.classList.remove('scene-fade-in');
+    void content.offsetWidth;
+    content.classList.add('scene-fade-in');
     content.innerHTML = '<div class="etapa-historia-overlay"><span class="etapa-historia-emoji">' + fase.emoji + '</span></div>';
 
     if (typeof tocarEfeitoFase === 'function') tocarEfeitoFase(fase.cenario);
@@ -515,7 +524,13 @@ function mostrarEtapaInteracao(fase) {
         fala = fala.replace(/\{nome\}/g, estado.nome);
     }
     fala = adaptarGenero(fala);
-    document.getElementById('speech-bubble').textContent = fala;
+
+    var bubble = document.getElementById('speech-bubble');
+    bubble.classList.remove('speech-fade-out');
+    bubble.textContent = fala;
+    bubble.classList.remove('speech-fade-in');
+    void bubble.offsetWidth;
+    bubble.classList.add('speech-fade-in');
 
     var instrucao = fase.instrucao;
     if (estado.nome) {
@@ -550,10 +565,22 @@ function mostrarEtapaLicao(fase) {
 }
 
 function avancarEtapa(fase) {
-    estado.etapa++;
-    if (estado.etapa <= 3) {
-        mostrarEtapa(fase);
+    var content = document.getElementById('scene-content');
+    var speechBubble = document.getElementById('speech-bubble');
+    if (content) {
+        content.classList.add('scene-fade-out');
     }
+    if (speechBubble) {
+        speechBubble.classList.add('speech-fade-out');
+    }
+    setTimeout(function() {
+        estado.etapa++;
+        if (estado.etapa <= 3) {
+            if (content) content.classList.remove('scene-fade-out');
+            if (speechBubble) speechBubble.classList.remove('speech-fade-out');
+            mostrarEtapa(fase);
+        }
+    }, 350);
 }
 
 // renderizarCenario e executarInteracao estão em interactions.js
