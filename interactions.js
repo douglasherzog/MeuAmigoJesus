@@ -1,5 +1,5 @@
 // INTERACTIONS - Renderizadores de cenário e handlers de interação
-// Meu Amigo Jesus - 23 fases com 10 tipos de interação diferentes
+// Meu Amigo Jesus - 28 fases com 10 tipos de interação diferentes
 
 // Inicializa estrutura de imagens em todas as fases (para fases que ainda não possuem)
 if (typeof FASES !== 'undefined') {
@@ -12,6 +12,34 @@ if (typeof FASES !== 'undefined') {
 
 // Estado da interação atual
 var estadoInteracao = { completo: false, progresso: 0, total: 0, sequenciaIdx: 0 };
+
+// Cache de imagens já pré-carregadas
+var imagensPrecarregadas = {};
+
+function precarregarImagens(fase) {
+    if (!fase || !fase.imagens) return;
+    var srcs = [];
+    if (fase.imagens.fundo) srcs.push(fase.imagens.fundo);
+    if (fase.imagens.fundoHistoria) srcs.push(fase.imagens.fundoHistoria);
+    var mapa = fase.imagens.mapa || {};
+    for (var chave in mapa) {
+        if (mapa.hasOwnProperty(chave) && mapa[chave] && mapa[chave].src) {
+            srcs.push(mapa[chave].src);
+        }
+    }
+    srcs.forEach(function(src) {
+        if (imagensPrecarregadas[src]) return;
+        var img = new Image();
+        img.src = src;
+        imagensPrecarregadas[src] = img;
+    });
+}
+
+function precarregarFaseAtualEProxima(faseIndex) {
+    if (typeof FASES === 'undefined') return;
+    if (FASES[faseIndex]) precarregarImagens(FASES[faseIndex]);
+    if (FASES[faseIndex + 1]) precarregarImagens(FASES[faseIndex + 1]);
+}
 
 // ============================================
 // HELPERS DE RENDERIZAÇÃO COM IMAGENS
@@ -41,7 +69,12 @@ function criarElementoImagem(config, classeExtra, id) {
     if (config.top !== undefined) el.style.top = config.top;
     if (config.left !== undefined) el.style.left = config.left;
     if (config.right !== undefined) el.style.right = config.right;
+    if (config.left === '50%') {
+        var w = parseInt(config.width, 10) || 0;
+        el.style.marginLeft = (-w / 2) + 'px';
+    }
     el.style.position = 'absolute';
+    el.style.objectFit = 'cover';
     el.style.transition = 'transform 0.3s ease';
     el.onerror = function() {
         el.style.display = 'none';
@@ -87,6 +120,10 @@ function aplicarImagens(content, fase) {
         if (config.top !== undefined) el.style.top = config.top;
         if (config.left !== undefined) el.style.left = config.left;
         if (config.right !== undefined) el.style.right = config.right;
+        if (config.left === '50%' && !el.style.transform) {
+            var w = parseInt(config.width, 10) || 0;
+            el.style.marginLeft = (-w / 2) + 'px';
+        }
 
         var img = document.createElement('img');
         img.src = config.src;
@@ -865,7 +902,7 @@ var ANIMACOES_CONCLUSAO = {
         document.querySelectorAll('.fisherman.done').forEach(function(p, i) {
             setTimeout(function() {
                 p.style.transform = 'scale(1.3) translateY(-20px)';
-                p.textContent = '🙋';
+                p.style.filter = 'brightness(1.3) saturate(1.2)';
             }, i * 200);
         });
     },
@@ -873,8 +910,8 @@ var ANIMACOES_CONCLUSAO = {
     cana: function() {
         document.querySelectorAll('.jarra.dropped').forEach(function(j, i) {
             setTimeout(function() {
-                j.textContent = '🍷';
                 j.style.animation = 'wine-transform 1s ease-out';
+                j.style.filter = 'brightness(1.3) saturate(1.3) hue-rotate(-10deg)';
             }, i * 300);
         });
     },
@@ -883,7 +920,7 @@ var ANIMACOES_CONCLUSAO = {
         document.querySelectorAll('.child').forEach(function(c, i) {
             setTimeout(function() {
                 c.style.transform = 'scale(1.2) translateY(-15px)';
-                c.textContent = '🤗';
+                c.style.filter = 'brightness(1.3) saturate(1.2)';
             }, i * 200);
         });
         var sun = document.querySelector('.sun');
@@ -893,7 +930,7 @@ var ANIMACOES_CONCLUSAO = {
     curaciego: function() {
         var blind = document.getElementById('blind-man');
         var healed = document.getElementById('healed-eyes');
-        if (blind) { blind.textContent = '🙋'; blind.style.transform = 'scale(1.2)'; }
+        if (blind) { blind.style.transform = 'scale(1.2)'; blind.style.filter = 'brightness(1.3) saturate(1.2)'; }
         if (healed) { healed.style.opacity = '1'; healed.style.animation = 'eyes-blink 1s ease-in-out infinite'; }
         for (var i = 0; i < 5; i++) setTimeout(criarRaioDeLuz, i * 300);
     },
@@ -901,17 +938,11 @@ var ANIMACOES_CONCLUSAO = {
     paes: function() {
         var basket = document.getElementById('basket');
         var foodContainer = document.getElementById('food-items');
-        if (basket) { basket.style.transform = 'scale(1.2)'; basket.textContent = '🧺✨'; }
+        if (basket) { basket.style.transform = 'scale(1.2)'; basket.style.filter = 'brightness(1.3) saturate(1.2)'; }
         if (foodContainer) {
-            foodContainer.innerHTML = '';
-            for (var i = 0; i < 12; i++) {
-                var food = document.createElement('span');
-                food.className = 'food-item';
-                food.textContent = i % 2 === 0 ? '🍞' : '🐟';
-                food.style.animationDelay = (i * 0.1) + 's';
-                foodContainer.appendChild(food);
-            }
-            foodContainer.classList.add('food-multiplied');
+            foodContainer.style.filter = 'brightness(1.3) saturate(1.3)';
+            foodContainer.style.transform = 'scale(1.15)';
+            foodContainer.style.transition = 'all 0.5s ease';
         }
     },
 
@@ -927,8 +958,8 @@ var ANIMACOES_CONCLUSAO = {
     semeador: function() {
         document.querySelectorAll('.semente.dropped').forEach(function(s, i) {
             setTimeout(function() {
-                s.textContent = '🌾';
                 s.style.animation = 'plant-grow 1.5s ease-out';
+                s.style.filter = 'brightness(1.3) saturate(1.3)';
             }, i * 300);
         });
     },
@@ -937,7 +968,7 @@ var ANIMACOES_CONCLUSAO = {
         var tree = document.getElementById('tree');
         var zaqueu = document.getElementById('zaqueu');
         if (tree) tree.style.transform = 'rotate(5deg)';
-        if (zaqueu) { zaqueu.style.transition = 'all 1s ease-in-out'; zaqueu.style.transform = 'translateY(80px)'; zaqueu.textContent = '🙋'; }
+        if (zaqueu) { zaqueu.style.transition = 'all 1s ease-in-out'; zaqueu.style.transform = 'translateY(80px)'; zaqueu.style.filter = 'brightness(1.3) saturate(1.2)'; }
         setTimeout(function() {
             var house = document.querySelector('.house');
             if (house) { house.style.transform = 'scale(1.1)'; house.style.boxShadow = '0 0 30px rgba(255,215,0,0.6)'; }
@@ -966,8 +997,8 @@ var ANIMACOES_CONCLUSAO = {
     ceia: function() {
         var bread = document.getElementById('last-bread');
         var wine = document.getElementById('last-wine');
-        if (bread && bread.classList.contains('done')) { bread.style.transform = 'scale(1.2)'; bread.textContent = '🍞✨'; }
-        if (wine && wine.classList.contains('done')) { wine.style.transform = 'scale(1.2)'; wine.textContent = '🍷✨'; }
+        if (bread && bread.classList.contains('done')) { bread.style.transform = 'scale(1.2)'; bread.style.filter = 'brightness(1.3) saturate(1.2)'; }
+        if (wine && wine.classList.contains('done')) { wine.style.transform = 'scale(1.2)'; wine.style.filter = 'brightness(1.3) saturate(1.2)'; }
         var table = document.querySelector('.disciples-table');
         if (table) table.style.animation = 'disciples-eat 1s ease-in-out infinite';
     },
@@ -987,7 +1018,7 @@ var ANIMACOES_CONCLUSAO = {
         if (heart) { heart.style.animation = 'heart-grow 2s ease-in-out infinite'; heart.style.transform = 'scale(1.5)'; }
         if (cross) cross.style.boxShadow = '0 0 50px rgba(255,215,0,0.8)';
         var child = document.getElementById('child-prays');
-        if (child) { child.textContent = '🙏'; child.style.animation = 'yoyo-pray 2s ease-in-out infinite'; }
+        if (child) { child.style.animation = 'yoyo-pray 2s ease-in-out infinite'; child.style.filter = 'brightness(1.3) saturate(1.2)'; }
         for (var i = 0; i < 8; i++) setTimeout(criarRaioDeLuz, i * 250);
     },
 
@@ -1011,6 +1042,48 @@ var ANIMACOES_CONCLUSAO = {
             jesus.style.animation = 'jesus-glow 2s ease-in-out infinite';
         }
         for (var i = 0; i < 15; i++) setTimeout(criarRaioDeLuz, i * 150);
+    },
+
+    promessa: function() {
+        var jesus = document.getElementById('jesus-promessa');
+        if (jesus) { jesus.style.animation = 'jesus-glow 2s ease-in-out infinite'; jesus.style.transform = 'scale(1.2)'; }
+        for (var i = 0; i < 8; i++) setTimeout(criarRaioDeLuz, i * 200);
+    },
+
+    espera: function() {
+        document.querySelectorAll('.praying-friend.done').forEach(function(p, i) {
+            setTimeout(function() {
+                p.style.transform = 'scale(1.2)';
+                p.style.filter = 'brightness(1.3) saturate(1.2)';
+            }, i * 200);
+        });
+        for (var i = 0; i < 6; i++) setTimeout(criarRaioDeLuz, i * 250);
+    },
+
+    pentecostes: function() {
+        document.querySelectorAll('.fire-tongue.done').forEach(function(f, i) {
+            setTimeout(function() {
+                f.style.animation = 'fire-burst 1s ease-out';
+                f.style.filter = 'brightness(1.5) saturate(1.5)';
+            }, i * 150);
+        });
+        for (var i = 0; i < 10; i++) setTimeout(criarRaioDeLuz, i * 180);
+    },
+
+    consolador: function() {
+        var heart = document.getElementById('coracao-consolador');
+        if (heart) { heart.style.animation = 'heart-grow 2s ease-in-out infinite'; heart.style.transform = 'scale(1.3)'; }
+        for (var i = 0; i < 10; i++) setTimeout(criarRaioDeLuz, i * 200);
+    },
+
+    frutos: function() {
+        document.querySelectorAll('.fruit.done').forEach(function(f, i) {
+            setTimeout(function() {
+                f.style.transform = 'scale(1.3) translateY(-10px)';
+                f.style.filter = 'brightness(1.3) saturate(1.3)';
+            }, i * 150);
+        });
+        for (var i = 0; i < 8; i++) setTimeout(criarRaioDeLuz, i * 200);
     }
 };
 

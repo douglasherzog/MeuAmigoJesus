@@ -1,5 +1,5 @@
 // MEU AMIGO JESUS - Jogo completo e independente
-// 23 fases interativas da Anunciação à Ascensão
+// 28 fases interativas da Anunciação a Pentecostes
 // FASES e MEDALHAS definidas em phases.js
 // Renderizadores e interações em interactions.js
 
@@ -437,6 +437,10 @@ function atualizarTela() {
     if (!fase) return;
 
     estado.etapa = 1;
+
+    if (typeof precarregarFaseAtualEProxima === 'function') {
+        precarregarFaseAtualEProxima(estado.faseIndex);
+    }
 
     document.getElementById('phase-badge').textContent = 'FASE ' + fase.numero + ' DE ' + FASES.length;
     document.getElementById('stars-count').textContent = estado.estrelas;

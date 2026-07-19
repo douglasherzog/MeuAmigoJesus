@@ -1,5 +1,5 @@
 // PHASES - Definições de todas as fases do jogo Meu Amigo Jesus
-// 23 fases cobrindo toda a vida de Jesus, da Anunciação à Ascensão
+// 28 fases cobrindo toda a vida de Jesus, da Anunciação a Pentecostes
 
 const FASES = [
     {
