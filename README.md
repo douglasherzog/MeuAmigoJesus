@@ -1,10 +1,10 @@
 # Meu Amigo Jesus ✝️
 
-Jogo interativo e lúdico para crianças aprenderem sobre toda a vida de Jesus Cristo, da Anunciação à Ascensão ao céu.
+Jogo interativo e lúdico para crianças aprenderem sobre toda a vida de Jesus Cristo, da Anunciação à Ascensão ao céu e o envio do Espírito Santo.
 
 ## Como funciona
 
-A criança entra com seu nome e se torna **amigo(a) de Jesus**. Depois acompanha Jesus em **23 fases interativas**, cada uma com um tipo diferente de interação:
+A criança entra com seu nome e se torna **amigo(a) de Jesus**. Depois acompanha Jesus em **28 fases interativas**, cada uma com um tipo diferente de interação:
 
 1. 👼 **A Anunciação** — Toque no anjo Gabriel (clicar)
 2. ⭐ **Jesus Nasce** — Toque na estrela de Belém (clicar)
@@ -29,6 +29,11 @@ A criança entra com seu nome e se torna **amigo(a) de Jesus**. Depois acompanha
 21. ✝️ **O Amor Maior** — Toque no coração (clicar)
 22. 🌅 **Jesus Ressuscitou** — Toque na pedra do túmulo (clicar)
 23. ☁️ **A Ascensão ao Céu** — Toque em Jesus para subir ao céu (clicar)
+24. 🕊️ **A Promessa do Consolador** — Toque em Jesus para ouvir a promessa do Espírito Santo (clicar)
+25. 🙏 **Esperando em Oração** — Toque nos amigos orando para unir todos em oração (clicar múltiplo)
+26. 🔥 **Pentecostes** — Toque nas línguas de fogo para receber o Espírito Santo (clicar múltiplo)
+27. 💜 **O Consolador no Coração** — Toque no coração para receber o Consolador (clicar)
+28. 🌳 **Os Frutos do Espírito** — Toque nos frutos para descobrir os frutos do Espírito Santo (clicar múltiplo)
 
 ## Tipos de Interação
 
@@ -50,7 +55,7 @@ A criança entra com seu nome e se torna **amigo(a) de Jesus**. Depois acompanha
 - **TTS (Text-to-Speech)**: Todas as interações falam em português
 - **Visual e intuitivo**: Emojis grandes, cores vibrantes, fontes grandes
 - **Animações únicas**: Cada fase tem animações próprias e conclusões especiais
-- **23 medalhas**: Uma medalha para cada fase concluída
+- **28 medalhas**: Uma medalha para cada fase concluída
 - **Sistema de estrelas**: Acumule estrelas a cada fase
 - **Progresso salvo**: Continua de onde parou
 - **Botão de ajuda**: Em cada fase, a criança pode pedir ajuda
@@ -59,8 +64,8 @@ A criança entra com seu nome e se torna **amigo(a) de Jesus**. Depois acompanha
 ## Estrutura do Projeto
 
 - `index.html` — Estrutura HTML com telas de nome, inicial e jogo
-- `style.css` — Estilos completos com animações para todos os 23 cenários
-- `phases.js` — Definições das 23 fases e 23 medalhas
+- `style.css` — Estilos completos com animações para todos os 28 cenários
+- `phases.js` — Definições das 28 fases e 28 medalhas
 - `interactions.js` — Renderizadores de cenário e handlers de interação
 - `game.js` — Lógica principal do jogo, estado e fluxo
 - `tts.js` — Text-to-Speech (Web Speech API + servidor local opcional)
