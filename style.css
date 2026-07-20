@@ -336,7 +336,7 @@ body {
     margin-bottom: 15px;
     border: 4px solid #FFD54F;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     min-height: 280px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
@@ -1280,8 +1280,11 @@ footer {
 .scene-background.anunciacao { background: linear-gradient(180deg, #E1F5FE 0%, #B3E5FC 40%, #81D4FA 70%, #4FC3F7 100%); }
 .scene-background.pastores { background: linear-gradient(180deg, #1A237E 0%, #283593 30%, #37474F 60%, #263238 100%); }
 .scene-background.reismagos { background: linear-gradient(180deg, #0D1B2A 0%, #1B2838 50%, #2C3E50 100%); }
-.scene-background.templo { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
+.scene-background.templo,
+.scene-background.templosimeao { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
 .scene-background.templo12 { background: linear-gradient(180deg, #FFF8E1 0%, #FFE082 40%, #FFD54F 100%); }
+.scene-background.discipulos { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 50%, #4FC3F7 80%, #0277BD 100%); }
+.scene-background.bemaventurancas { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 40%, #A5D6A7 60%, #66BB6A 100%); }
 .scene-background.cana { background: linear-gradient(180deg, #FCE4EC 0%, #F8BBD0 40%, #F48FB1 100%); }
 .scene-background.semeador { background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 30%, #A5D6A7 70%, #66BB6A 100%); }
 .scene-background.bomsamaritano { background: linear-gradient(180deg, #FFE0B2 0%, #FFCC80 40%, #D7CCC8 100%); }
