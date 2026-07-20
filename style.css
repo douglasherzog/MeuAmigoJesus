@@ -2958,24 +2958,25 @@ body.high-contrast .story-dot.completed {
    ================================================ */
 .sprite-balao {
     position: absolute;
-    top: -28px;
+    top: -32px;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
-    color: #333;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 12px;
+    transform: translate(-50%, 4px);
+    background: rgba(255, 255, 255, 0.96);
+    color: #4A2C13;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border: 2px solid #FFD54F;
+    border-radius: 14px;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     pointer-events: none;
     z-index: 10;
     opacity: 0;
-    animation: balao-aparecer 0.4s ease-out 0.3s forwards;
     max-width: 140px;
     text-align: center;
     line-height: 1.2;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sprite-balao::after {
@@ -2991,9 +2992,11 @@ body.high-contrast .story-dot.completed {
     border-top: 5px solid rgba(255, 255, 255, 0.95);
 }
 
-@keyframes balao-aparecer {
-    from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+.imagem-overlay-container:hover .sprite-balao,
+.imagem-overlay-container:focus .sprite-balao,
+.imagem-overlay-container:focus-within .sprite-balao {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 .sprite-wrapper {

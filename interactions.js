@@ -165,10 +165,19 @@ function aplicarImagens(content, fase) {
         var img = document.createElement('img');
         img.src = config.src;
         img.className = 'cenario-imagem-overlay entrada-cena';
-        img.alt = chave;
+        img.alt = config.titulo || chave;
         if (config.titulo) img.title = config.titulo;
         img.onerror = function() { img.style.display = 'none'; };
         el.appendChild(img);
+
+        if (config.titulo) {
+            el.setAttribute('aria-label', config.titulo);
+            el.tabIndex = 0;
+            var balao = document.createElement('span');
+            balao.className = 'sprite-balao';
+            balao.textContent = config.titulo;
+            el.appendChild(balao);
+        }
 
     }
 }
