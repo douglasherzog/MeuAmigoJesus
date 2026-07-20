@@ -513,11 +513,10 @@ function mostrarEtapaHistoria(fase) {
     btn.addEventListener('click', function() { if (!falando) avancarEtapa(fase); });
     container.appendChild(btn);
 
-    falar(historia);
-    aoTerminarFala = function() {
+    falar(historia, function() {
         btn.disabled = false;
         btn.classList.remove('disabled');
-    };
+    });
 }
 
 function mostrarEtapaInteracao(fase) {
@@ -622,11 +621,10 @@ function mostrarLicao(fase) {
         +     '<div class="verse-count" id="verse-count"></div>'
         +   '</div>'
         + '</div>';
-    falar(licao);
-    aoTerminarFala = function() {
+    falar(licao, function() {
         var btnP = document.getElementById('btn-prayer');
         if (btnP) { btnP.classList.remove('disabled'); btnP.disabled = false; }
-    };
+    });
     var btnPrayer = document.getElementById('btn-prayer');
     if (btnPrayer) btnPrayer.addEventListener('click', function() {
         if (falando) return;
@@ -636,34 +634,32 @@ function mostrarLicao(fase) {
             prayerEl.style.display = 'block';
             prayerEl.classList.add('prayer-appear');
         }
-        falar(oracao);
+        falar(oracao, function() {
+            rezou = true;
+            btnPrayer.classList.add('done');
+            btnPrayer.disabled = true;
+            var btnRep = document.getElementById('btn-verse-repeat');
+            if (btnRep) { btnRep.classList.remove('disabled'); btnRep.disabled = false; }
+        });
         soltarConfete(10);
         if (!estado.conquistasExtras.includes('primeira_oracao')) {
             estado.conquistasExtras.push('primeira_oracao');
             salvarEstado();
             mostrarNotificacaoConquista(CONQUISTAS_EXTRAS.find(function(c) { return c.id === 'primeira_oracao'; }));
         }
-        aoTerminarFala = function() {
-            rezou = true;
-            btnPrayer.classList.add('done');
-            btnPrayer.disabled = true;
-            var btnRep = document.getElementById('btn-verse-repeat');
-            if (btnRep) { btnRep.classList.remove('disabled'); btnRep.disabled = false; }
-        };
     });
     var btnRepeat = document.getElementById('btn-verse-repeat');
     if (btnRepeat) btnRepeat.addEventListener('click', function() {
         if (falando) return;
         if (!rezou) return;
-        falar(versiculo);
-        aoTerminarFala = function() {
+        falar(versiculo, function() {
             ouviuVersiculo = true;
             var btnMem = document.getElementById('btn-verse-memorized');
             if (btnMem) {
                 btnMem.disabled = false;
                 btnMem.classList.remove('disabled');
             }
-        };
+        });
         var vText = document.getElementById('verse-challenge-text');
         if (vText) {
             vText.classList.remove('verse-highlight');

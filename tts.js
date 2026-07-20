@@ -4,9 +4,9 @@
 var ELEVENLABS_PROXY_URL = 'https://meu-amigo-jesus-tts.workers.dev/falar';
 
 var falando = false;
-var aoTerminarFala = null;
 var filaFalas = [];
 var falaEmAndamento = false;
+var aoTerminarFalaAtual = null;
 
 function bloquearInteracao() {
     falando = true;
@@ -19,11 +19,9 @@ function liberarInteracao() {
     falaEmAndamento = false;
     var overlay = document.getElementById('tts-overlay');
     if (overlay) overlay.classList.remove('active');
-    if (typeof aoTerminarFala === 'function') {
-        var cb = aoTerminarFala;
-        aoTerminarFala = null;
-        cb();
-    }
+    var cb = aoTerminarFalaAtual;
+    aoTerminarFalaAtual = null;
+    if (typeof cb === 'function') cb();
     processarProximaFala();
 }
 
@@ -68,9 +66,9 @@ function tocarAudioBlob(blob) {
     });
 }
 
-function falar(texto) {
+function falar(texto, aoTerminar) {
     if (!texto) return;
-    filaFalas.push(prepararTextoFalado(texto));
+    filaFalas.push({ texto: prepararTextoFalado(texto), aoTerminar: aoTerminar || null });
     processarProximaFala();
 }
 
@@ -79,7 +77,9 @@ function processarProximaFala() {
 
     falaEmAndamento = true;
     bloquearInteracao();
-    var texto = filaFalas.shift();
+    var fala = filaFalas.shift();
+    var texto = fala.texto;
+    aoTerminarFalaAtual = fala.aoTerminar;
     const elevenUrl = ELEVENLABS_PROXY_URL + '?texto=' + encodeURIComponent(texto);
     fetch(elevenUrl)
         .then(response => {
