@@ -876,12 +876,18 @@ function executarInteracao(fase) {
     }
 
     // Som de conclusão
-    if (fase.som) setTimeout(function() { falar(fase.som); }, 500);
-
-    // Avançar para a etapa de lição
-    setTimeout(function() {
-        avancarEtapa(fase);
-    }, 1500);
+    if (fase.som) {
+        setTimeout(function() {
+            aoTerminarFala = function() {
+                avancarEtapa(fase);
+            };
+            falar(fase.som);
+        }, 500);
+    } else {
+        setTimeout(function() {
+            avancarEtapa(fase);
+        }, 1500);
+    }
 }
 
 // ============================================

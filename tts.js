@@ -5,6 +5,8 @@ var ELEVENLABS_PROXY_URL = 'https://meu-amigo-jesus-tts.workers.dev/falar';
 
 var falando = false;
 var aoTerminarFala = null;
+var filaFalas = [];
+var falaEmAndamento = false;
 
 function bloquearInteracao() {
     falando = true;
@@ -14,6 +16,7 @@ function bloquearInteracao() {
 
 function liberarInteracao() {
     falando = false;
+    falaEmAndamento = false;
     var overlay = document.getElementById('tts-overlay');
     if (overlay) overlay.classList.remove('active');
     if (typeof aoTerminarFala === 'function') {
@@ -21,6 +24,7 @@ function liberarInteracao() {
         aoTerminarFala = null;
         cb();
     }
+    processarProximaFala();
 }
 
 function selecionarVozPTBR() {
@@ -66,10 +70,16 @@ function tocarAudioBlob(blob) {
 
 function falar(texto) {
     if (!texto) return;
-    texto = prepararTextoFalado(texto);
-    bloquearInteracao();
+    filaFalas.push(prepararTextoFalado(texto));
+    processarProximaFala();
+}
 
-    // 1. Tentar ElevenLabs via proxy (Cloudflare Worker)
+function processarProximaFala() {
+    if (falaEmAndamento || !filaFalas.length) return;
+
+    falaEmAndamento = true;
+    bloquearInteracao();
+    var texto = filaFalas.shift();
     const elevenUrl = ELEVENLABS_PROXY_URL + '?texto=' + encodeURIComponent(texto);
     fetch(elevenUrl)
         .then(response => {
@@ -81,7 +91,6 @@ function falar(texto) {
         })
         .catch((err) => {
             console.log('ElevenLabs nao disponivel, tentando servidor local:', err);
-            // 2. Tentar servidor local
             const localUrl = 'http://127.0.0.1:8766/falar?texto=' + encodeURIComponent(texto);
             fetch(localUrl)
                 .then(response => {
@@ -93,7 +102,6 @@ function falar(texto) {
                 })
                 .catch((err2) => {
                     console.log('Servidor local nao respondeu, usando Web Speech:', err2);
-                    // 3. Fallback: Web Speech do navegador
                     falarWeb(texto);
                 });
         });
