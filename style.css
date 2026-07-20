@@ -424,6 +424,10 @@ body {
     display: none !important;
 }
 
+.scene-background.imagem-fundo ~ .scene-content > :not(.interactive-element):not(.draggable):not(.quiz-container):not(.escolha-container):not(.completar-container):not(:has(.interactive-element, .draggable, button, input)) {
+    display: none !important;
+}
+
 /* Elementos interativos */
 .interactive-element {
     cursor: pointer;
