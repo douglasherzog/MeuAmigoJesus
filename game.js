@@ -553,19 +553,8 @@ function mostrarEtapaLicao(fase) {
     atualizarIndicadorEtapa(3);
     mostrarLicao(fase);
     atualizarBotoesConclusao(fase);
-    var memorizado = estado.versiculosMemorizados && estado.versiculosMemorizados.includes(fase.id);
-    if (!memorizado) {
-        var btnNext = document.querySelector('.next-btn');
-        if (btnNext) btnNext.style.display = 'none';
-    }
-    if (memorizado) {
-        var btnPrayer = document.getElementById('btn-prayer');
-        var btnRepeat = document.getElementById('btn-verse-repeat');
-        var btnMem = document.getElementById('btn-verse-memorized');
-        if (btnPrayer) { btnPrayer.classList.remove('disabled'); btnPrayer.disabled = false; }
-        if (btnRepeat) { btnRepeat.classList.remove('disabled'); btnRepeat.disabled = false; }
-        if (btnMem) { btnMem.classList.remove('disabled'); btnMem.disabled = false; }
-    }
+    var btnNext = document.querySelector('.next-btn');
+    if (btnNext) btnNext.style.display = 'none';
 }
 
 function avancarEtapa(fase) {
@@ -607,18 +596,17 @@ function mostrarLicao(fase) {
     }
     oracao = adaptarGenero(oracao);
     var versiculo = fase.versiculo || '';
-    var memorizado = estado.versiculosMemorizados && estado.versiculosMemorizados.includes(fase.id);
     var nome = estado.nome || '';
     var ouviuVersiculo = false;
     var rezou = false;
-    var btnPrayerDisabled = memorizado ? '' : ' disabled';
-    var btnRepeatDisabled = memorizado ? '' : ' disabled';
-    var btnMemDisabled = memorizado ? '' : ' disabled';
+    var btnPrayerDisabled = ' disabled';
+    var btnRepeatDisabled = ' disabled';
+    var btnMemDisabled = ' disabled';
     licaoEl.innerHTML = ''
         + '<div class="lesson-card">'
         +   '<div class="lesson-versiculo">📖 ' + versiculo + '</div>'
         +   '<div class="lesson-licao">💡 ' + licao + '</div>'
-        +   '<button class="prayer-btn' + (memorizado ? '' : ' disabled') + '" id="btn-prayer" type="button"' + btnPrayerDisabled + '>'
+        +   '<button class="prayer-btn disabled" id="btn-prayer" type="button"' + btnPrayerDisabled + '>'
         +     '<span class="btn-emoji">🙏</span><span class="btn-text">REZAR JUNTO</span>'
         +   '</button>'
         +   '<div class="prayer-text" id="prayer-text" style="display:none;">' + oracao + '</div>'
@@ -627,8 +615,8 @@ function mostrarLicao(fase) {
         +     '<div class="verse-challenge-text" id="verse-challenge-text">' + versiculo + '</div>'
         +     '<div class="verse-challenge-buttons">'
         +       '<button class="verse-repeat-btn disabled" id="btn-verse-repeat" type="button"' + btnRepeatDisabled + '>🔊 OUVIR O VERSÍCULO</button>'
-        +       '<button class="verse-memorized-btn disabled' + (memorizado ? ' done' : '') + '" id="btn-verse-memorized" type="button"' + btnMemDisabled + '>'
-        +         (memorizado ? '✅ MEMORIZADO!' : '🧠 JÁ MEMORIZEI!')
+        +       '<button class="verse-memorized-btn disabled" id="btn-verse-memorized" type="button"' + btnMemDisabled + '>'
+        +         '🧠 JÁ MEMORIZEI!'
         +       '</button>'
         +     '</div>'
         +     '<div class="verse-count" id="verse-count"></div>'
@@ -636,15 +624,13 @@ function mostrarLicao(fase) {
         + '</div>';
     falar(licao);
     aoTerminarFala = function() {
-        if (!memorizado) {
-            var btnP = document.getElementById('btn-prayer');
-            if (btnP) { btnP.classList.remove('disabled'); btnP.disabled = false; }
-        }
+        var btnP = document.getElementById('btn-prayer');
+        if (btnP) { btnP.classList.remove('disabled'); btnP.disabled = false; }
     };
     var btnPrayer = document.getElementById('btn-prayer');
     if (btnPrayer) btnPrayer.addEventListener('click', function() {
         if (falando) return;
-        if (rezou || memorizado) return;
+        if (rezou) return;
         var prayerEl = document.getElementById('prayer-text');
         if (prayerEl) {
             prayerEl.style.display = 'block';
@@ -661,23 +647,23 @@ function mostrarLicao(fase) {
             rezou = true;
             btnPrayer.classList.add('done');
             btnPrayer.disabled = true;
-            if (!memorizado) {
-                var btnRep = document.getElementById('btn-verse-repeat');
-                if (btnRep) { btnRep.classList.remove('disabled'); btnRep.disabled = false; }
-            }
+            var btnRep = document.getElementById('btn-verse-repeat');
+            if (btnRep) { btnRep.classList.remove('disabled'); btnRep.disabled = false; }
         };
     });
     var btnRepeat = document.getElementById('btn-verse-repeat');
     if (btnRepeat) btnRepeat.addEventListener('click', function() {
         if (falando) return;
-        if (!rezou && !memorizado) return;
+        if (!rezou) return;
         falar(versiculo);
-        ouviuVersiculo = true;
-        var btnMem = document.getElementById('btn-verse-memorized');
-        if (btnMem && !memorizado) {
-            btnMem.disabled = false;
-            btnMem.classList.remove('disabled');
-        }
+        aoTerminarFala = function() {
+            ouviuVersiculo = true;
+            var btnMem = document.getElementById('btn-verse-memorized');
+            if (btnMem) {
+                btnMem.disabled = false;
+                btnMem.classList.remove('disabled');
+            }
+        };
         var vText = document.getElementById('verse-challenge-text');
         if (vText) {
             vText.classList.remove('verse-highlight');
@@ -688,7 +674,7 @@ function mostrarLicao(fase) {
     var btnMemorized = document.getElementById('btn-verse-memorized');
     if (btnMemorized) btnMemorized.addEventListener('click', function() {
         if (falando) return;
-        if (!ouviuVersiculo && !memorizado) return;
+        if (!ouviuVersiculo) return;
         if (!estado.versiculosMemorizados) estado.versiculosMemorizados = [];
         if (!estado.versiculosMemorizados.includes(fase.id)) {
             estado.versiculosMemorizados.push(fase.id);
