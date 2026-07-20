@@ -420,6 +420,10 @@ body {
     justify-content: center;
 }
 
+.cenario-legado-oculto {
+    display: none !important;
+}
+
 /* Elementos interativos */
 .interactive-element {
     cursor: pointer;

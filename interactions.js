@@ -117,6 +117,26 @@ function renderObjeto(content, chave, configFase, classeExtra, id) {
 }
 
 // Aplica imagens sobre elementos já renderizados (emoji ou HTML) sem perder event listeners
+function ocultarCamadasLegadas(content, fase) {
+    if (!usarImagensGeradas) return;
+
+    var preservar = '.interactive-element, .draggable, .quiz-container, .escolha-container, .completar-container';
+    Array.prototype.forEach.call(content.children, function(el) {
+        if (!el.matches(preservar) && !el.querySelector('.interactive-element, .draggable, button, input')) {
+            el.classList.add('cenario-legado-oculto');
+        }
+    });
+
+    var mapa = (fase.imagens && fase.imagens.mapa) ? fase.imagens.mapa : {};
+    for (var chave in mapa) {
+        if (!mapa.hasOwnProperty(chave)) continue;
+        var el = document.getElementById(chave) || content.querySelector('.' + chave);
+        if (el && !el.classList.contains('interactive-element') && !el.classList.contains('draggable')) {
+            el.classList.add('cenario-legado-oculto');
+        }
+    }
+}
+
 function aplicarImagens(content, fase) {
     if (!usarImagensGeradas) return;
 
@@ -172,6 +192,7 @@ function renderizarCenario(fase) {
     var renderer = CENARIO_RENDERERS[fase.cenario];
     if (renderer) renderer(content, fase);
 
+    ocultarCamadasLegadas(content, fase);
     aplicarImagens(content, fase);
 }
 
